@@ -729,7 +729,7 @@ $ git clone ssh://yourhost/~you/repository
 你还是每天在你的本地私人仓库里工作，但是会定期的把本地的修改推(push) 到你的公开仓库中；其它开发者就可以从这个公开仓库来拉(pull)最新的代码。 如果其它开发者也有他自己的公共仓库，那么他们之间的开发流程就如下图 所示：
 
 ```
-                        you push
+                  you push
   your personal repo ------------------> your public repo
     ^                                     |
     |                                     |

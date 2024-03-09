@@ -295,7 +295,7 @@ $ git status
 这里我暂存了 book_index_template.html 的部分修改，而不是全部修改：
 
 ```
-         staged     unstaged path
+   staged     unstaged path
 1:        +4/-0      nothing assets/stylesheets/style.css
 2:       +20/-7        +3/-4 layout/book_index_template.html
 3:        +7/-7      nothing layout/chapter_template.html
