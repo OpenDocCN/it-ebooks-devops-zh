@@ -1,10 +1,4 @@
-### Navigation
-
-*   index
-*   next |
-*   GotGit »
-
-# Git 权威指南
+# Git 权威指南（Got Git）
 
 ## 前言
 

@@ -1,5 +1,3 @@
-# Introduction
-
 # FreeRADIUS 新手入门
 
 我最近在做 CoovaChilli + FreeRADIUS 的认证系统. 刚好发现这本书, 顺手翻译一下.

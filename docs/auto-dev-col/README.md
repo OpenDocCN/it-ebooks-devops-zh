@@ -1,5 +1,3 @@
-# 让开发自动化
-
 # 让开发自动化系列专栏
 
 > 来源：[让开发自动化系列专栏](http://www.ibm.com/developerworks/cn/java/j-ap/)
