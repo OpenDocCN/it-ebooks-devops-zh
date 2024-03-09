@@ -1,15 +1,11 @@
 # Ansible 进阶
 
-# Ansible 进阶
-
 ## 深入介绍一下几个主题
 
 *   Ansible 的配置
 *   Ansible 的主机目录管理(Host Inventory)
 *   Ansible Playbook 的进阶语法
 *   配置 Extra Modules
-
-# ansible 的配置
 
 # ansible 的配置
 
@@ -96,8 +92,6 @@ $ ansible-playbook --inventory-file hosts site.yml
 
 # 远程主机的分组
 
-# 远程主机的分组
-
 简单的分组[]内是组名
 
 ```
@@ -179,8 +173,6 @@ proxy=proxy.atlanta.example.com
 
 # 按目录结构存储变量
 
-# 按目录结构存储变量
-
 假设 inventory 文件为/etc/ansible/hosts，那么相关的 hosts 和 group 变量可以放在下面的目录结构下
 
 ```
@@ -229,8 +221,6 @@ Ansible 官方提供了一些比较常用的、经过测试的 Playbook 例子�
 此外，Ansible 还提供了 Playbook 的分享平台，上面的例子是 Ansible 用户自己上传的。你如果在没有思路的情况下参考下吧，不过一定要再重新严谨的测试下。
 
 [https:\/\/galaxy.ansible.com\/](https://galaxy.ansible.com/)
-
-# Playbook 基本语法
 
 # Playbook 基本语法
 
@@ -535,8 +525,6 @@ handlers 是按照在 handlers 中定义个顺序执行的，而不是安装 not
 
 # 变量
 
-# 变量
-
 ## 定义
 
 使用 YAML 格式定义
@@ -555,8 +543,6 @@ foo:
 foo['field1']
 foo.field1 
 ```
-
-# Playbook 中使用的变量
 
 # Playbook 中使用的变量
 
@@ -607,8 +593,6 @@ YAML 的陷阱是 YAML 和 Ansible Playbook 的变量语法不能在一起好好
   vars:
        app_path: "{{ base_path }}/22" 
 ```
-
-# 主机的系统变量(facts)
 
 # 主机的系统变量(facts)
 
@@ -695,8 +679,6 @@ $ ansible all -m setup -u root
   gather_facts: no 
 ```
 
-# 把运行结果当做变量使用
-
 # 把运行结果当做变量使用-注册变量
 
 把 task 的执行结果当作是一个变量的值也是可以的。这个时候就需要用到注册变量，将执行结果注册到一个变量中，待后面的 action 使用：
@@ -717,8 +699,6 @@ $ ansible all -m setup -u root
 
      - debug: msg="{{ result.stdout }}" 
 ```
-
-# 文件模板中使用的变量
 
 # 文件模板中使用的变量
 
@@ -791,8 +771,6 @@ http://jsfiddle.net/6PaXB/
 </body>
 </html> 
 ```
-
-# 用命令行传递参数
 
 # 用命令行传递参数
 
@@ -1104,8 +1082,6 @@ pre_tasks > role > tasks > post_tasks
 
 # 条件语句 when
 
-# 条件语句 When
-
 类似于编程语言的 if
 
 ## When 语句
@@ -1347,8 +1323,6 @@ tasks:
 
 # Modules 的分类
 
-# Modules 的分类
-
 你[Ansible Module 文档](http://docs.ansible.com/ansible/modules_by_category.html)上查看单个 Module 的时候,每一个 Module 文档的底部都会标识, 这是一个"Core Module", 或者这是一个"Extra Module".
 
 比如, [yum](http://docs.ansible.com/ansible/yum_module.html)就是一个 core module, [yum_repository](http://docs.ansible.com/ansible/yum_repository_module.html)就是一个 extra module,
@@ -1364,8 +1338,6 @@ tasks:
 *   进行下载和格外的配置才能使用
 *   次常用的
 *   还有可能存在 bug 的
-
-# Extra module 的使用方法
 
 # Extra module 的使用方法
 
@@ -1426,8 +1398,6 @@ $ source ~/.bashrc
 
 # 命令行查看 module 的用法
 
-# 命令行查看 module 的用法
-
 类似 bash 命令的 man，ansible 也可以通过命令行查看 module 的用法。命令是 ansible-doc，语法如下:
 
 ```
@@ -1445,8 +1415,6 @@ extra module 必须在配置了 extra module 的目录下查看用法(行为当�
 ```
 ansible-doc yum_repository 
 ```
-
-# 最佳使用方法
 
 # 最佳使用方法
 

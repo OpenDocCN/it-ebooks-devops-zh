@@ -1,10 +1,6 @@
 # 4\. 工作协同
 
-# 4\. 工作协同
-
 项目落户 GitHub 后，一定希望有越来越多的人能参与其中。GitHub 提供了包括传统的问题追踪系统、维基，还包括了分布式版本控制系统特有的协同工具。
-
-# 4.1\. Fork + Pull 模式
 
 # 4.1\. Fork + Pull 模式
 
@@ -338,8 +334,6 @@ $ git pull https://github.com/gotgithub/hello-world patch-1
 
 # 4.2\. 共享版本库
 
-# 4.2\. 共享版本库
-
 除了独具特色的“Fork + Pull”的分布式工作模式，GitHub 同样支持传统的集中式协同工作模式。
 
 ## 4.2.1\. 版本库授权
@@ -523,8 +517,6 @@ $ git config --global branch.autosetuprebase true
 
 # 4.3\. 组织和团队
 
-# 4.3\. 组织和团队
-
 GitHub 在早期没有专门为组织提供账号，很多企业用户或大型开源组织只好使用普通用户账号作为组织的共享账号来使用。后来，GitHub 推出了组织这一新的账号管理模式，满足大型开发团队的需要。
 
 *   组织账号是不能用来登录的，它包含一个 Owner（拥有者）用户组，只有属于这个组的用户在登录后，才能切换为组织的管理者。
@@ -640,8 +632,6 @@ GitHub 在早期没有专门为组织提供账号，很多企业用户或大型�
 
 # 4.4\. 代码评注
 
-# 4.4\. 代码评注
-
 针对项目的每一次 Pull Request 就相当于一次代码评审，评审以讨论的形式显示在 Pull Request 中。
 
 在 Pull Request 中还能够看到对应的提交（一个或多个），并可以直接针对提交进行代码评注。对于采用集中式协同的项目，即使较少使用 Pull Request，也同样可以使用代码评注。代码评注会触发通知邮件给项目的开发者。
@@ -701,8 +691,6 @@ GitHub 还支持 Git 自身提供的评注功能[[1]](http://www.kernel.org/pub/
 图 4-44：逐行评注和提交评注
 
 更有意思的评注可以围观 MrMEEE/bumblebee 项目的一个 bug 修正提交（被戏称一个空格引发的惨案）。地址： [`git.io/giant-bug`](http://git.io/giant-bug)(即网址 [`github.com/MrMEEE/bumblebee/commit/a047be85247755cdbe0acce6`](https://github.com/MrMEEE/bumblebee/commit/a047be85247755cdbe0acce6))。
-
-# 4.5\. 缺陷跟踪
 
 # 4.5\. 缺陷跟踪
 
@@ -943,8 +931,6 @@ Pull Request 创建完毕后，除了在菜单项“Pull Requests”中有显示
 ![../images/milestone-closed.png](http://box.kancloud.cn/2015-07-09_559de4df4ff34.png)
 
 图 4-69：里程碑关闭
-
-# 4.6\. 维基
 
 # 4.6\. 维基
 

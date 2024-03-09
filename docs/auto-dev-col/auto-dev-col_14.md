@@ -1,7 +1,5 @@
 # 让开发自动化: 用 Eclipse 插件提高代码质量
 
-# 让开发自动化: 用 Eclipse 插件提高代码质量
-
 *在 Eclipse 中使用 5 个有用的插件来自动化代码质量分析*
 
 如果能在构建代码前发现代码中潜在的问题会怎么样呢？很有趣的是，Eclipse 插件中就有这样的工具，比如 JDepend 和 CheckStyle，它们能帮您在软件问题暴露前发现这些问题。在 [*让开发自动化*](http://www.ibm.com/developerworks/cn/java/j-ap/) 的本期文章中，自动化专家 Paul Duvall 将带来一些关于 Eclipse 插件的例子，您可以安装、配置和使用这些静态分析插件，以便在开发生命周期的早期预防问题。

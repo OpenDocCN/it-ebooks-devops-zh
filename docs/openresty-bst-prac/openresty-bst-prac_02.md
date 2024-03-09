@@ -1,7 +1,5 @@
 # Nginx
 
-# Nginx
-
 Nginx (“engine x”) 是一个高性能的 HTTP 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。Nginx 是由 Igor Sysoev 为俄罗斯著名的 Rambler.ru 站点开发的，第一个公开版本 0.1.0 发布于 2004 年 10 月 4 日。其将源代码以类 BSD 许可证的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。
 
 由于 Nginx 使用基于事件驱动的架构，能够并发处理百万级别的 TCP 连接，高度模块化的设计和自由的许可证使得扩展 Nginx 功能的第三方模块层出不穷。因此其作为 web 服务器被广泛应用到大流量的网站上，包括淘宝、腾讯、新浪、京东等访问量巨大的网站。
@@ -9,8 +7,6 @@ Nginx (“engine x”) 是一个高性能的 HTTP 和反向代理服务器，也
 2015 年 6 月，Netcraft 收到的调查网站有 8 亿多家，主流 Web 服务器市场份额（前四名）如下表： ![web  server](img/nginx_web.png)
 
 其中在访问量最多的一万个网站中，Nginx 的占有率已超过 Apache。
-
-# Nginx 新手起步
 
 # Nginx 新手起步
 
@@ -121,8 +117,6 @@ ubuntu:/opt/nginx-1.7.7/html$ ls
 ```
 
 这也是上面在浏览器中输入 `http://localhost`，能够显示欢迎页面的原因。实际上访问的是 `/opt/nginx-1.7.7/html/index.html` 文件。
-
-# location 匹配规则
 
 # location 匹配规则
 
@@ -280,8 +274,6 @@ location ~* \.(txt|doc)${
 ```
 
 一些可用的全局变量，可以参考获取 Nginx 内置绑定变量章节。
-
-# if 是邪恶的
 
 # if 是邪恶的
 
@@ -582,8 +574,6 @@ server {
 
 # 日志
 
-# 日志
-
 Nginx 日志主要有两种：access_log(访问日志) 和 error_log(错误日志)。
 
 ### access_log 访问日志
@@ -661,8 +651,6 @@ http {
 ```
 
 另外 Linux 系统可以使用 tail 命令方便的查阅正在改变的文件,`tail -f filename`会把 filename 里最尾部的内容显示在屏幕上,并且不断刷新,使你看到最新的文件内容。Windows 系统没有这个命令，你可以在网上找到动态查看文件的工具。
-
-# 反向代理
 
 # 反向代理
 
@@ -751,8 +739,6 @@ proxy_pass 后面跟着一个 URL，用来将请求反向代理到 URL 参数指
 #### 正向代理
 
 既然有反向代理，自然也有正向代理。简单来说，正向代理就像一个跳板，例如一个用户访问不了某网站（例如 `www.google.com`），但是他能访问一个代理服务器，这个代理服务器能访问 `www.google.com`，于是用户可以先连上代理服务器，告诉它需要访问的内容，代理服务器去取回来返回给用户。例如一些常见的翻墙工具、游戏代理就是利用正向代理的原理工作的，我们需要在这些正向代理工具上配置服务器的 IP 地址等信息。
-
-# 负载均衡
 
 # 负载均衡
 
@@ -1555,15 +1541,11 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
 # 环境搭建
 
-# 环境搭建
-
 实践的前提是搭建环境，本节的几个小节将介绍在几种常见操作平台上 OpenResty 的安装。
 
 为了降低用户安装门槛，对于不同系统安装，部分章节存在比较大的重复内容。读者只需要选择自己需要的平台并尝试安装即可。除了 windows 版本是以二进制发行，其他平台由于系统自身的兼容性，推荐的都是源码编译方式。
 
 在 OpenResty 的规划路线中，准备发行独立的 `opm` 安装工具（截止到目前，目前还没完成，名称可能依然会变），帮会我们完成从环境到周边库的下载、更新。
-
-# Windows 平台
 
 # Windows 平台安装
 
@@ -1586,8 +1568,6 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 另外当 nginx 成功启动后，master 进程的 pid 存放在 `logs\nginx.pid` 文件中。
 
 PS：OpenResty 当前也发布了 windows 版本，两个版本编译方式还是有区别的，这里更推荐这个版本。
-
-# CentOS 平台
 
 # CentOS 平台安装
 
@@ -1637,8 +1617,6 @@ PS：OpenResty 当前也发布了 windows 版本，两个版本编译方式还�
 为了后面启动 OpenResty 的命令简单一些，不用在 OpenResty 的安装目录下进行启动，我们设置环境变量来简化操作。 将 nginx 目录添加到 PATH 中。打开文件 /etc/profile， 在文件末尾加入`export PATH=$PATH:/opt/openresty/nginx/sbin`，若你的安装目录不一样，则做相应修改。 注意：这一步操作需要重新加载环境变量才会生效，可通过命令`source /etc/profile`或者重启服务器等方式实现。
 
 接下来，我们就可以进入到后面的章节 HelloWorld 学习。
-
-# Ubuntu 平台
 
 # Ubuntu 平台安装
 
@@ -1692,8 +1670,6 @@ PS：OpenResty 当前也发布了 windows 版本，两个版本编译方式还�
 为了后面启动 OpenResty 的命令简单一些，不用在 OpenResty 的安装目录下进行启动，我们设置环境变量来简化操作。 将 nginx 目录添加到 PATH 中。打开文件 /etc/profile， 在文件末尾加入`export PATH=$PATH:/opt/openresty/nginx/sbin`，若你的安装目录不一样，则做相应修改。 注意：这一步操作需要重新加载环境变量才会生效，可通过命令`source /etc/profile`或者重启服务器等方式实现。
 
 接下来，我们就可以进入到后面的章节 HelloWorld 学习。
-
-# Mac OS X 平台
 
 # Mac OS X 平台安装
 
@@ -1819,8 +1795,6 @@ HelloWorld
 在浏览器中完成同样的访问：
 
 ![](img/first_helloworld.png)
-
-# 与其他 location 配合
 
 # 与其他 location 配合
 
@@ -2005,8 +1979,6 @@ I am foo
 
 # 获取 uri 参数
 
-# 获取 uri 参数
-
 上一章节，主要介绍了一下如何使用不同 location 进行协作，对 location 进行柔和，往往都是要需要参数的二次调整。如何正确获取传递参数、设置参数，就是你的必修课了。本章目的是给出在 OpenResty 的世界中，我们如何正确获取、设置 uri 参数。
 
 ### 获取请求 uri 参数
@@ -2108,8 +2080,6 @@ local res = ngx.location.capture('/print_param',
      )
 ngx.say(res.body) 
 ```
-
-# 获取请求 body
 
 # 获取请求 body
 
@@ -2246,8 +2216,6 @@ hello jack
 
 # 输出响应体
 
-# 输出响应体
-
 HTTP 响应报文分为三个部分：
 
 1.  响应行
@@ -2371,8 +2339,6 @@ local table = {
 ```
 
 也就是说当有非常多碎片数据时，没有必要一定连接成字符串后再进行输出。完全可以直接存放在 table 中，用数组的方式把这些碎片数据统一起来，直接调用 `ngx.print(table)` 即可。这种方式效率更高，并且更容易被优化。
-
-# 日志输出
 
 # 日志输出
 
@@ -2503,8 +2469,6 @@ lua_package_path "/path/to/lua-resty-logger-socket/lib/?.lua;;";
 *   短时间的网络抖动，自动容错
 *   日志累计到一定量，如果没有传输完毕，直接丢弃
 *   日志传输过程完全不落地，没有任何磁盘 IO 消耗
-
-# 简单 API Server 框架
 
 # 简单 API Server 框架
 
@@ -2722,8 +2686,6 @@ $  nginx  curl '127.0.0.1:80/api/addition?a=1&b=3'
 
 # 使用 Nginx 内置绑定变量
 
-# 使用 Nginx 内置绑定变量
-
 `Nginx`作为一个成熟、久经考验的负载均衡软件，与其提供丰富、完整的内置变量是分不开的，它极大增加了对`Nginx`网络行为的控制细度。这些变量大部分都是在请求进入时解析的，并把他们缓存到请求`cycle`中，方便下一次获取使用。首先来看看`Nginx`对都开放了那些`API`。
 
 参看下表：
@@ -2874,8 +2836,6 @@ Saving to: '1.cab'
 
 # 子查询
 
-# 子查询
-
 Nginx 子请求是一种非常强有力的方式，它可以发起非阻塞的内部请求访问目标 location。目标 location 可以是配置文件中其他文件目录，或 *任何* 其他 nginx C 模块，包括 `ngx_proxy`、`ngx_fastcgi`、`ngx_memc`、`ngx_postgres`、`ngx_drizzle`，甚至 ngx_lua 自身等等 。
 
 需要注意的是，子请求只是模拟 HTTP 接口的形式， *没有* 额外的 HTTP/TCP 流量，也 *没有* IPC (进程间通信) 调用。所有工作在内部高效地在 C 语言级别完成。
@@ -2979,8 +2939,6 @@ URI 请求串可以与 URI 本身连在一起，例如，
 
 # 不同阶段共享变量
 
-# 不同阶段共享变量
-
 在 OpenResty 的体系中，可以通过共享内存的方式完成不同工作进程的数据共享，可以通过 Lua 模块方式完成单个进程内不同请求的数据共享。如何完成单个请求内不同阶段的数据共享呢？最典型的例子，估计就是在 log 阶段记录一些请求的特殊变量。
 
 ngx.ctx 表就是为了解决这类问题而设计的。参考下面例子：
@@ -3043,8 +3001,6 @@ location /test {
 `ngx.ctx` 表查询需要相对昂贵的元方法调用，这比通过用户自己的函数参数直接传递基于请求的数据要慢得多。所以不要为了节约用户函数参数而滥用此 API，因为它可能对性能有明显影响。
 
 由于 ngx.ctx 保存的是指定请求资源，所以这个变量是不能直接共享给其他请求使用的。
-
-# 防止 SQL 注入
 
 # 防止 SQL 注入
 
@@ -3162,8 +3118,6 @@ bad result: You have an error in your SQL syntax; check the manual that
 corresponds to your MySQL server version for the right syntax to use near
 '1\'; drop table cats;--''' at line 1: 1064: 42000. 
 ```
-
-# 如何发起新 HTTP 请求
 
 # 如何发起新 HTTP 请求
 
@@ -3294,8 +3248,6 @@ http {
 
 # 访问有授权验证的 Redis
 
-# 访问有授权验证的 Redis
-
 对于有授权验证的 redis ，正确的认证方法，请参考下面例子：
 
 ```
@@ -3349,8 +3301,6 @@ server {
 这里解释一下 `tcpsock:getreusedtimes()` 方法，如果当前连接不是从内建连接池中获取的，该方法总是返回 0 ，也就是说，该连接还没有被使用过。如果连接来自连接池，那么返回值永远都是非零。所以这个方法可以用来确认当前连接是否来自池子。
 
 对于 Redis 授权，实际上只需要建立连接后，首次认证一下，后面只需直接使用即可。换句话说，从连接池中获取的连接都是经过授权认证的，只有新创建的连接才需要进行授权认证。所以大家就看到了 `count, err = red:get_reused_times()` 这段代码，并有了下面 `if 0 == count then` 的判断逻辑。
-
-# select+set_keepalive 组合操作引起的数据读写错误
 
 # select+set_keepalive 组合操作引起的数据读写错误
 
@@ -3775,8 +3725,6 @@ Todo list： 目前`resty.redis`并没有对 redis 3.0 的集群 API 做支持�
 
 # redis 接口的二次封装（发布订阅）
 
-# redis 接口的二次封装（发布订阅）
-
 其实这一小节完全可以放到上一个小结，只是这里用了完全不同的玩法，所以我还是决定单拿出来分享一下这个小细节。
 
 上一小结有关订阅部分的代码，请看：
@@ -3868,8 +3816,6 @@ end
 
 return cbfunc 
 ```
-
-# pipeline 压缩请求数量
 
 # pipeline 压缩请求数量
 
@@ -3987,8 +3933,6 @@ return cbfunc
 在我们实际应用场景中，正确使用 pipeline 对性能的提升十分明显。我们曾经某个后台应用，逐个处理大约 100 万条记录需要几十分钟，经过 pileline 压缩请求数量后，最后时间缩小到 20 秒左右。做之前能预计提升性能，但是没想到提升如此巨大。
 
 在 360 企业安全目前的应用中，Redis 的使用瓶颈依然停留在网络上，不得不承认 Redis 的处理效率相当赞。
-
-# script 压缩复杂请求
 
 # script 压缩复杂请求
 

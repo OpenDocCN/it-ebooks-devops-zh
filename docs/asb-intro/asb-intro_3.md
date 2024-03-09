@@ -1,7 +1,5 @@
 # Ansible 上手
 
-# Ansible 上手
-
 怎么使用 Ansible，本章通过简单的例子还说明 Ansilbe 上手的基本步骤。
 
 1.  安装 Ansible
@@ -9,8 +7,6 @@
 3.  使用 Ansilbe 命令行管理主机（Ad-hoc command）
 4.  使用 Ansilbe 脚本语言管理主机（脚本语言 Playbook）
 5.  Ansible 的“命令”Module
-
-# 安装 Ansile
 
 # 安装 Ansile
 
@@ -93,8 +89,6 @@ three.example.com
 
 # Ansible 用命令管理主机
 
-# Ansible 用命令管理主机
-
 Ansible 提供了一个命令行工具，在官方文档中起给命令行起了一个名字叫 Ad-Hoc Commands。
 
 ansible 命令的格式是：
@@ -152,8 +146,6 @@ ansible <host-pattern> [options]
 #### 查看远程主机的全部系统信息！！！
 
 `$ ansible all -m setup`
-
-# Ansible 用脚本管理主机
 
 # Ansible 用脚本管理主机
 
@@ -260,8 +252,6 @@ playbook deploy.yml 包含下面几个关键字，每个关键字的含义：
 ```
 
 提供 json 和 yml 互转的在线网站： [http:\/\/www.json2yaml.com\/](http://www.json2yaml.com/)
-
-# Ansible 模块 Module
 
 # Ansible 模块 Module
 

@@ -1,7 +1,5 @@
 # 让开发自动化: 文档化一键通
 
-# 让开发自动化: 文档化一键通
-
 *自动生成开发人员和用户文档*
 
 项目的文档化通常都是交付软件产品时不可避免的难题。但是想象一下如果仅需单击一个按钮就能够生成文档呢？在本期的 [*让开发自动化*](http://www.ibm.com/developerworks/cn/java/j-ap/)中，自动化专家 Paul Duvall 阐述了如何运用开源工具自动生成统一建模语言（Unified Modeling Language，UML）图、构建图、实体关系图（entity-relationship diagram，ERD）乃至用户文档。

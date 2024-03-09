@@ -1,7 +1,5 @@
 # 让开发自动化: 自动负载测试
 
-# 让开发自动化: 自动负载测试
-
 *使用 Apache Ant 和 Apache JMeter 频繁进行负载测试*
 
 负载测试通常在开发周期的后期执行，但是并不一定要这样。在 [*让开发自动化*](http://www.ibm.com/developerworks/cn/java/j-ap/)的这一期，自动化专家 Paul Duvall 将向您描述如何创建一个运行 JMeter 测试的预订集成构建，发现和修复开发周期中出现的问题。

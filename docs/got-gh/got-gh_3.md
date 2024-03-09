@@ -1,10 +1,6 @@
 # 3\. 项目托管
 
-# 3\. 项目托管
-
 本章介绍如何在 GitHub 上创建一个新项目，包括创建版本库及为项目设计主页等。
-
-# 3.1\. 创建新项目
 
 # 3.1\. 创建新项目
 
@@ -147,8 +143,6 @@ $ git remote add origin git@github.com:gotgithub/helloworld.git
 ```
 $ git push -u origin master 
 ```
-
-# 3.2\. 操作版本库
 
 # 3.2\. 操作版本库
 
@@ -453,8 +447,6 @@ To git@github.com:gotgithub/helloworld.git
 
 # 3.3\. 公钥认证管理
 
-# 3.3\. 公钥认证管理
-
 开发者向 GitHub 版本库写入最常用到的协议是 SSH 协议，因为 SSH 协议使用公钥认证，可以实现无口令访问，而若使用 HTTPS 协议每次身份认证时都需要提供口令(可以通过在文件`~/.netrc`中写入明文口令实现使用 HTTPS 协议时也能自动完成认证。具体格式参见 ftp 命令的 MAN 手册中相关介绍)。使用 SSH 公钥认证，就涉及到公钥的管理。
 
 ## 3.3.1\. 用户级公钥管理
@@ -495,8 +487,6 @@ Hi gotgithub/helloworld! You've successfully authenticated, but GitHub does not 
 
 # 3.4\. 版本库钩子扩展
 
-# 3.4\. 版本库钩子扩展
-
 通过钩子扩展，GitHub 托管的版本库可以和外部应用实现整合。整合的接口完全开放，开发者可以访问 GitHub 的开源项目 [github/github-services](https://github.com/github/github-services) 开发新的应用整合脚本。目前 GitHub 已经支持超过 50 个外部应用的整合，在这里恕不一一列举，仅以 helloworld 项目为例，介绍几个常见应用的整合。
 
 ## 3.4.1\. 邮件通知功能
@@ -530,8 +520,6 @@ GitHub 提供的 Redmine 整合的配置界面如图 3-17 所示。
 ![../images/redmine-api-key.png](http://box.kancloud.cn/2015-07-09_559de2f391765.png)
 
 图 3-18：Redmine 中的 API Key 配置
-
-# 3.5\. 建立主页
 
 # 3.5\. 建立主页
 

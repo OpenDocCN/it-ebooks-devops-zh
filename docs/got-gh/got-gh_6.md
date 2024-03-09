@@ -1,10 +1,6 @@
 # 6\. GitHub 副产品
 
-# 6\. GitHub 副产品
-
 GitHub 最核心的产品是 Git 版本库（即项目）托管，此外 GitHub 还提供一些副产品（Side Project），通过附加的服务或技术提供了更多有趣的功能。例如提供数据粘贴的 Gist 网站，对其他版本控制工具如 SVN 和 Hg 的支持，各具特色的客户端工具，求职网站，销售纪念品的 GitHub 商店等等。
-
-# 6.1\. GitHub:Gist
 
 # 6.1\. GitHub:Gist
 
@@ -208,11 +204,7 @@ $ gist script.js notes.txt
 
 # 6.2\. 其他版本控制工具支持
 
-# 6.2\. 其他版本控制工具支持
-
 如果曾经有人对 GitHub 只提供唯一的版本库格式（Git）托管表示过怀疑的话，那么今天看到 GitHub 对其他版本控制工具提供的愈发完善的支持，争议应该烟消云散了吧。
-
-# 6.2.1\. 用 SVN 操作 GitHub
 
 # 6.2.1\. 用 SVN 操作 GitHub
 
@@ -334,8 +326,6 @@ c4d370b1b0bafb103de14e104ca18b8c31d80add        refs/heads/master
 
 # 6.2.2\. 用 Hg 操作 GitHub
 
-# 6.2.2\. 用 Hg 操作 GitHub
-
 Hg（又称 Mercurial）和 Git 一样也是一个被广泛使用的分布式版本库控制工具。如果一个熟悉 Hg 的开发者参与托管在 GitHub 上的项目，大可不必为更换版本控制工具而苦恼，GitHub 上的一个名为 hg-git[[1]](https://github.com/schacon/hg-git)的开源项目可以帮上忙。
 
 得益于 Hg 的强大的插件扩展机制，安装 hg-git 并将其注册为 Hg 插件后可提供 Hg 操作 Git 版本库的能力。安装 hg-git 可以直接使用 **easy_install** 命令：
@@ -438,8 +428,6 @@ $ hg parents
 *   本地协议：
 
     /path/to/repo.git
-
-# 6.3\. 客户端工具
 
 # 6.3\. 客户端工具
 
@@ -678,8 +666,6 @@ GitHub 还为 iOS 平台开发了应用，这样就可以在 iPhone、iPad 等�
 图 6-15：iPhone 上的 GitHub Issues 应用
 
 而 GitHub Jobs 应用则和即将要介绍的 GitHub 招聘网站有关，用于浏览招聘信息。
-
-# 6.4\. 其他
 
 # 6.4\. 其他
 

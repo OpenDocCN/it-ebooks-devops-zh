@@ -14,8 +14,6 @@
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
-# 利用 lantern 蓝灯实现浏览器自动翻墙
-
 # 利用 lantern 蓝灯实现浏览器自动翻墙教程
 
 蓝灯运用了多种技术，通过自有服务器或者运行 lantern 的用户转发流量实现浏览器全自动翻墙。

@@ -18,8 +18,6 @@
 
 # 什么是 shadowsocks-libev 翻墙软件
 
-# 什么是 shadowsocks-libev 翻墙软件
-
 shadowsocks-libev 是一个 shadowsocks 协议的轻量级实现，是 shadowsocks-android, shadowsocks-ios 以及 shadowsocks-openwrt 的上游项目。其具有以下特点：
 
 1.  体积小巧。静态编译并打包后只有 100 KB。
@@ -38,8 +36,6 @@ shadowsocks-libev 包括服务端和客户端两部分，一共三个模块。
 官网地址：
 
 [`github.com/shadowsocks/shadowsocks-libev`](https://github.com/shadowsocks/shadowsocks-libev)
-
-# 翻墙软件 Shadowsocks-libev 服务端设置
 
 # 翻墙软件 Shadowsocks-libev 服务端设置
 
@@ -128,8 +124,6 @@ sudo service shadowsocks-libev start
 
 # OpenWrt 路由器运行 shadowsocks-libev 客户端
 
-# OpenWrt 路由器运行 shadowsocks-libev 客户端
-
 shadowsocks-libev for OpenWrt 要和 OpenWrt 一致，否则可能无法安装，或者安装了不能启动。
 
 下面地址可以下载：
@@ -190,8 +184,6 @@ Ubuntu 设置 AutoProxy 的默认代理是 shadowsocks,就可以打开被墙的�
 以前我在每台电脑上都运行一个 shadowsocks 客户端，每台电脑都要像上面这样配置浏览器代理上网翻墙。
 
 现在路由器里安装了 shadowsocks，所有有线和无线上网设备都不用分别安装 shadowsocks 了，非常方便了。但是还是太复杂，如果家里有十台上网设备，所有要连国外网站的软件都可能要配置代理访问，有些软件还根本没有设置代理的接口。有没有更简单的方法呢？
-
-# 史上最通俗易懂的 OpenWrt 翻墙路由器解释
 
 # 史上最通俗易懂的 OpenWrt 翻墙路由器解释
 
@@ -526,8 +518,6 @@ git clone https://github.com/softwaredownload/openwrt-fanqiang
 git clone 项目到本地后，可以进入 openwrt 目录查看文件。
 
 如果所有设置都正确，应该可以较快速度打开被墙网站。
-
-# OpenWrt 自动更新设置和屏蔽广告
 
 # OpenWrt 自动更新设置和屏蔽广告
 
@@ -868,8 +858,6 @@ rlei:
 ## 参考：
 
 *   [`www.zhihu.com/question/28252105`](https://www.zhihu.com/question/28252105)
-
-# 零起点 DO VPS shadowsocks-libev 翻墙设置教程
 
 # 零起点 DO VPS shadowsocks-libev 翻墙设置教程
 

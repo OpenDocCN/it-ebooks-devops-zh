@@ -1,7 +1,5 @@
 # OpenWrt 编译翻墙固件教程
 
-# OpenWrt 编译翻墙固件教程
-
 实践前面的教程，翻墙已经不是问题，白脸也很 happy。在这一章中，我们要定制自己 OpenWrt 固件，刷上定制的固件，不用任何设置就自动翻墙并自动更新规则。
 
 * * *
@@ -13,8 +11,6 @@
 #### 在线阅读 OpenWrt 翻墙路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
-
-# 编译 shadowsocks-libev for OpenWrt ipk 安装包
 
 # 编译 shadowsocks-libev for OpenWrt ipk 安装包
 
@@ -146,8 +142,6 @@ cp shadowsocks* ~/Downloads/OpenWrt-ImageBuilder-ar71xx-nand.Linux-x86_64/packag
 
 # 下载和设置翻墙配置文件
 
-# 下载和设置翻墙配置文件
-
 自己手工收集编辑翻墙所用到的配置文件是件比较累的事情。最快的方法是 git clone 本项目，修改其中某些选项。
 
 ## 下载翻墙配置文件
@@ -241,8 +235,6 @@ chmod +x etc/uci-defaults/defaults
 ### 参考：
 
 *[`wiki.openwrt.org/doc/uci`](http://wiki.openwrt.org/doc/uci)
-
-# 使用 Image Builder 编译自动翻墙 OpenWrt 固件
 
 # 使用 Image Builder 编译自动翻墙 OpenWrt 固件
 
@@ -495,8 +487,6 @@ make image PROFILE=TLWR2543 PACKAGES="base-files busybox dnsmasq dropbear firewa
 
 *   [`wiki.openwrt.org/doc/howto/obtain.firmware.generate`](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate)
 *   [`wiki.openwrt.org/doc/howto/build`](https://wiki.openwrt.org/doc/howto/build)
-
-# 如何使用别人预编译的 OpenWrt 翻墙固件
 
 # 如何使用别人预编译的 OpenWrt 翻墙固件 for TP-LINK WR2543N (包含 shadowsocks-libev)
 

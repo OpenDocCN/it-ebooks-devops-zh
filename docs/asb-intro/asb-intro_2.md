@@ -1,7 +1,5 @@
 # Ansible 的架构
 
-# Ansible 的架构
-
 Ansilbe 管理员节点和远程主机节点通过 ssh 协议进行通信。所以 Ansible 配置的时候只需要保证从 Ansible 管理节点通过 SSH 能够连接到被管理的远程的远程节点即可，当然需要建立的 ssh，是基于 key 的，不能要求输入密码，下一章会讲到具体的配置方法。
 
 ## 连接方式 SSH
@@ -15,8 +13,6 @@ Ansilbe 管理员节点和远程主机节点通过 ssh 协议进行通信。所�
 Ansible 可以同时管理 Redhat 系的 Linux，Debian 系的 Linux，以及 Windows 主机。管理节点只在执行脚本时与远程主机连接，没有特别的同步机制，所以发生断电等异常一般不会影响 ansbile。
 
 ![](img/ansible-multiple-machine-edited.png)
-
-# Ansible Tower 的架构
 
 # Ansible Tower 的架构
 

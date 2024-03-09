@@ -1,12 +1,8 @@
 # 推荐的参考资料
 
-# 推荐的参考资料
-
 Ansible 英文视频教程: [`sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4`](https://sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4)
 
 本书中所有 playbook 的例子都在 github 上： [`github.com/shijingjing1221/ansible-first-book-examples/`](https://github.com/shijingjing1221/ansible-first-book-examples/)
-
-# YAML 语法基础
 
 # YAML 语法基础
 
@@ -84,8 +80,6 @@ foo: "{{ variable }}"
 [`en.wikipedia.org/wiki/YAML`](https://en.wikipedia.org/wiki/YAML)
 
 [`www.yamllint.com/`](http://www.yamllint.com/)
-
-# 待续
 
 # 待续
 

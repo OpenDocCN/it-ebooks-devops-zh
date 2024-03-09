@@ -1,5 +1,3 @@
-# LuaRestyDNSLibrary
-
 # LuaRestyDNSLibrary 简介
 
 这个 Lua 库提供了 ngx_lua 模块的 DNS 解析器：
@@ -48,8 +46,6 @@ lua_package_path "/path/to/lua-resty-dns/lib/?.lua;;";
      }
  } 
 ```
-
-# 使用动态 DNS 来完成 HTTP 请求
 
 # 使用动态 DNS 来完成 HTTP 请求
 

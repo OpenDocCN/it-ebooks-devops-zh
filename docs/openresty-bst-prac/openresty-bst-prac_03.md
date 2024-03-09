@@ -1,12 +1,8 @@
 # LuaCjsonLibrary
 
-# LuaCjsonLibrary
-
 JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它基于 ECMAScript 的一个子集。 JSON 采用完全独立于语言的文本格式，但是也使用了类似于 C 语言家族的习惯（包括 C、C++、C#、Java、JavaScript、Perl、Python 等）。这些特性使 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成(网络传输速率)。
 
 在 360 企业版的接口中有大量的 JSON 使用，有些是 REST+JSON api，还有大部分不同应用、组件之间沟通的中间数据也是有 JSON 来完成的。由于他可读性、体积、编解码效率相比 XML 有很大优势，非常值得推荐。
-
-# json 解析的异常捕获
 
 # json 解析的异常捕获
 
@@ -61,8 +57,6 @@ if t then
     ngx.say(" --> ", type(t))
 end 
 ```
-
-# 稀疏数组
 
 # 稀疏数组
 
@@ -161,8 +155,6 @@ function json_encode( data, empty_table_as_object )
     return json_value
 end 
 ```
-
-# 跨平台的库选择
 
 # 跨平台的库选择
 

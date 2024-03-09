@@ -1,7 +1,5 @@
 # 1\. 探索 GitHub
 
-# 1\. 探索 GitHub
-
 熟悉[Git](http://git-scm.com)的人几乎都知道并喜欢[GitHub](https://github.com)，反过来 GitHub 也吸引更多的人来使用 Git。GitHub 正在成为开源项目托管的主要平台，是什么成就了 GitHub？
 
 > 也可以参考：
@@ -11,8 +9,6 @@
 * * *
 
 [注 1]: ISBN：9787111349679, 由机械工业出版社华章公司于 2011 年 7 月出版。
-
-# 1.1\. 什么是 GitHub
 
 # 1.1\. 什么是 GitHub
 
@@ -52,8 +48,6 @@ GitHub 的出现进一步推动了 Git 的普及，简化了版本控制的管�
 
 # 1.2\. GitHub 亮点
 
-# 1.2\. GitHub 亮点
-
 是什么让 GitHub 如此成功？GitHub 有什么魔力？
 
 1.  只用 Git。
@@ -85,8 +79,6 @@ GitHub 的出现进一步推动了 Git 的普及，简化了版本控制的管�
 7.  关注细节。
 
     GitHub 网站采用了 Ruby on Rails 架构，在 Web 设计中运用了大量的 JavaScript、AJAX、HTML5 等技术，支持对使用 Markdown 等标记语言的内容进行渲染和显示等。关注细节使得 GitHub 成为了项目托管领域的后起之秀。
-
-# 1.3\. 探索 GitHub
 
 # 1.3\. 探索 GitHub
 

@@ -1,10 +1,6 @@
 # 2\. 加入 GitHub
 
-# 2\. 加入 GitHub
-
 本章介绍如何在 GitHub 上注册账号，并以现有项目为例介绍 GitHub 的主要功能。
-
-# 2.1\. 创建 GitHub 账号
 
 # 2.1\. 创建 GitHub 账号
 
@@ -135,8 +131,6 @@ Hi gotgithub! You've successfully authenticated, but GitHub does not provide she
 ![../images/setting-job.png](http://box.kancloud.cn/2015-07-09_559de02ee2a5e.png)
 
 图 2-9：求职信息管理
-
-# 2.2\. 浏览托管项目
 
 # 2.2\. 浏览托管项目
 
@@ -273,8 +267,6 @@ GitHub 还为项目提供报表分析。图 2-25 是 GotGit 项目中用到的�
 ![../images/gotgit-repo-graph-impact.png](http://box.kancloud.cn/2015-07-09_559de2285906e.png)
 
 图 2-26：GotGit 项目贡献分布图
-
-# 2.3\. 社交网络
 
 # 2.3\. 社交网络
 

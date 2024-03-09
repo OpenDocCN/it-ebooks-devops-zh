@@ -1,7 +1,5 @@
 # Selenium Webdriver 简易教程
 
-# Selenium Webdriver 简易教程
-
 Selenium 是 ThroughtWorks 公司开发的一套 Web 自动化测试工具。
 
 它分为三个组件：

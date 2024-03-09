@@ -1,7 +1,5 @@
 # 让开发自动化: 利用 Ivy 管理依赖项
 
-# 让开发自动化: 利用 Ivy 管理依赖项
-
 *使用公共存储库和 Apache Ant 共享其他项目的源代码*
 
 管理项目和工具之间的源代码依赖项往往非常困难，但并不一定总是如此。在这一期“ *[让开发自动化](http://www.ibm.com/developerworks/cn/java/j-ap/)*”中，自动化专家 Parl Duvall 介绍了如何利用 Apache Ant 项目中的 Ivy 依赖项管理器来处理所有重要 Java 项目必须管理的无数依赖项。

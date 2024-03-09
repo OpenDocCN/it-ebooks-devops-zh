@@ -1,7 +1,5 @@
 # 让开发自动化: 持续集成反模式
 
-# 让开发自动化: 持续集成反模式
-
 *通过避免反模式轻松实现持续集成*
 
 尽管持续集成（Continuous Integration，CI）可以非常有效地减少项目的风险，但是它对与编程相关的日常活动提出了很高的要求。在这一期 [*让开发自动化*](http://www.ibm.com/developerworks/cn/java/j-ap/)中，自动化专家和 [*Continuous Integration: Improving Software Quality and Reducing Risk*](http://www.amazon.com/gp/product/0321336380/?tag=integratecom-20)的作者之一 Paul Duvall 列举了一系列 CI 反模式并解释了如何避免它们。

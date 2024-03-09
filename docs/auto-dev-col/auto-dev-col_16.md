@@ -1,7 +1,5 @@
 # 让开发自动化: 选择持续集成服务器
 
-# 让开发自动化: 选择持续集成服务器
-
 *对开源 CI 服务器：CruiseControl、Luntbuild 和 Continuum 的调查*
 
 由于有许多持续集成服务（CI）服务器可以选择，所以很难决定哪个适应自己。在 [*让开发自动化*](http://www.ibm.com/developerworks/cn/views/java/articles.jsp?view_by=search&search_by=%E8%AE%A9%E5%BC%80%E5%8F%91%E8%87%AA%E5%8A%A8%E5%8C%96) 系列的第二篇文章中，开发自动化专家 Duvall 采用一致的评估标准和很多说明性示例，介绍了一些开源 CI 服务器，包括 Continuum、CruiseControl 和 Luntbuild。

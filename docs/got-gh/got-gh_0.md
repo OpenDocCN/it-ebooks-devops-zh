@@ -1,7 +1,5 @@
 # 前言
 
-# 前言
-
 > 来源：[`www.worldhello.net/gotgithub/index.html`](http://www.worldhello.net/gotgithub/index.html) 作者：蒋鑫
 
 动笔写 GitHub 不是因为我对其了解，恰恰是对其太不了解。

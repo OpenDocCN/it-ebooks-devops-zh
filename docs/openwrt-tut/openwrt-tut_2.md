@@ -127,8 +127,6 @@ OpenWrt 官方网页上有 WR2543N 的专页,详细介绍了刷机步骤及注�
 
 # 网页界面 OpenWrt 拨号上网设置教程
 
-# 网页界面 OpenWrt 拨号上网设置教程
-
 见面界面登录路由器后，就可以设置上网参数了。
 
 ## 编辑 OpenWrt WAN 设置
@@ -152,8 +150,6 @@ OpenWrt 官方网页上有 WR2543N 的专页,详细介绍了刷机步骤及注�
 ![](img/2.3.pppoe-username-password.png)
 
 这时，连接 LAN 的电脑应该已经可以上网了，但无线设备还不行。
-
-# 网页界面 OpenWrt 无线(Wifi)设置图文教程
 
 # 网页界面 OpenWrt 无线(Wifi)设置图文教程
 
@@ -192,8 +188,6 @@ OpenWrt 官方网页上有 WR2543N 的专页,详细介绍了刷机步骤及注�
 4.  确认密码 Confirmation: fanqiang
     ![](img/2.4.admin-password.png)
 5.  其他设置：下面的： Gateway ports，勾选 **Allow remote hosts to connect to local SSH forwarded ports**（允许远程主机连接本地 SSH 转发端口）,这样我们就可以用 SSH 命令行的方式管理路由器。最后点击右下角 Save & Apply 保存并应用设置。
-
-# 网页界面怎样备份 OpenWrt 设置
 
 # 网页界面怎样备份 OpenWrt 设置
 
@@ -244,8 +238,6 @@ OpenWrt 官方网页上有 WR2543N 的专页,详细介绍了刷机步骤及注�
 4.  Flash image...刷新固件
     注：如果 Keep settings 保持勾选，升级固件后，原来的设置就会保留，不用重新设置拨号上网参数。
     ![](img/2.6.luci-sysupgrade.png)
-
-# 怎样进入 OpenWrt 安全恢复模式
 
 # 怎样进入 OpenWrt 安全恢复模式(WR2543N 为例)
 
@@ -395,8 +387,6 @@ df -h
 *   [generic.sysupgrade](http://wiki.openwrt.org/doc/howto/generic.sysupgrade)
 *   [sysupgrade source code](https://dev.openwrt.org/browser/trunk/package/base-files/files/sbin/sysupgrade)
 *   [sysupgrade doc](http://wiki.openwrt.org/doc/techref/sysupgrade)
-
-# 命令行 uci 设置 OpenWrt 上网参数
 
 # 命令行 uci 设置 OpenWrt 上网参数
 

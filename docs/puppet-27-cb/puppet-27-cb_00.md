@@ -1,7 +1,5 @@
 # Puppet 2.7 Cookbook 中文版
 
-# Puppet 2.7 Cookbook 中文版
-
 John Arundel
 
 <hello@bitfieldconsulting.com>

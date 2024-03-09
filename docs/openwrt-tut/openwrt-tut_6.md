@@ -46,8 +46,6 @@ JTAG:     Nope
 
 # 如何进入 DIR-505 恢复模式
 
-# 如何进入 DIR-505 恢复模式
-
 在学习 OpenWrt 可能要测试很多配置，有时会出现错误，需恢复或补救，这时就需要进入路由器的恢复模式。
 
 有两种方法进入 DIR-505 的恢复模式。
@@ -323,8 +321,6 @@ wifi
 代码的最新版本，请查看:　
 
 *   `github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt/dir505`
-
-# DIR-505 AP 模式翻墙教程
 
 # DIR-505 AP 模式翻墙教程
 
@@ -709,8 +705,6 @@ root@OpenWrt:/tmp# sysupgrade -n openwrt-ar71xx-generic-dir-505-a1-squashfs-sysu
 参数 `-n` 表示升级时不保留原来的配置文件。
 
 等待两分钟等刷新固件并重启完成。
-
-# 登录并设置 DIR-505 OpenWrt 翻墙固件
 
 # 登录并设置 DIR-505 OpenWrt 翻墙固件
 

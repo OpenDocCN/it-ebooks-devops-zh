@@ -1,7 +1,5 @@
 # 无线路由器刷 OpenWrt 固件的准备工作
 
-# 无线路由器刷 OpenWrt 固件的准备工作
-
 在给你的路由器刷新固件之前，有必要先了解：
 
 1.  什么是无线路由器固件
@@ -17,8 +15,6 @@
 #### 在线阅读 OpenWrt 翻墙路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
-
-# 什么是无线路由器固件
 
 # 什么是无线路由器固件
 
@@ -44,8 +40,6 @@
 3.  开源 Tomato 路由器固件：衍生版本众多 原始版本固件代码自 2010 年后就再没有更新。
 
 本系列教程使用 OpenWrt 来讲解路由器翻墙方法。
-
-# 支持 OpenWrt 的路由器
 
 # 支持 OpenWrt 的路由器
 

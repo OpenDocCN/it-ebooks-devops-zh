@@ -1,7 +1,5 @@
 # Mercurial 使用教程
 
-# Mercurial 使用教程
-
 > 来源：[Mercurial 使用教程](https://www.mercurial-scm.org/wiki/ChineseTutorial)
 
 本教程是介绍如何使用 Mercurial。我们不假定你有使用 源代码控制管理(SCM) 软件的背景。 本教程有法文 FrenchTutorial，西班牙文 SpanishTutorial，日文 JapaneseTutorial，和中文 ChineseTutorial
