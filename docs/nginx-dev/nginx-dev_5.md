@@ -1,9 +1,3 @@
-### Navigation
-
-*   index
-*   previous |
-*   Nginx 开发从入门到精通 »
-
 # 附录 C 模块编译，调试与测试
 
 ## C.1 编译与安装
@@ -539,11 +533,6 @@ events {
 ## C.6 常见缺陷分析
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   Nginx 开发从入门到精通 »
 
 # Index
 

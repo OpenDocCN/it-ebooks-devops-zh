@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   Nginx 开发从入门到精通 »
-
 # 附录 A 编码风格 (100%)
 
 ## Nginx 代码风格图示 (100%)

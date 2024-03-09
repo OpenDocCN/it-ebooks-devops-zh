@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-
 # 下篇：nginx 原理解析篇
 
 *   高性能服务器设计
@@ -115,14 +108,6 @@
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next") |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
-
 # 高性能服务器设计
 
 ## c10k 问题
@@ -134,14 +119,6 @@
 ## 定时器管理
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
 
 # nginx 架构详解(50%)
 
@@ -941,14 +918,6 @@ http filter 模块，filter 模块会将所有的 filter handler 排成一个倒
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next") |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
-
 # nginx 基础设施
 
 ## 内存池
@@ -1137,14 +1106,6 @@ Nginx 的内存池不仅用于内存方面的管理，还可以通过`ngx_pool_c
 ## log 机制
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next") |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
 
 # nginx 的启动阶段 (30%)
 
@@ -1889,14 +1850,6 @@ listen 80;
 ### upgrade 过程解析
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
 
 # nginx 的请求处理阶段 (90%)
 
@@ -5194,14 +5147,6 @@ ssize_t ngx_ssl_write(ngx_connection_t *c, u_char *data, size_t size)
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
-
 # nginx 的 upstream 原理解析
 
 ## 无缓冲的处理流程
@@ -5225,14 +5170,6 @@ ssize_t ngx_ssl_write(ngx_connection_t *c, u_char *data, size_t size)
 ### fastcgi 模块
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next") |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   下篇：nginx 原理解析篇 »
 
 # nginx 的 script 处理
 

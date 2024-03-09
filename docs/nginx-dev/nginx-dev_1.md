@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   Nginx 开发从入门到精通 »
-
 # 上篇：nginx 模块开发篇
 
 *   背景介绍
@@ -102,14 +95,6 @@
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next") |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
-
 # 背景介绍
 
 ## nginx 历史
@@ -119,14 +104,6 @@
 ## nginx 特点介绍
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next") |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
 
 # nginx 平台初探(100%)
 
@@ -1528,14 +1505,6 @@ worker 进程中，ngx_worker_process_cycle()函数就是这个无限循环的�
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next") |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
-
 # handler 模块(100%)
 
 ## handler 模块简介
@@ -2640,14 +2609,6 @@ ngx_http_log_request(ngx_http_request_t *r)
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
-
 # 过滤模块 (90%)
 
 ## 过滤模块简介 (90%)
@@ -2930,14 +2891,6 @@ Nginx 过滤模块涉及到的结构体，主要就是 chain 和 buf，非常简
 4.  原有的输入 buf 被替换缓存时，必须将其 buf->pos 设为 buf->last，表明原有的 buf 已经被输出完毕。或者在新建立的 buf，将 buf->shadow 指向旧的 buf，以便输出完毕时及时释放旧的 buf。
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next") |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
 
 # upstream 模块
 
@@ -3298,14 +3251,6 @@ r->upstream->peer.get = ngx_http_upstream_get_ip_hash_peer;
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
 
-### Navigation
-
-*   index
-*   next") |
-*   previous |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
-
 # 其他模块 (40%)
 
 Nginx 的模块种类挺多的，除了 HTTP 模块，还有一些核心模块和 mail 系列模块。核心模块主要是做一些基础功能，比如 Nginx 的启动初始化，event 处理机制，错误日志的初始化，ssl 的初始化，正则处理初始化。
@@ -3442,14 +3387,6 @@ Nginx 在需要用到超时的时候，都会用到定时器机制。比如，�
 ### mail 模块的功能
 
 © Copyright 2012, taobao. Created using [Sphinx](http://sphinx-doc.org/) 1.3.5.
-
-### Navigation
-
-*   index
-*   next |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-*   上篇：nginx 模块开发篇 »
 
 # 模块开发高级篇(30%)
 

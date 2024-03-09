@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous") |
-*   Nginx 开发从入门到精通 »
-
 # 附录 B 常用 API
 
 ## B.1 字符串操作
