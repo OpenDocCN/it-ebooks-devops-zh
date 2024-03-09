@@ -8,11 +8,11 @@
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
@@ -26,7 +26,7 @@
 
 怎么办呢？有很多种办法解决这个问题，其中一个较好的方案是从家用无线路由器上解决，然后全部有线和无线设备都可以无障碍上网了。
 
-路由器的原厂固件限制了用户自行开发功能，我们必须要给路由器刷上特定的固件，并进行一些设置才可以翻墙。
+路由器的原厂固件限制了用户自行开发功能，我们必须要给路由器刷上特定的固件，并进行一些设置才可以🪜🧱。
 
 无线路由器就好比是一台小电脑。电脑上安装了 Windows XP, Windows 7, Windows 8，或者 Ubuntu 等操作系统就可以使用了。固件就是给路由器使用的操作系统，是固化在路由器芯片内的操作系统。
 
@@ -39,7 +39,7 @@
 
 3.  开源 Tomato 路由器固件：衍生版本众多 原始版本固件代码自 2010 年后就再没有更新。
 
-本系列教程使用 OpenWrt 来讲解路由器翻墙方法。
+本系列教程使用 OpenWrt 来讲解路由器🪜🧱方法。
 
 # 支持 OpenWrt 的路由器
 

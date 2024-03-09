@@ -1,14 +1,14 @@
-# OpenWrt 编译翻墙固件教程
+# OpenWrt 编译🪜🧱固件教程
 
-实践前面的教程，翻墙已经不是问题，白脸也很 happy。在这一章中，我们要定制自己 OpenWrt 固件，刷上定制的固件，不用任何设置就自动翻墙并自动更新规则。
+实践前面的教程，🪜🧱已经不是问题，白脸也很 happy。在这一章中，我们要定制自己 OpenWrt 固件，刷上定制的固件，不用任何设置就自动🪜🧱并自动更新规则。
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
@@ -16,7 +16,7 @@
 
 不同 OpenWrt 版本下编译的 shadowsocks-libev ipk 一般是不能通用的。比如现在用的是 trunk 版的 OpenWrt，如果使用 OpenWrt Chaos Calmer 15.05 下编译的 shadowsocks-libev，可能安装后根本不能启动。
 
-前面我曾编译出翻墙固件，其中 shadowsocks-libev 是别人编译，从 sourceforge 上下载的，刷上固件后，shadowsocks 总是没有自动启动，运行/usr/bin/ss-redir，报告没有找到这个文件，其实文件是在的，只是不兼容。所以，最好还是自行编译 shadowsocks-libev。
+前面我曾编译出🪜🧱固件，其中 shadowsocks-libev 是别人编译，从 sourceforge 上下载的，刷上固件后，shadowsocks 总是没有自动启动，运行/usr/bin/ss-redir，报告没有找到这个文件，其实文件是在的，只是不兼容。所以，最好还是自行编译 shadowsocks-libev。
 
 以下 **不要使用 root 用户来操作**
 
@@ -123,7 +123,7 @@ tree
 ├── shadowsocks-libev-polarssl_2.4.3_ar71xx.ipk
 └── zlib_1.2.8-1_ar71xx.ipk    
 
-# 如果用来编译翻墙固件，把 shadowsocks-libev 复制到 Image Builder 目录下：    
+# 如果用来编译🪜🧱固件，把 shadowsocks-libev 复制到 Image Builder 目录下：    
 # for DIR505A1:
 cp shadowsocks* ~/Downloads/OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64/packages/base
 # for WNDR4300
@@ -140,11 +140,11 @@ cp shadowsocks* ~/Downloads/OpenWrt-ImageBuilder-ar71xx-nand.Linux-x86_64/packag
 *   [`sourceforge.net/projects/openwrt-dist/files/shadowsocks-libev/`](http://sourceforge.net/projects/openwrt-dist/files/shadowsocks-libev/)
 *   [`0066.in/archives/312`](https://0066.in/archives/312)
 
-# 下载和设置翻墙配置文件
+# 下载和设置🪜🧱配置文件
 
-自己手工收集编辑翻墙所用到的配置文件是件比较累的事情。最快的方法是 git clone 本项目，修改其中某些选项。
+自己手工收集编辑🪜🧱所用到的配置文件是件比较累的事情。最快的方法是 git clone 本项目，修改其中某些选项。
 
-## 下载翻墙配置文件
+## 下载🪜🧱配置文件
 
 ```
 cd ~/Downloads
@@ -236,11 +236,11 @@ chmod +x etc/uci-defaults/defaults
 
 *[`wiki.openwrt.org/doc/uci`](http://wiki.openwrt.org/doc/uci)
 
-# 使用 Image Builder 编译自动翻墙 OpenWrt 固件
+# 使用 Image Builder 编译自动🪜🧱 OpenWrt 固件
 
 Image Builder 又叫 Image Generator，利用它我们可以方便地定制适合自己无线路由器的固件。
 
-## 编译 OpenWrt 自定义翻墙固件的注意事项
+## 编译 OpenWrt 自定义🪜🧱固件的注意事项
 
 *   不要用“root”用户编译
 *   进入到编译系统目录中执行编译相关命令，如：~/Downloads/openwrt
@@ -267,7 +267,7 @@ wget http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/OpenWrt-ImageBu
 tar -xjf  OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64.tar.bz2 
 ```
 
-## 下载包含默认翻墙配置文件的 openwrt-fanqiang 项目
+## 下载包含默认🪜🧱配置文件的 openwrt-fanqiang 项目
 
 *   git 下载 openwrt-fanqiang 项目
 
@@ -279,7 +279,7 @@ tar -xjf  OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64.tar.bz2
 
 本地项目文件夹是： ~/Downloads/openwrt-fanqiang
 
-## 复制 openwrt-fanqiang 里面的翻墙配置文件到 openwrt-tlwr2543 目录下
+## 复制 openwrt-fanqiang 里面的🪜🧱配置文件到 openwrt-tlwr2543 目录下
 
 建立一个配置文件夹，以路由器型号结束，如 ~/Downloads/openwrt-tlwr2543。
 
@@ -297,7 +297,7 @@ cp -R openwrt/tlwr2543/* ~/Downloads/openwrt-tlwr2543/
 
 如果你要贡献本项目，也是先在 openwrt-fanqiang/openwrt 目录下先建立路由器型号为名称的文件夹，再把专用的配置文件放到此文夹下。注意文件夹和文件名都是小写的。
 
-## 修改 TL-WR2543 路由器翻墙配置文件
+## 修改 TL-WR2543 路由器🪜🧱配置文件
 
 ### 主要修改以下文件：
 
@@ -309,7 +309,7 @@ openwrt-tlwr2543/etc/uci-defaults/defaults
 
 为了方便以后升级，可以写个 bash 文件自动修改配置文件。
 
-一切操作尽量自动化，你甚至可以自动化一切操作：下载 ImageBuilder，下载 OpenWrt 源码，下载 shadowsocks-libev 源码，同步 openwrt-fanqiang 源码，编译 ipk，修改翻墙设置，编译翻墙固件，早上一觉醒来，新鲜出炉、美味可口的翻墙固件就已经摆放在桌上了。
+一切操作尽量自动化，你甚至可以自动化一切操作：下载 ImageBuilder，下载 OpenWrt 源码，下载 shadowsocks-libev 源码，同步 openwrt-fanqiang 源码，编译 ipk，修改🪜🧱设置，编译🪜🧱固件，早上一觉醒来，新鲜出炉、美味可口的🪜🧱固件就已经摆放在桌上了。
 
 下面是一个自动修改配置文件的例子，从中可以知道需要修改哪些地方。从 2015 年 12 月起，可能用于自动化修改的默认值都应该标准化，方便自动化操作。
 
@@ -386,7 +386,7 @@ else
 fi 
 ```
 
-**自动修改翻墙配置文件用法：**
+**自动修改🪜🧱配置文件用法：**
 
 ```
 ./config-tlwr2543.sh createdir
@@ -448,7 +448,7 @@ luci-ssl ipset wget shadowsocks-libev iptables-mod-nat-extra bind-dig
 *   PACKAGES 指定要编译进固件的包
 *   FILES 指定要编译进固件的自定义文件，如网络有关配置文件, ~/Downloads/openwrt-tlwr2543
 
-## 开始编译 OpenWrt 自动翻墙固件
+## 开始编译 OpenWrt 自动🪜🧱固件
 
 ```
 cd ~/Downloads/OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64
@@ -467,9 +467,9 @@ make image PROFILE=TLWR2543 PACKAGES="base-files busybox dnsmasq dropbear firewa
 
 升级固件要用到的是 ...sysupgrade.bin，比如　openwrt-ar71xx-generic-tl-wr2543-v1-squashfs-sysupgrade.bin
 
-然后把这个固件刷进 TP-LINK WR2543N，重启路由器后后就能免设置智能翻墙。
+然后把这个固件刷进 TP-LINK WR2543N，重启路由器后后就能免设置智能🪜🧱。
 
-## 刷翻墙固件后管理员登录 OpenWrt
+## 刷🪜🧱固件后管理员登录 OpenWrt
 
 刷好固件并重启路由器后，电脑连上无线网络 eastking-tlwr2543, 然后就可用密码`fanqiang` 登录路由器。
 
@@ -481,24 +481,24 @@ make image PROFILE=TLWR2543 PACKAGES="base-files busybox dnsmasq dropbear firewa
 
 *   浏览器打开 192.168.1.1 登录
 
-以后玩 OpenWrt 出问题，可以重新刷上这个翻墙固件就又可以在网上畅行无阻了。
+以后玩 OpenWrt 出问题，可以重新刷上这个🪜🧱固件就又可以在网上畅行无阻了。
 
 #### 参考：
 
 *   [`wiki.openwrt.org/doc/howto/obtain.firmware.generate`](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate)
 *   [`wiki.openwrt.org/doc/howto/build`](https://wiki.openwrt.org/doc/howto/build)
 
-# 如何使用别人预编译的 OpenWrt 翻墙固件 for TP-LINK WR2543N (包含 shadowsocks-libev)
+# 如何使用别人预编译的 OpenWrt 🪜🧱固件 for TP-LINK WR2543N (包含 shadowsocks-libev)
 
-如果你的无线路由器和我的一样，也是　TP-LINK wr2543N v1，你不想自己编译固件，那么可以下载我预先编译好的固件，刷好固件好，稍微设置下，就可以自动翻墙。
+如果你的无线路由器和我的一样，也是　TP-LINK wr2543N v1，你不想自己编译固件，那么可以下载我预先编译好的固件，刷好固件好，稍微设置下，就可以自动🪜🧱。
 
 在下载和刷 OpenWrt 固件前，确保熟悉本教程的前面部分，已经配置好 shadowsocks-libev 服务端，并能自由进入路由器的安全模式。再次强调，刷机有风险，风险自承担。
 
-该固件只是在 OpenWrt trunk 版加上：luci-ssl wget shadowsocks-libev 的最新版，还有翻墙要用到的配置，没有添加其他任何内容。
+该固件只是在 OpenWrt trunk 版加上：luci-ssl wget shadowsocks-libev 的最新版，还有🪜🧱要用到的配置，没有添加其他任何内容。
 
-## 翻墙默认配置
+## 🪜🧱默认配置
 
-*   [教程用到的 OpenWrt 翻墙配置文件](https://github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt](https://github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt)
+*   [教程用到的 OpenWrt 🪜🧱配置文件](https://github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt](https://github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt)
 
 *   [教程中用到的 shadowsocks 服务端配置文件](https://github.com/softwaredownload/openwrt-fanqiang/tree/master/ubuntu)
 

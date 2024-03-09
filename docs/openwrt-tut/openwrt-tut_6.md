@@ -1,8 +1,8 @@
-# 应用：D-Link DIR-505 刷 OpenWrt 翻墙教程
+# 应用：D-Link DIR-505 刷 OpenWrt 🪜🧱教程
 
-# D-Link DIR-505 路由器刷 OpenWrt 固件翻墙教程
+# D-Link DIR-505 路由器刷 OpenWrt 固件🪜🧱教程
 
-前面的教程用结合 TP-LINK TL-WR2543N 来讲解翻墙原理与方法，并不是我特别推荐 TP-LINK TL-WR2543N，而是因为手头正好有这个路由器。毫无疑问，初学者使用教程同款路由器比较容易上手。但此型号趋向退市，价格也不便宜，网上有二手货，如果功能正常倒也可以考虑。
+前面的教程用结合 TP-LINK TL-WR2543N 来讲解🪜🧱原理与方法，并不是我特别推荐 TP-LINK TL-WR2543N，而是因为手头正好有这个路由器。毫无疑问，初学者使用教程同款路由器比较容易上手。但此型号趋向退市，价格也不便宜，网上有二手货，如果功能正常倒也可以考虑。
 
 另外的选择，是使用 D-Link DIR-505 便携式路由器。配置高，价格便宜。
 
@@ -36,11 +36,11 @@ JTAG:     Nope
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
@@ -89,7 +89,7 @@ root@OpenWrt:/#
 ssh root@192.168.1.1 
 ```
 
-如果 ssh 连上了，则后面设置的内容和 前面 TLWR-2543N 翻墙教程一样了。
+如果 ssh 连上了，则后面设置的内容和 前面 TLWR-2543N 🪜🧱教程一样了。
 
 要注意的是，D-Link DIR-505 使用接口名称 eth1 而不是通常的 eth0\.
 
@@ -265,7 +265,7 @@ git clone https://github.com/softwaredownload/openwrt-fanqiang
 
 *   [`my.oschina.net/umu618/blog/273945`](http://my.oschina.net/umu618/blog/273945)
 
-# DIR-505 Router 模式翻墙教程
+# DIR-505 Router 模式🪜🧱教程
 
 # DIR-505 Router 模式
 
@@ -322,7 +322,7 @@ wifi
 
 *   `github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt/dir505`
 
-# DIR-505 AP 模式翻墙教程
+# DIR-505 AP 模式🪜🧱教程
 
 ## /usr/bin/ap 代码：
 
@@ -362,19 +362,19 @@ wifi
 
 在 AP 模式下，DIR-505 的有线接口作为 LAN 口使用，连接到前端路由器的 LAN 口。 假设 DIR-505 前端路由器的 IP 地址是 192.168.1.1，设置 DIR-505 的 lan 网关和 dns 都是 192.168.1.1，再设置 DIR-505 的 lan IP 地址为 192.168.1.234。
 
-## DIR-505 穿越功夫网翻墙方法
+## DIR-505 穿越功夫网🪜🧱方法
 
-### 假设上级路由器没有设置翻墙
+### 假设上级路由器没有设置🪜🧱
 
-电脑设置无线连接 eastking-dir505 的 IPv4 地址是 192.168.1.235（不同于路由器的地址），设置子网掩码为 255.255.255.0，网关和 DNS 为路由器的地址即 192.168.1.234，重启路由器后，电脑连上 eastking-dir505　即可自动翻墙
+电脑设置无线连接 eastking-dir505 的 IPv4 地址是 192.168.1.235（不同于路由器的地址），设置子网掩码为 255.255.255.0，网关和 DNS 为路由器的地址即 192.168.1.234，重启路由器后，电脑连上 eastking-dir505　即可自动🪜🧱
 
-原理：以 DIR-505 作为 DNS 服务器，我们已经把 DIR-505 设置成翻墙路由器，自然可以打败功夫网了。
+原理：以 DIR-505 作为 DNS 服务器，我们已经把 DIR-505 设置成🪜🧱路由器，自然可以打败功夫网了。
 
-### 假设上级路由器已经翻墙
+### 假设上级路由器已经🪜🧱
 
-电脑设置无线连接 eastking-dir505 为 DHCP 即可。 原理：以上级路由器作为 DNS 服务器，上级路由器已经翻墙，二级路由器就可以免设置自动翻墙了。
+电脑设置无线连接 eastking-dir505 为 DHCP 即可。 原理：以上级路由器作为 DNS 服务器，上级路由器已经🪜🧱，二级路由器就可以免设置自动🪜🧱了。
 
-如果你想节省路由器资源，这时就可以禁用 dir-505 dns 及翻墙相关服务：
+如果你想节省路由器资源，这时就可以禁用 dir-505 dns 及🪜🧱相关服务：
 
 ```
 /etc/init.d/dnsmasq stop
@@ -391,11 +391,11 @@ wifi
 
 *   [`wiki.openwrt.org/doc/recipes/bridgedap`](http://wiki.openwrt.org/doc/recipes/bridgedap)
 
-# DIR-505 编译 OpenWrt 全自动翻墙固件
+# DIR-505 编译 OpenWrt 全自动🪜🧱固件
 
-# 编译 OpenWrt 全自动翻墙固件 for D-Link DIR-505 A1
+# 编译 OpenWrt 全自动🪜🧱固件 for D-Link DIR-505 A1
 
-除了增加模式转换开头，其他和编译　TP-LINK WR2543N 翻墙固件一样。
+除了增加模式转换开头，其他和编译　TP-LINK WR2543N 🪜🧱固件一样。
 
 ## 下载适合 D-Link DIR505 无线路由器的 Image Builder
 
@@ -475,7 +475,7 @@ luci-ssl ipset wget shadowsocks-libev iptables-mod-nat-extra bind-dig
 
 ## 按照教程 编译 shadowsocks-libev for OpenWrt ipk 安装包
 
-## 下载和设定自定义翻墙配置文件
+## 下载和设定自定义🪜🧱配置文件
 
 下面以 linux 系统 ~/Downloads 下操作为例。
 
@@ -512,7 +512,7 @@ chmod +x etc/uci-defaults/defaults
 
 说明：etc/uci-defaults 目录下的文件会在路由器第一次启动时执行一次。在这里我们设置一些常用值。
 
-## 必须修改的 DIR505 翻墙配置文件：
+## 必须修改的 DIR505 🪜🧱配置文件：
 
 *   ~/Downloads/openwrt-dir505/etc/shadowsocks.json
     *   server 改成你的服务器实际 IP
@@ -521,7 +521,7 @@ chmod +x etc/uci-defaults/defaults
 *   ~/Downloads/openwrt-dir505/usr/bin/shadowsocks-firewall
     *   1.0.9.8 必须改成你的服务器实际 IP
 
-## 自动复制和修改 DIR-505 翻墙设置文件
+## 自动复制和修改 DIR-505 🪜🧱设置文件
 
 ### config-dir505.sh:
 
@@ -608,7 +608,7 @@ fi
 ./config-dir505.sh modify 
 ```
 
-## 开始编译 OpenWrt 自动翻墙固件
+## 开始编译 OpenWrt 自动🪜🧱固件
 
 ```
 cd ~/Downloads/OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64
@@ -632,7 +632,7 @@ ls -lh *505*.bin
 
 升级固件要用到的是　openwrt-ar71xx-generic-dir-505-a1-squashfs-sysupgrade.bin，如果在原厂固件上刷要用 openwrt-ar71xx-generic-dir-505-a1-squashfs-factory.bin
 
-先本地修改好配置文件再编译，然后把翻墙固件刷进 D-Link DIR-505 A1 后，就能零设置智能、自动翻墙。
+先本地修改好配置文件再编译，然后把🪜🧱固件刷进 D-Link DIR-505 A1 后，就能零设置智能、自动🪜🧱。
 
 只要配置文件设置不出差错，编译固件一般都能成功，保存好这个固件，以后随便折腾路由器，出现问题大不了重刷一次，几分钟时间就一切都恢复正常。
 
@@ -640,15 +640,15 @@ ls -lh *505*.bin
 
 *   [`wiki.openwrt.org/doc/howto/obtain.firmware.generate`](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate)
 
-# DIR-505 刷预编译 OpenWrt 翻墙固件
+# DIR-505 刷预编译 OpenWrt 🪜🧱固件
 
 # D-Link DIR-505 A1 刷通用 OpenWrt
 
-照前面的教程自己编译翻墙固件，编译出来后刷进路由器，就能实现零设置自动翻墙。出于各种原因，有的朋友可能不想自己编译固件，又想用 DIR-505 实现智能翻墙，就要下载预编译的通用翻墙固件，刷好后，登录路由器，用 vi 修改少数几个设置，就能实现智能翻墙，本教程就是针对这些朋友而写。
+照前面的教程自己编译🪜🧱固件，编译出来后刷进路由器，就能实现零设置自动🪜🧱。出于各种原因，有的朋友可能不想自己编译固件，又想用 DIR-505 实现智能🪜🧱，就要下载预编译的通用🪜🧱固件，刷好后，登录路由器，用 vi 修改少数几个设置，就能实现智能🪜🧱，本教程就是针对这些朋友而写。
 
 路由器的开关拨到刻有 Router/AP　字样的档位，如果你没有给路由器动过手术，就是从上往下数的第一档。
 
-## DIR-505 原厂固件刷翻墙固件的方法
+## DIR-505 原厂固件刷🪜🧱固件的方法
 
 适合购买了 D-Link DIR-505 A1 后没有刷过任何固件的朋友。
 
@@ -660,9 +660,9 @@ ls -lh *505*.bin
 
 照官方手册说明网页登录路由器，刷新固件
 
-### 刷 DIR-505 的翻墙固件 factory.bin
+### 刷 DIR-505 的🪜🧱固件 factory.bin
 
-到下面地址下载用于 DIR-505 的翻墙固件:
+到下面地址下载用于 DIR-505 的🪜🧱固件:
 
 [`software-download.name/2014/dlink-dir-505-openwrt-fanqiang/`](https://software-download.name/2014/dlink-dir-505-openwrt-fanqiang/)
 
@@ -670,13 +670,13 @@ ls -lh *505*.bin
 
 按照官方手册的说明刷新固件。
 
-## OpenWrt 固件基础上升级到翻墙固件
+## OpenWrt 固件基础上升级到🪜🧱固件
 
-注意，下面步骤适合于你已经在你的 DIR-505 上刷了 OpenWrt 固件,你想要升级到可以自己翻墙的 openwrt 固件。
+注意，下面步骤适合于你已经在你的 DIR-505 上刷了 OpenWrt 固件,你想要升级到可以自己🪜🧱的 openwrt 固件。
 
-### 下载翻墙固件　sysupgrade.bin
+### 下载🪜🧱固件　sysupgrade.bin
 
-到下面地址下载用于 DIR-505 的翻墙固件 openwrt-ar71xx-generic-dir-505-a1-squashfs-sysupgrade.bin:
+到下面地址下载用于 DIR-505 的🪜🧱固件 openwrt-ar71xx-generic-dir-505-a1-squashfs-sysupgrade.bin:
 
 [`software-download.name/2014/dlink-dir-505-openwrt-fanqiang/`](https://software-download.name/2014/dlink-dir-505-openwrt-fanqiang/)
 
@@ -706,7 +706,7 @@ root@OpenWrt:/tmp# sysupgrade -n openwrt-ar71xx-generic-dir-505-a1-squashfs-sysu
 
 等待两分钟等刷新固件并重启完成。
 
-# 登录并设置 DIR-505 OpenWrt 翻墙固件
+# 登录并设置 DIR-505 OpenWrt 🪜🧱固件
 
 ADSL Modem 网线连接到路由器的有线接口。路由器的开关拨到刻有 Router/AP　字样的档位，如果你没有给路由器动过手术，就是从上往下数的第一档。本文以 router 模式为例，如果你的应用场景是 ap 模式，请自行相应变通。
 
@@ -721,7 +721,7 @@ ADSL Modem 网线连接到路由器的有线接口。路由器的开关拨到刻
 新版都是： icanfly9876 
 ```
 
-## ssh 登录 OpenWrt 翻墙固件
+## ssh 登录 OpenWrt 🪜🧱固件
 
 ```
 ssh root@192.168.1.1 
@@ -780,10 +780,10 @@ root@OpenWrt:~# /etc/init.d/shadowsocks restart
 root@OpenWrt:~# /etc/init.d/dnsmasq restart
 root@OpenWrt:~# /etc/init.d/network restart
 
-# 查看 dnsmasq ss-redir ss-tunnel 是否在运行。翻墙出出现故障的时候也要查看：
+# 查看 dnsmasq ss-redir ss-tunnel 是否在运行。🪜🧱出出现故障的时候也要查看：
 ps 
 ```
 
-2015-12-24 测试 router 模式， 修改配置文件，编译出固件，刷进路由器，然后不用再修改任何设置就可以翻墙。
+2015-12-24 测试 router 模式， 修改配置文件，编译出固件，刷进路由器，然后不用再修改任何设置就可以🪜🧱。
 
 等待约两分钟，就可以测试是否可以在网上畅行无阻了。

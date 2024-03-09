@@ -1,22 +1,22 @@
-# OpenWrt＋shadowsocks-libev 自动翻墙
+# OpenWrt＋shadowsocks-libev 自动🪜🧱
 
-# OpenWrt＋shadowsocks-libev 实现路由器自动翻墙
+# OpenWrt＋shadowsocks-libev 实现路由器自动🪜🧱
 
 相信经过前面的教程，大家对 OpenWrt 和 Linux Ubuntu 有一定的熟悉了。如果还不熟悉 Ubuntu，就安装 Ubuntu，实际使用一个月。
 
-前面的文章都是技术准备，有基础的读者可以略过。在本章中，我们要 OpenWrt 路由器安装 shadowsocks-libev 来实践翻墙。
+前面的文章都是技术准备，有基础的读者可以略过。在本章中，我们要 OpenWrt 路由器安装 shadowsocks-libev 来实践🪜🧱。
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
-# 什么是 shadowsocks-libev 翻墙软件
+# 什么是 shadowsocks-libev 🪜🧱软件
 
 shadowsocks-libev 是一个 shadowsocks 协议的轻量级实现，是 shadowsocks-android, shadowsocks-ios 以及 shadowsocks-openwrt 的上游项目。其具有以下特点：
 
@@ -37,9 +37,9 @@ shadowsocks-libev 包括服务端和客户端两部分，一共三个模块。
 
 [`github.com/shadowsocks/shadowsocks-libev`](https://github.com/shadowsocks/shadowsocks-libev)
 
-# 翻墙软件 Shadowsocks-libev 服务端设置
+# 🪜🧱软件 Shadowsocks-libev 服务端设置
 
-要利用 shadowsocks-libev 翻墙，首先要有一台国外的服务器安装并运行 shadowsocks 服务端。如果还没有服务器,可以到 [digitalocean](https://m.do.co/c/89497bd485e0) 购买一台 SSD 虚拟服务器 VPS。
+要利用 shadowsocks-libev 🪜🧱，首先要有一台国外的服务器安装并运行 shadowsocks 服务端。如果还没有服务器,可以到 [digitalocean](https://m.do.co/c/89497bd485e0) 购买一台 SSD 虚拟服务器 VPS。
 
 ## Ubuntu 安装 shadowsocks-libev 服务端
 
@@ -109,7 +109,7 @@ ps ax | grep ss-server
 /usr/bin/ss-server -c /etc/shadowsocks-libev/config.json -a root -u -f /var/run/shadowsocks-libev/shadowsocks-libev.pid 
 ```
 
-注意其中有-u。如果 shadowsocks 客户端启用了 udp relay, 而服务端启动时不带-u 参数，翻墙自然就失败了。
+注意其中有-u。如果 shadowsocks 客户端启用了 udp relay, 而服务端启动时不带-u 参数，🪜🧱自然就失败了。
 
 ## 启动 shadowsocks-libev 服务端
 
@@ -132,7 +132,7 @@ shadowsocks-libev for OpenWrt 要和 OpenWrt 一致，否则可能无法安装�
 
 请自行测试是否适用于你的 OpenWrt。
 
-如果自行编译翻墙固件，最好按照教程自己编译 shadowsocks-libev for OpenWrt。
+如果自行编译🪜🧱固件，最好按照教程自己编译 shadowsocks-libev for OpenWrt。
 
 ## shadowsocks-libev 选择 OpenSSL 版还是 PolarSSL 版
 
@@ -179,13 +179,13 @@ root@OpenWrt:~# vi /etc/shadowsocks.json
 
     ![](img/3.3.autoproxy.png)
 
-Ubuntu 设置 AutoProxy 的默认代理是 shadowsocks,就可以打开被墙的网站如[YouTube.com](http://www.youtube.com)
+Ubuntu 设置 AutoProxy 的默认代理是 shadowsocks,就可以打开被🧱的网站如[YouTube.com](http://www.youtube.com)
 
-以前我在每台电脑上都运行一个 shadowsocks 客户端，每台电脑都要像上面这样配置浏览器代理上网翻墙。
+以前我在每台电脑上都运行一个 shadowsocks 客户端，每台电脑都要像上面这样配置浏览器代理上网🪜🧱。
 
 现在路由器里安装了 shadowsocks，所有有线和无线上网设备都不用分别安装 shadowsocks 了，非常方便了。但是还是太复杂，如果家里有十台上网设备，所有要连国外网站的软件都可能要配置代理访问，有些软件还根本没有设置代理的接口。有没有更简单的方法呢？
 
-# 史上最通俗易懂的 OpenWrt 翻墙路由器解释
+# 史上最通俗易懂的 OpenWrt 🪜🧱路由器解释
 
 ## 什么是域名和 IP 地址
 
@@ -253,7 +253,7 @@ Ubuntu 设置 AutoProxy 的默认代理是 shadowsocks,就可以打开被墙的�
 
 第三种方案，就是本教程使用的方案，是目前来说比较好的方案。
 
-### OpenWrt 翻墙路由器内部发生的故事(千万别告诉白脸)：
+### OpenWrt 🪜🧱路由器内部发生的故事(千万别告诉白脸)：
 
 1.  浏览器：喂，谁知道 YouTube.com 的 IP，主人要用
 2.  路由器：稍等，我查下主人设置的内单，稍等。。。不在内单，我通过秘密通道查
@@ -262,9 +262,9 @@ Ubuntu 设置 AutoProxy 的默认代理是 shadowsocks,就可以打开被墙的�
 5.  浏览器：请给我 IP 地址 60.188.5.6 的内容
 6.  路由器：等下，立即就好。。。中国 IP，该那就那去取内容。不是中国 IP，借道主人的秘密通道去取内容
 
-# 配置 OpenWrt 路由器智能自动翻墙
+# 配置 OpenWrt 路由器智能自动🪜🧱
 
-# 配置 OpenWrt shadowsocks 路由器智能自动翻墙
+# 配置 OpenWrt shadowsocks 路由器智能自动🪜🧱
 
 ## OpenWrt 路由器用 dnsmasq 转发国内重要域名查询
 
@@ -349,17 +349,17 @@ stop() {
 #### shadowsocks 本地客户端配置文件 start stop 函数说明：
 
 *   **sed -i 's/127.0.0.1#3210/114.114.114.114/' /etc/dnsmasq.d/gfwlist.conf**
-    停止 shadowsocks 翻墙服务时,要把泛匹配域名的解析转发到国内的 dns 服务器,这里是 114
+    停止 shadowsocks 🪜🧱服务时,要把泛匹配域名的解析转发到国内的 dns 服务器,这里是 114
 *   **sed -i 's/114.114.114.114/127.0.0.1#3210/' /etc/dnsmasq.d/gfwlist.conf**
-    开启翻墙服务时，如果以前停止过 shadowsocks 翻墙服务,要把泛匹配域名的解析改成通过 ss-tunnel 3210 端口转发
+    开启🪜🧱服务时，如果以前停止过 shadowsocks 🪜🧱服务,要把泛匹配域名的解析改成通过 ss-tunnel 3210 端口转发
 *   **service_start /usr/bin/ss-tunnel -b 0.0.0.0 -c /etc/shadowsocks.json -l 3210 -L 8.8.8.8:53 -u**
     监听本地 3210 端口，转发到自己的服务器的 53 端口向 8.8.8.8 查询 DNS
 *   **/usr/bin/shadowsocks-firewall**
     dnsmasq 只是负责域名查询分配转发，查询到 IP 地址后，是否需要通过 shdowsocks 加密请求内容，要在 shdowsocks-firewall 里进行设置
 *   运行 `/etc/init.d/shadowsocks stop` 有时并没有结束 ss-redir 或 ss-tunnel 进程，这会导致修改 `shadowsocks.conf` 后需要重启路由器才能生效。加上 `killall` 强制杀掉进程避免重启。(2016-01-19)
-    （注：即使加了 killall，有时还是不能杀掉进程，这种情况就只能重启路由器了。也就是说，修改了翻墙配置，有时必须重启路由器才能生效）
+    （注：即使加了 killall，有时还是不能杀掉进程，这种情况就只能重启路由器了。也就是说，修改了🪜🧱配置，有时必须重启路由器才能生效）
 
-## 配置 iptables 防火墙转发 IP 和端口
+## 配置 iptables 防火🧱转发 IP 和端口
 
 ```
 root@OpenWrt:~# cd /usr/bin
@@ -463,18 +463,18 @@ done
 #iptables -t nat -A SHADOWSOCKS_WHITELIST -d 223.0.0.0/8 -j MARK --set-mark 1 
 ```
 
-### OpenWrt 路由器 iptables 防火墙设置含义
+### OpenWrt 路由器 iptables 防火🧱设置含义
 
 *   如果本地发出请求到 shadowsocks 服务端所在的服务器,就返回，不作任何特殊处理。
 *   如果本地发出请求到局域网，也立即返回
 *   如果发出请求到中国的 IP 地址，也立即返回
     chinadns_chnroute.txt 是中国 IP 地址，见 [`github.com/softwaredownload/openwrt-fanqiang/blob/master/openwrt/default/etc/chinadns_chnroute.txt`](https://github.com/softwaredownload/openwrt-fanqiang/blob/master/openwrt/default/etc/chinadns_chnroute.txt)
-    预编译翻墙固件都带了这个文件。这个文件很长，因此配置不高的路由器 DIR-505，预编译固件里改成了“发出请求到亚洲的 IP 地址就立即返回”，见文件 [`github.com/softwaredownload/openwrt-fanqiang/blob/master/openwrt/dir505/usr/bin/shadowsocks-firewall`](https://github.com/softwaredownload/openwrt-fanqiang/blob/master/openwrt/dir505/usr/bin/shadowsocks-firewall)
+    预编译🪜🧱固件都带了这个文件。这个文件很长，因此配置不高的路由器 DIR-505，预编译固件里改成了“发出请求到亚洲的 IP 地址就立即返回”，见文件 [`github.com/softwaredownload/openwrt-fanqiang/blob/master/openwrt/dir505/usr/bin/shadowsocks-firewall`](https://github.com/softwaredownload/openwrt-fanqiang/blob/master/openwrt/dir505/usr/bin/shadowsocks-firewall)
 *   剩下的 IP 内容请求，全部转发到 shdowsocks-libev 本地客户端 ss-redir 监听的端口，由 ss-redir 负责和服务端进行加密通讯。（手下报告访问 youtube 的屁民为个位数，领导心里那个高兴啊。可惜经过加密，内容传输速度会有下降）
 *   首先运行全代理模式，然后再执行白名单。在白名单比较长时冷启动的速度会比较快。（Thanks Phoeagon)
 *   中国的 IP 列表比较长，如果你的路由器硬件配置不是太好，可以把 Ignore China IP address 段注释掉，启用 Ignore Asia IP address 段
 
-### OpenWrt 路由器防火墙设置重要说明：
+### OpenWrt 路由器防火🧱设置重要说明：
 
 *   你必须把上面的 1.0.9.8 换成你服务器真实的 IP 地址
 *   *iptables -t nat -A SHADOWSOCKS -p tcp -j REDIRECT --to-ports 7654* 这里的 7654 必须和 OpenWrt 路由器 /etc/shadowsocks.json 里的 *local_port*一样，也就是说，如果 /etc/shadowsocks.json 里 *"local_port":1090,* 那这里的 7654 也要改成 1090
@@ -517,7 +517,7 @@ git clone https://github.com/softwaredownload/openwrt-fanqiang
 
 git clone 项目到本地后，可以进入 openwrt 目录查看文件。
 
-如果所有设置都正确，应该可以较快速度打开被墙网站。
+如果所有设置都正确，应该可以较快速度打开被🧱网站。
 
 # OpenWrt 自动更新设置和屏蔽广告
 
@@ -636,9 +636,9 @@ root@OpenWrt:~# crontab -e
 *   每天中午 12 点运行 chinalist
 *   每天中午 12 点运行 blockad
 
-2014-09-24 版的 dir505, wr2543 预编译固件是启用了计划任务的，这会有潜在的不确定性，如果更新时下载的文件如 accelerated-domains.china.conf 存在错误，导致 dnsmasq 无法启动，翻墙功能自然失效。
+2014-09-24 版的 dir505, wr2543 预编译固件是启用了计划任务的，这会有潜在的不确定性，如果更新时下载的文件如 accelerated-domains.china.conf 存在错误，导致 dnsmasq 无法启动，🪜🧱功能自然失效。
 
-如果你启用了计划任务，某一天突然不能翻墙了，这时设置客户端的 IP 地址为和路由器同网段，登录路由器，用 ps 命令查看 dnsmasq 进程是否启动了，如果没有启动，就重刷固件或者用
+如果你启用了计划任务，某一天突然不能🪜🧱了，这时设置客户端的 IP 地址为和路由器同网段，登录路由器，用 ps 命令查看 dnsmasq 进程是否启动了，如果没有启动，就重刷固件或者用
 [`github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt/default/etc/dnsmasq.d`](https://github.com/softwaredownload/openwrt-fanqiang/tree/master/openwrt/default/etc/dnsmasq.d)
 下面的文件代替 路由器里/etc/dnsmasq.d/下的文件。
 
@@ -657,11 +657,11 @@ root@OpenWrt:~# crontab -e
 *   [`github.com/felixonmars/dnsmasq-china-list`](https://github.com/felixonmars/dnsmasq-china-list)
 *   [install-shadowsocks-on-hg255d-openwrt-and-config-nat](http://www.shuyz.com/install-shadowsocks-on-hg255d-openwrt-and-config-nat.html)
 
-# OpenWrt 路由器翻墙为什么会失败
+# OpenWrt 路由器🪜🧱为什么会失败
 
-# OpenWrt 路由器为什么会翻墙失败或不稳定
+# OpenWrt 路由器为什么会🪜🧱失败或不稳定
 
-给路由器刷上 OpenWrt，并按照 [本教程](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details/ "OpenWrt 路由器翻墙教程")设置了服务端和客户端，但还是不能翻墙，或者不稳定，有时能翻，有时不能翻，怎么办？
+给路由器刷上 OpenWrt，并按照 [本教程](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details/ "OpenWrt 路由器🪜🧱教程")设置了服务端和客户端，但还是不能🪜🧱，或者不稳定，有时能翻，有时不能翻，怎么办？
 
 ## ping 服务器的 ip 看看速度怎么样
 
@@ -685,7 +685,7 @@ $ ps -aux | grep ss-server
 
 可见上面启动时已经带了 -u 参数。
 
-## 登录 OpenWrt 路由器查询翻墙相关进程有没有启动
+## 登录 OpenWrt 路由器查询🪜🧱相关进程有没有启动
 
 ```
 root@eastking:~# ps | grep ss-
@@ -710,15 +710,15 @@ root@eastking:~# ps | grep dnsmasq
 
 ## 重启 OpenWrt 路由器
 
-## 翻墙不稳定，有时能连上被墙网站，有时连不上
+## 🪜🧱不稳定，有时能连上被🧱网站，有时连不上
 
-shadowsocks-libev 加密翻墙的方式加大了墙的辨识难度，但不是不可能被辨识。因此，还是有可能受到干扰的。解决方法：更换加密方式，如改成 `bf-cfb`
+shadowsocks-libev 加密🪜🧱的方式加大了🧱的辨识难度，但不是不可能被辨识。因此，还是有可能受到干扰的。解决方法：更换加密方式，如改成 `bf-cfb`
 
 一般情况下这样就能解决问题。
 
-## 登录路由器用 dig 查询被墙域名
+## 登录路由器用 dig 查询被🧱域名
 
-本教程预编译的翻墙固件都安装了 bind-dig，方便调试。
+本教程预编译的🪜🧱固件都安装了 bind-dig，方便调试。
 
 注：本教程默认的 tunnel 转发端口都是 3210
 
@@ -815,16 +815,16 @@ nslookup www.youtube.com 127.0.0.1
 
 # Shodowsocks 不同加密方式速度区别
 
-# Shodowsocks 翻墙不同加密方式速度区别
+# Shodowsocks 🪜🧱不同加密方式速度区别
 
-## Shodowsocks 翻墙不同加密方法，哪一种速度最快最好：
+## Shodowsocks 🪜🧱不同加密方法，哪一种速度最快最好：
 
-*   翻墙不稳定，有的能上，有的不能上，有时能上，有时不能上，可能是加密方式的特征被识别，从而被干扰，方法是更换加密方式
+*   🪜🧱不稳定，有的能上，有的不能上，有时能上，有时不能上，可能是加密方式的特征被识别，从而被干扰，方法是更换加密方式
 *   rc4-md5 加解密速度虽然快，但是加密强度不够大，容易被干扰
 *   无论哪一种加密方式，只要使用的人多了，就可能被重点研究，从而受到干扰
 *   aes-256-cfb 加密强度大些，一样可能被干扰
 *   有人推荐 chacha20 或者 salsa20，没有试过
-*   其实 bf-cfb 就很好，速度很快，官方的 shadowsocks-libev 及[本教程](https://github.com/softwaredownload/openwrt-fanqiang)预编译的翻墙固件都直接支持
+*   其实 bf-cfb 就很好，速度很快，官方的 shadowsocks-libev 及[本教程](https://github.com/softwaredownload/openwrt-fanqiang)预编译的🪜🧱固件都直接支持
 
 ## 网友实测 Shodowsocks 不同加密方尘速度
 
@@ -859,7 +859,7 @@ rlei:
 
 *   [`www.zhihu.com/question/28252105`](https://www.zhihu.com/question/28252105)
 
-# 零起点 DO VPS shadowsocks-libev 翻墙设置教程
+# 零起点 DO VPS shadowsocks-libev 🪜🧱设置教程
 
 ## [Digital Ocean](https://m.do.co/c/89497bd485e0) 的优点：
 
@@ -873,7 +873,7 @@ rlei:
 
 ### [立即点击这里注册 DO](https://m.do.co/c/89497bd485e0)
 
-## 创建翻墙用的虚拟服务器 Droplet
+## 创建🪜🧱用的虚拟服务器 Droplet
 
 注册 DO 并绑定支付方式后，登录管理后台，点击右上角的 `Create Droplet`:
 
@@ -952,7 +952,7 @@ root@ubuntu-shadowsocks:~# ls /usr/bin/ss-*
 root@ubuntu-shadowsocks:~# ss-local ss-manager ss-redir ss-server ss-tunnel 
 ```
 
-## 设置 shadowsocks-libev server，见 翻墙软件 Shadowsocks-libev 服务端设置
+## 设置 shadowsocks-libev server，见 🪜🧱软件 Shadowsocks-libev 服务端设置
 
 至此，我们已经开通了 DO VPS,并且在网页界面就安装完成了 shadowsocks-libev，下面是修改设置并重启 shadowsocks-libev
 
@@ -961,11 +961,11 @@ root@ubuntu-shadowsocks:~# vi /etc/shadowsocks-libev/config.json
 root@ubuntu-shadowsocks:~# service shadowsocks-libev restart 
 ```
 
-详细的设置教程在 翻墙软件 Shadowsocks-libev 服务端设置
+详细的设置教程在 🪜🧱软件 Shadowsocks-libev 服务端设置
 
-再配置好客户端，如果没有错误，就可以成功翻墙了。所有以上过程 2016-01-19 亲测通过。
+再配置好客户端，如果没有错误，就可以成功🪜🧱了。所有以上过程 2016-01-19 亲测通过。
 
-### 附录：怎样更换 DO 翻墙 VPS 的 IP（或者怎样使用最省钱）
+### 附录：怎样更换 DO 🪜🧱 VPS 的 IP（或者怎样使用最省钱）
 
 *   照上面教程创建 Droplet ubuntu-shadowsocks, 设置好 shadowsocks-libev 服务端，其中 server 写 `0.0.0.0` 并测试通过
 *   Poweroff VPS，也就是 VPS 关机，这时还会产生 VPS 使用费用的，因为 IP，空间等资源还是被你占用

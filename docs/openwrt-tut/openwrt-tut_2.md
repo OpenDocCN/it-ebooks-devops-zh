@@ -22,11 +22,11 @@
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
@@ -94,7 +94,7 @@ OpenWrt 官方网页上有 WR2543N 的专页,详细介绍了刷机步骤及注�
 
 要确保下载下来的文件完整,下载过程没有中断,如果下载下来的文件不完整,并把这个不完整的文件刷进机器,恢复起来很麻烦,有可能变砖.
 
-### 下载预编译的翻墙固件 for WR2543
+### 下载预编译的🪜🧱固件 for WR2543
 
 *   [`software-download.name/2014/openwrt-ar71xx-generic-tl-wr2543-v1-squashfs-sysupgrade-bin-with-shadowsocks/`](https://software-download.name/2014/openwrt-ar71xx-generic-tl-wr2543-v1-squashfs-sysupgrade-bin-with-shadowsocks/)
 
@@ -501,9 +501,9 @@ root@OpenWrt: /etc/init.d/network restart
 
 # 让 openwrt 能正常安装软件
 
-# 给初始不具备翻墙能力的路由器配置软件源
+# 给初始不具备🪜🧱能力的路由器配置软件源
 
-当我们刚给路由器刷上 OPENWRT 后，其只具备基本的上网功能。 这里如果我们使用 opkg update 安装软件时，发现其根本不能 update,因为它要连接的 download.operwrt.org 本身也在被墙列表中。（或未被墙，但速度奇慢。）
+当我们刚给路由器刷上 OPENWRT 后，其只具备基本的上网功能。 这里如果我们使用 opkg update 安装软件时，发现其根本不能 update,因为它要连接的 download.operwrt.org 本身也在被🧱列表中。（或未被🧱，但速度奇慢。）
 
 方法有几种
 

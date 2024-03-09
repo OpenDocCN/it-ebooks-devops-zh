@@ -1,12 +1,12 @@
-# Introduction
+# OpenWrt 🪜🧱路由器教程
 
-# 史上最详细的 OpenWrt shadowsocks 路由器自动翻墙教程
+# 史上最详细的 OpenWrt shadowsocks 路由器自动🪜🧱教程
 
 手把手教你路由器刷 OpenWrt 固件，自动穿越万里长城。
 
-## 本教程翻墙方案的特点
+## 本教程🪜🧱方案的特点
 
-放弃建立黑名单的方案吧，被墙的网站每天在大量增加，有限的人生不能在无穷的手工添加黑名单、重启路由器中渡过。
+放弃建立黑名单的方案吧，被🧱的网站每天在大量增加，有限的人生不能在无穷的手工添加黑名单、重启路由器中渡过。
 
 大道至简，一劳永逸！
 
@@ -19,9 +19,9 @@
 
 ## 知识若不分享，实在没有意义
 
-2014 年 6 月 Dropbox 壮烈被墙。
+2014 年 6 月 Dropbox 壮烈被🧱。
 
-查资料发现，著名的开源路由器固件 OpenWrt 支持家里的路由器 TP-Link WR2543N V1 ，于是就给路由器安装了 OpenWrt 并设置为自动智能翻墙。
+查资料发现，著名的开源路由器固件 OpenWrt 支持家里的路由器 TP-Link WR2543N V1 ，于是就给路由器安装了 OpenWrt 并设置为自动智能🪜🧱。
 
 自由的感觉真好:　youtube, hulu, twitter, facebook, google...
 
@@ -30,7 +30,7 @@
 希望你应用本教程后，也把你的过程写下来，合并到这个项目中来:
 [`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang)
 
-## 如何编译 OpenWrt shadowsocks 自动翻墙固件
+## 如何编译 OpenWrt shadowsocks 自动🪜🧱固件
 
 *   首先把本项目 clone 到本地目录，如 ~/Downloads/openwrt-fanqiang
 *   原始配置文件
@@ -59,10 +59,10 @@ root login password:        fanqiang
 WIFI password:                icanfly9876　　(for DIR-505 and TLWR2543 before 2015: wsjdw,8181) 
 ```
 
-## 如何使用预编译翻墙固件：
+## 如何使用预编译🪜🧱固件：
 
 *   shadowsocks 服务端按照本项目规定的默认值进行设置（除了 server IP)
-*   路由器刷 OpenWrt shadowsocks 翻墙固件
+*   路由器刷 OpenWrt shadowsocks 🪜🧱固件
 *   登录路由器修改 server IP：
 
     ```
@@ -80,16 +80,16 @@ WIFI password:                icanfly9876　　(for DIR-505 and TLWR2543 before 
 
 ## 相关资源
 
-*   Netgear WNDR4300 预编译翻墙固件(2015-12-23):
+*   Netgear WNDR4300 预编译🪜🧱固件(2015-12-23):
     [`software-download.name/2015/netgear-wndr4300-openwrt-fanqiang-gujian/`](https://software-download.name/2015/netgear-wndr4300-openwrt-fanqiang-gujian/)
 
-*   D-Link DIR-505 预编译翻墙固件(2015-12-24):
+*   D-Link DIR-505 预编译🪜🧱固件(2015-12-24):
     [`software-download.name/2014/dlink-dir-505-openwrt-fanqiang/`](https://software-download.name/2014/dlink-dir-505-openwrt-fanqiang/)
 
-*   TP-Link TLWR2543 预编译翻墙固件(2015-12-24):
+*   TP-Link TLWR2543 预编译🪜🧱固件(2015-12-24):
     [`software-download.name/2014/openwrt-ar71xx-generic-tl-wr2543-v1-squashfs-sysupgrade-bin-with-shadowsocks/`](https://software-download.name/2014/openwrt-ar71xx-generic-tl-wr2543-v1-squashfs-sysupgrade-bin-with-shadowsocks/)
 
-*   OpenWrt 自动翻墙教程电子书下载
+*   OpenWrt 自动🪜🧱教程电子书下载
     [`software-download.name/2014/fanqiang-jiaocheng/`](https://software-download.name/2014/fanqiang-jiaocheng/)
 
 *   shadowsocks-libev-polarssl_2.4.3.ar71xx.ipk (2015-12-20):
@@ -99,7 +99,7 @@ WIFI password:                icanfly9876　　(for DIR-505 and TLWR2543 before 
 
 除特别声明外，本书中的内容使用[CC BY-SA 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/)（创作共用 署名-相同方式共享 3.0 许可协议）授权，代码遵循[BSD 3-Clause License](https://github.com/softwaredownload/openwrt-fanqiang/blob/master/LICENSE)（3 项条款的 BSD 许可协议）。
 
-## 在线阅读 OpenWrt 翻墙路由器教程:
+## 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 *   [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 *   [`github.com/softwaredownload/openwrt-fanqiang/blob/master/SUMMARY.md`](https://github.com/softwaredownload/openwrt-fanqiang/blob/master/SUMMARY.md)

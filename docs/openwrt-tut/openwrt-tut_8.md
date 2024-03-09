@@ -1,26 +1,26 @@
 # 附录
 
-翻墙常用资源及如何贡献本项目
+🪜🧱常用资源及如何贡献本项目
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
-# 翻墙软件、教程汇总
+# 🪜🧱软件、教程汇总
 
-# 翻墙教程资源汇总
+# 🪜🧱教程资源汇总
 
-## 翻墙软件
+## 🪜🧱软件
 
 *   [Shadowsocks Download](http://shadowsocks.org)
 *   [Shadowsocks libev](https://github.com/shadowsocks/shadowsocks-libev)
-*   [Lantern 浏览器自动翻墙](https://github.com/getlantern/lantern)
+*   [Lantern 浏览器自动🪜🧱](https://github.com/getlantern/lantern)
 *   [Gohop - VPN in GO lang](https://github.com/bigeagle/gohop)
 *   [Obfuscated OpenSSH Patch by zinglau](https://github.com/zinglau/obfuscated-openssh-patches)
 *   [Obfuscated OpenSSH by aligo](https://github.com/aligo/obfuscated-openssh)
@@ -31,9 +31,9 @@
 *   [GoProxy go 写的隧道代理服务器](https://github.com/shell909090/goproxy)
 *   [XX-Net 接力 GoAgent](https://github.com/XX-net/XX-Net)
 
-## 翻墙方案
+## 🪜🧱方案
 
-*   [打造 OpenWrt 智能自动透明翻墙路由器](https://github.com/softwaredownload/openwrt-fanqiang)
+*   [打造 OpenWrt 智能自动透明🪜🧱路由器](https://github.com/softwaredownload/openwrt-fanqiang)
 *   [FreeRouter_V2](https://github.com/lifetyper/FreeRouter_V2)
 *   [Autovpn for OpenWrt](https://code.google.com/p/autovpn-for-openwrt/)
 *   [Proxy for GFW](https://github.com/jiyanmoyu/proxy_for_gfw)
@@ -42,16 +42,16 @@
 *   [dnsforwarder](https://github.com/holmium/dnsforwarder)
 *   [Autddvpn beta](https://code.google.com/p/autoddvpn-beta/)
 
-## 翻墙辅助
+## 🪜🧱辅助
 
 *   [dnsmasq China List](https://github.com/felixonmars/dnsmasq-china-list)
 
-## 翻墙教程
+## 🪜🧱教程
 
 *   [FreeRouter V2 完全手册 PDF 下载](https://github.com/lifetyper/FreeRouter_V2/raw/master/FreeRouterV2_HandBook.pdf)
 *   [在华为 HG255D OpenWrt 上安装和配置 Shadowsocks 并实现智能流量转发](http://www.shuyz.com/install-shadowsocks-on-hg255d-openwrt-and-config-nat.html)
 *   用 PDNSD + Google DNS 获得高速正确的 dns 解析
-*   [基于 OpenWRT 的自动翻墙路由器](http://samsonly.us/?p=85)
+*   [基于 OpenWRT 的自动🪜🧱路由器](http://samsonly.us/?p=85)
 *   [Tunlr-style DNS unblocking](http://trick77.com/2014/03/01/tunlr-style-dns-unblocking-pandora-netflix-hulu-et-al/)
 *   [DNS unblocking using Dnsmasq and HAProxy](http://trick77.com/2014/03/02/dns-unblocking-using-dnsmasq-haproxy/)
 
@@ -82,7 +82,7 @@ LiteIDE 是 go 语言的跨平台 IDE，同时也是很好的 Markdown 文本格
 
 ![](img/9.2.liteide.png)
 
-你是个有爱心的人，阅读了本教程，想要回馈这个开源项目，在阅读时顺便修改一些错字，加进补充内容，增加一章你的路由器应用本教程翻墙的过程等等，然后提交　pull request.
+你是个有爱心的人，阅读了本教程，想要回馈这个开源项目，在阅读时顺便修改一些错字，加进补充内容，增加一章你的路由器应用本教程🪜🧱的过程等等，然后提交　pull request.
 
 # 知识若不分享，实在没有意义
 
@@ -100,7 +100,7 @@ LiteIDE 是 go 语言的跨平台 IDE，同时也是很好的 Markdown 文本格
 
 ## 我为什么写这个教程
 
-生在天朝，上网各种不方便，很是苦恼，什么 OpenWrt，没有听说过，不知道哇。上网查相关论坛，非注册用户附件下载隐藏，图片隐藏，各种限制。也有一些教程散布在网上，需要自己整合。终于，花了 N 个白天，给家里的路由器翻墙了。我是个习惯于换位思考的人，想想自己花了很多时间查各种资料，何不花时间整合各种资源并加上自己的心得，写成系列教程，公布在网上？
+生在天朝，上网各种不方便，很是苦恼，什么 OpenWrt，没有听说过，不知道哇。上网查相关论坛，非注册用户附件下载隐藏，图片隐藏，各种限制。也有一些教程散布在网上，需要自己整合。终于，花了 N 个白天，给家里的路由器🪜🧱了。我是个习惯于换位思考的人，想想自己花了很多时间查各种资料，何不花时间整合各种资源并加上自己的心得，写成系列教程，公布在网上？
 
 于是，又是 N 个白天（N > 10)，学习 Git, GitHub, GitBook, Ubuntu, Markdown, OpenWrt，各种调试、编译。经常一天的绝大部分时间在写这个教程。钱可以少赚些，当下够用就行，这个教程还得认真写，没有想过要得到什么，只是觉得白发已生，人生不能虚度，给这个世界留下一些自己的印记也总是好的。虽然不对别人说，但也未尝不可在人少时偷偷笑一声，并对自己说：我这样的好人，在这个世界上可是不多呢，哈哈。
 
@@ -108,13 +108,13 @@ LiteIDE 是 go 语言的跨平台 IDE，同时也是很好的 Markdown 文本格
 
 为什么不写在博客上呢？如果写在博客上，就要自己维护博客，一直维护下去总是个麻烦事。GitHub 总比自己维护的博客稳定，或者说能存在更长时间。即使 GitHub 倒闭，也就一个 git 命令就可以托管到其他网站，何况 GitHub 至少现在看来是来日方长呢。
 
-开源方式发布，更是希望阅读本教程翻墙成功的朋友，如果你的路由器型号不被本教程覆盖，就写下自己的翻墙实践过程，提交到本项目中，以帮助相关朋友。我在教程中以 D-Link DIR-505 为范例，演示了如何参与到本项目中来，将在下一节详述。
+开源方式发布，更是希望阅读本教程🪜🧱成功的朋友，如果你的路由器型号不被本教程覆盖，就写下自己的🪜🧱实践过程，提交到本项目中，以帮助相关朋友。我在教程中以 D-Link DIR-505 为范例，演示了如何参与到本项目中来，将在下一节详述。
 
 # 如何贡献本项目
 
-虽然说原理是通用的，本教程内容可以应用到绝大多数路由器中去。然而，高手毕竟少数，多数有翻墙需求的人可能都没有用过 Linux 系统，没有听说过 OpenWrt，针对他们，最好是一种路由器类型（型号）一个教程。并且最好提供预编译的固件，刷上这个预编译的固件后，修改极少的参数就可以自动翻墙。
+虽然说原理是通用的，本教程内容可以应用到绝大多数路由器中去。然而，高手毕竟少数，多数有🪜🧱需求的人可能都没有用过 Linux 系统，没有听说过 OpenWrt，针对他们，最好是一种路由器类型（型号）一个教程。并且最好提供预编译的固件，刷上这个预编译的固件后，修改极少的参数就可以自动🪜🧱。
 
-在你应用本教程原理翻墙的过程中，把详细应用过程一步步写下来，并贡献到本项目中，以帮助更多的人。
+在你应用本教程原理🪜🧱的过程中，把详细应用过程一步步写下来，并贡献到本项目中，以帮助更多的人。
 
 假如你的路由器是 netgear wndr3800
 
@@ -128,7 +128,7 @@ LiteIDE 是 go 语言的跨平台 IDE，同时也是很好的 Markdown 文本格
 *   Push 到你的分支 (git push origin my-new-feature)
 *   到 github.com 创建 Pull Request
 
-## 如何为新的路由器创建翻墙教程：
+## 如何为新的路由器创建🪜🧱教程：
 
 ```
 cd openwrt-fanqiang

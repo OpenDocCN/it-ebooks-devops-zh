@@ -1,12 +1,12 @@
-# 应用: Netgear WNDR4300 刷 OpenWrt 翻墙教程
+# 应用: Netgear WNDR4300 刷 OpenWrt 🪜🧱教程
 
-# 网件 Netgear WNDR4300 刷 OpenWrt 翻墙教程
+# 网件 Netgear WNDR4300 刷 OpenWrt 🪜🧱教程
 
 网件 Netgear WNDR4300 是很多网友推荐的可刷 OpenWRT 的无线路由器。
 
 WNDR4300 有 v1 和 v2 的区别，目前国行都是 v1 版本。
 
-![已经刷上翻墙固件的 WNDR4300 路由器 OpenWrt 后台](img/6.netgear-wndr4300-luci.png)
+![已经刷上🪜🧱固件的 WNDR4300 路由器 OpenWrt 后台](img/6.netgear-wndr4300-luci.png)
 
 ## 网件 Netgear WNDR4300 无线路由器的优点
 
@@ -42,11 +42,11 @@ USB            Yes
 
 * * *
 
-#### 最简单的路由器刷 OpenWrt 固件翻墙教程:
+#### 最简单的路由器刷 OpenWrt 固件🪜🧱教程:
 
-[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件翻墙教程")
+[`github.com/softwaredownload/openwrt-fanqiang`](https://github.com/softwaredownload/openwrt-fanqiang "最简单的路由器刷 OpenWrt 固件🪜🧱教程")
 
-#### 在线阅读 OpenWrt 翻墙路由器教程:
+#### 在线阅读 OpenWrt 🪜🧱路由器教程:
 
 [`www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details`](https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details)
 
@@ -69,7 +69,7 @@ WNDR4300 是 NAND 内存，进入下面的网址下载适合 WNDR4300 的 ImageB
 
 [`downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/`](http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/)
 
-我尝试用稳定发行版编译自动翻墙固件，出现错误，后来改用 trunk 版就顺利成功了。本教程用的是 trunk 版。
+我尝试用稳定发行版编译自动🪜🧱固件，出现错误，后来改用 trunk 版就顺利成功了。本教程用的是 trunk 版。
 
 ## OpenWrt ImageBuilder for 网件 Netgear WNDR4300 最新 trunk 版的下载
 
@@ -132,7 +132,7 @@ make info
 
 ![](img/1.profile-netgear-wndr4300.png)
 
-## 确定应该包含在自编译 WNDR4300 路由器翻墙固件里的包
+## 确定应该包含在自编译 WNDR4300 路由器🪜🧱固件里的包
 
 ### 1\. 在 Linux 下运行命令自动获取基础包：
 
@@ -173,7 +173,7 @@ luci-ssl 是用来网页界面管理路由器，安装后就可以　[`192.168.1
 
 bind-dig 可以调试域名解析
 
-shadowsocks-libev　翻墙主角
+shadowsocks-libev　🪜🧱主角
 
 # WNDR4300 编译 shadowsocks-libev ipk
 
@@ -181,7 +181,7 @@ shadowsocks-libev　翻墙主角
 
 不同 OpenWrt 版本下编译的 shadowsocks-libev ipk 一般是不能通用的。比如现在用的是 trunk 版的 OpenWrt，如果使用 OpenWrt Chaos Calmer 15.05 下编译的 shadowsocks-libev，可能安装后根本不能启动。
 
-前面我曾编译出翻墙固件，其中 shadowsocks-libev 是别人编译，从 sourceforge 上下载的，刷上固件后，shadowsocks 总是没有自动启动，运行/usr/bin/ss-redir，报告没有找到这个文件，其实文件是在的，只是不兼容。所以，最好还是自行编译 shadowsocks-libev。
+前面我曾编译出🪜🧱固件，其中 shadowsocks-libev 是别人编译，从 sourceforge 上下载的，刷上固件后，shadowsocks 总是没有自动启动，运行/usr/bin/ss-redir，报告没有找到这个文件，其实文件是在的，只是不兼容。所以，最好还是自行编译 shadowsocks-libev。
 
 按官网的[说法](https://wiki.openwrt.org/doc/howto/build)，以下 **不要使用 root 用户来操作**
 
@@ -238,17 +238,17 @@ cd ~/Downloads/openwrt/bin/ar71xx/packages/base/
 cp * ~/Downloads/OpenWrt-ImageBuilder-ar71xx-nand.Linux-x86_64/packages/base 
 ```
 
-# WNDR4300 修改翻墙配置文件
+# WNDR4300 修改🪜🧱配置文件
 
-# 设置网件 Netgear WNDR4300 翻墙配置文件
+# 设置网件 Netgear WNDR4300 🪜🧱配置文件
 
-要翻墙成功，这一步是最重要的。
+要🪜🧱成功，这一步是最重要的。
 
 分三步，下载本项目 openwrt-fanqiang；复制配置文件；修改配置文件。
 
 下面以 linux 系统 ~/Downloads 下操作为例。
 
-## 下载包含默认翻墙配置文件的 openwrt-fanqiang 项目
+## 下载包含默认🪜🧱配置文件的 openwrt-fanqiang 项目
 
 *   git 下载 openwrt-fanqiang 项目
 
@@ -260,7 +260,7 @@ cp * ~/Downloads/OpenWrt-ImageBuilder-ar71xx-nand.Linux-x86_64/packages/base
 
 本地项目文件夹是： ~/Downloads/openwrt-fanqiang
 
-## 复制 openwrt-fanqiang 里面的翻墙配置文件到 openwrt-wndr4300 目录下
+## 复制 openwrt-fanqiang 里面的🪜🧱配置文件到 openwrt-wndr4300 目录下
 
 建立一个配置文件夹，以路由器型号结束，如 ~/Downloads/openwrt-wndr4300。
 
@@ -278,7 +278,7 @@ cp -R openwrt/wndr4300/* ~/Downloads/openwrt-wndr4300/
 
 如果你要贡献本项目，也是先在 openwrt-fanqiang/openwrt 目录下先建立路由器型号为名称的文件夹，再把专用的配置文件放到此文夹下。注意文件夹和文件名都是小写的。
 
-## 修改 Netgear WNDR4300 翻墙配置文件
+## 修改 Netgear WNDR4300 🪜🧱配置文件
 
 ### 主要修改以下文件：
 
@@ -290,7 +290,7 @@ openwrt-wndr4300/etc/uci-defaults/defaults
 
 为了方便以后升级，可以写个 bash 文件自动修改配置文件。
 
-一切操作尽量自动化，你甚至可以自动化一切操作：下载 ImageBuilder，下载 OpenWrt 源码，下载 shadowsocks-libev 源码，同步 openwrt-fanqiang 源码，编译 ipk，修改翻墙设置，编译翻墙固件，早上一觉醒来，新鲜出炉、美味可口的翻墙固件就已经摆放在桌上了。
+一切操作尽量自动化，你甚至可以自动化一切操作：下载 ImageBuilder，下载 OpenWrt 源码，下载 shadowsocks-libev 源码，同步 openwrt-fanqiang 源码，编译 ipk，修改🪜🧱设置，编译🪜🧱固件，早上一觉醒来，新鲜出炉、美味可口的🪜🧱固件就已经摆放在桌上了。
 
 下面是一个自动修改配置文件的例子，从中可以知道需要修改哪些地方。从 2015 年 12 月起，可能用于自动化修改的默认值都应该标准化，方便自动化操作。
 
@@ -379,7 +379,7 @@ wan-username
 wan-password 
 ```
 
-如果你比较懒，就改这三项就行了，可以说本教程是最简单的翻墙方案了。
+如果你比较懒，就改这三项就行了，可以说本教程是最简单的🪜🧱方案了。
 
 选改值：
 
@@ -390,7 +390,7 @@ wifi password
 
 其他值一般保持默认值就可以了。
 
-假设 config-wndr4300.sh 在~/Downloads 目录下，运行命令自动修改翻墙配置：
+假设 config-wndr4300.sh 在~/Downloads 目录下，运行命令自动修改🪜🧱配置：
 
 ```
 cd ~/Downloads
@@ -401,13 +401,13 @@ sudo chmod +x config-wndr4300.sh
 ./config-wndr4300.sh modify 
 ```
 
-# WNDR4300 编译自动翻墙固件
+# WNDR4300 编译自动🪜🧱固件
 
-# 编译 OpenWrt 自动翻墙固件 for 网件 Netgear WNDR4300 路由器
+# 编译 OpenWrt 自动🪜🧱固件 for 网件 Netgear WNDR4300 路由器
 
-经过前面几个步骤，一切准备就绪，下面就正确开始编译 Netgear WNDR4300 专用全自动翻墙固件了。
+经过前面几个步骤，一切准备就绪，下面就正确开始编译 Netgear WNDR4300 专用全自动🪜🧱固件了。
 
-## 编译 OpenWrt 自动翻墙固件前的系统准备
+## 编译 OpenWrt 自动🪜🧱固件前的系统准备
 
 ```
 sudo apt-get update
@@ -420,7 +420,7 @@ sudo apt-get install git-core build-essential libssl-dev libncurses5-dev unzip
 *   PACKAGES 指定要编译进固件的包
 *   FILES 指定要编译进固件的自定义文件，如网络有关配置文件, 默认目录：~/Downloads/openwrt-wndr4300
 
-## 开始编译 OpenWrt 自动翻墙固件 for 网件 Netgear WNDR4300 路由器
+## 开始编译 OpenWrt 自动🪜🧱固件 for 网件 Netgear WNDR4300 路由器
 
 命令：
 
@@ -481,11 +481,11 @@ openwrt-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar
 
     再重新运行`make`
 
-# WNDR4300 怎样刷自动翻墙固件
+# WNDR4300 怎样刷自动🪜🧱固件
 
-# 网件 Netgear WNDR4300 路由器怎样刷 OpenWrt 自动翻墙固件
+# 网件 Netgear WNDR4300 路由器怎样刷 OpenWrt 自动🪜🧱固件
 
-## 两种翻墙固件格式 img tar 的区别
+## 两种🪜🧱固件格式 img tar 的区别
 
 ```
 openwrt-ar71xx-nand-wndr4300-ubi-factory.img
@@ -503,7 +503,7 @@ tftp 刷固件的方式，不管原来的固件是什么格式，都可以刷 fa
 *   开启电源开关
 *   观察电源灯（此时保持按住 Restore Factory Settings 按钮不要松手），直到电源灯由 橙色闪烁 状态变到 绿色闪烁 状态（说明设备已经进入到了 TFTP 修复模式 ）
 
-## Linux 下 Netgear WNDR4300 路由器用 tftp 刷翻墙固件
+## Linux 下 Netgear WNDR4300 路由器用 tftp 刷🪜🧱固件
 
 *   将电脑用网线连接到设备的 LAN 口，而不是 wan 口。国行 Netgear WNDR4300 的 wan 口是黄色的
 *   将电脑的本地连接 IP 设置为 192.168.1.X （此例中 IP 地址设置为 192.168.1.2 ），子网掩码为 255.255.255.0，网关为 192.168.1.1
@@ -517,7 +517,7 @@ tftp 刷固件的方式，不管原来的固件是什么格式，都可以刷 fa
       Warning: time of day goes back (-3646479862160196420us), taking countermeasures. 
     ```
 
-*   网件 Netgear WNDR4300 路由器刷翻墙固件
+*   网件 Netgear WNDR4300 路由器刷🪜🧱固件
 
     ```
      sudo apt-get install tftp
@@ -528,14 +528,14 @@ tftp 刷固件的方式，不管原来的固件是什么格式，都可以刷 fa
 
 *   观察指示灯，文件传送完毕后，等待 80 秒左右，设备会自动重启（请耐心等待，切勿将路由器手动断电）。设备重启后，看到亮绿灯，一定要按机身后面的电源开关手动断电、开机，否则可能没有无线 5G 这不是 BUG，其他 openwrt 也是一样的。每次刷 factory.img 都要这样
 
-## Windows 下 Netgear WNDR4300 路由器用 tftp 刷翻墙固件
+## Windows 下 Netgear WNDR4300 路由器用 tftp 刷🪜🧱固件
 
 *   启用 tftp。Windows 10 下：控制面板，所有控制面板项，程序和功能，启用或关闭 Windows 功能，启用“TFTP”客户端
 *   将电脑用网线连接到设备的 LAN 口
 *   将电脑的本地连接 IP 设置为 192.168.1.X （此例中 IP 地址设置为 192.168.1.2 ），子网掩码为 255.255.255.0，网关 192.168.1.1
 *   路由器进入恢复模式
 *   测试能否连接到路由器： ping 192.168.1.1
-*   网件 Netgear WNDR4300 路由器刷翻墙固件
+*   网件 Netgear WNDR4300 路由器刷🪜🧱固件
 
     *   按 Windows+R,输入 cmd 并回车调出命令行程序
     *   假设 openwrt-ar71xx-nand-wndr3700v4-ubi-factory.img 在 C:\盘
@@ -553,21 +553,21 @@ tftp 刷固件的方式，不管原来的固件是什么格式，都可以刷 fa
 更详细的 WNDR4300 刷 openwrt PDF 图文教程：
 [Windows 下 Netgear WNDR4300 刷 OpenWrt 固件 PDF 教程 by 书浅](https://software-download.name/2015/netgear-wndr4300-shua-openwrt/)
 
-# WNDR4300 登录并设置翻墙固件
+# WNDR4300 登录并设置🪜🧱固件
 
-# 登录并设置已经刷了 OpenWrt 翻墙固件的网件 Netgear WNDR4300 路由器
+# 登录并设置已经刷了 OpenWrt 🪜🧱固件的网件 Netgear WNDR4300 路由器
 
-## Netgear WNDR4300 预编译翻墙固件下载(2015-12-22)
+## Netgear WNDR4300 预编译🪜🧱固件下载(2015-12-22)
 
 [`software-download.name/2015/netgear-wndr4300-openwrt-fanqiang-gujian/`](https://software-download.name/2015/netgear-wndr4300-openwrt-fanqiang-gujian/)
 
-你按照[本教程](https://github.com/softwaredownload/openwrt-fanqiang)编译了 WNDR4300 路由器 OpenWrt 全自动翻墙固件，并且刷进了路由器，如果一切正常，就可以零设置自动翻墙了。运气不够好，就要登录路由器修改一下设置。
+你按照[本教程](https://github.com/softwaredownload/openwrt-fanqiang)编译了 WNDR4300 路由器 OpenWrt 全自动🪜🧱固件，并且刷进了路由器，如果一切正常，就可以零设置自动🪜🧱了。运气不够好，就要登录路由器修改一下设置。
 
-你懶得自己编译翻墙固件，下载了本教程提供的 Netgear WNDR4300 路由器翻墙固件并刷进了路由器，就必须手动修改一些值才能自动翻墙。
+你懶得自己编译🪜🧱固件，下载了本教程提供的 Netgear WNDR4300 路由器🪜🧱固件并刷进了路由器，就必须手动修改一些值才能自动🪜🧱。
 
 本教程就针对上面这两种情况。
 
-## 怎样登录已经刷了 OpenWrt 翻墙固件的网件 Netgear WNDR4300 路由器
+## 怎样登录已经刷了 OpenWrt 🪜🧱固件的网件 Netgear WNDR4300 路由器
 
 用网线连接电脑和路由器，将电脑的本地连接 IP 设置为 192.168.1.2，子网掩码为 255.255.255.0，网关为：192.168.1.1
 
