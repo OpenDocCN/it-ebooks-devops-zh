@@ -1,9 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   Nginx 开发从入门到精通 »
-
 # Nginx 开发从入门到精通
 
 ## 缘起

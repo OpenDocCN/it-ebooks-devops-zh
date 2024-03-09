@@ -1,3 +1,9 @@
+# 入门篇
+
+# Git 的基础
+
+# 首先
+
 初次见面，请多多关照。我是生在博多，成长在 Git 社区的「猴子老师」。今天我们要来一起学习版本管理系统「Git」哦。
 
 要把文档还原到编辑前的状态，大家都是怎么做的呢？
@@ -26,6 +32,8 @@ Git 可以在任何时间点，把文档的状态作为更新记录保存起来�
 
 用 Git 管理文件的话，更新的历史会保存在 Git，所以不需要备份文件啦。非常方便吧！
 
+# 管理历史记录的数据库
+
 数据库是记录文件或目录状态的地方，存储着内容修改的历史记录。在数据库的管理下，把文件和目录修改的历史记录放在对应的目录下。
 
 ![管理文件或目录的历史记录的数据库](img/2015-07-04_55974902b801d.png)
@@ -48,6 +56,8 @@ Git 可以在任何时间点，把文档的状态作为更新记录保存起来�
 ![创建数据库的方法](img/git-guidecnimgpostintrocapture_intro1_2_3.png)
 
 下一页将对提交进行说明哦！
+
+# 修改记录的提交
 
 若要把文件或目录的添加和变更保存到数据库，就需要进行提交。
 
@@ -76,6 +86,8 @@ Git 可以在任何时间点，把文档的状态作为更新记录保存起来�
 > 
 > 请以这种格式填写提交信息。
 
+# 工作树和索引
+
 在 Git 管理下，大家实际操作的目录被称为工作树。
 
 在数据库和工作树之间有索引，索引是为了向数据库提交作准备的区域。
@@ -87,6 +99,10 @@ Git 在执行提交的时候，不是直接将工作树的状态保存到数据�
 所以，凭借中间的索引，可以避免工作树中不必要的文件提交，还可以将文件修改内容的一部分加入索引区域并提交。
 
 下一页是上述内容的具体教程哦! 请安装 Git, 试试实操提交吧！
+
+# 教程 1 Git 的基础
+
+# 安装 Git
 
 在安装之前，首先需要搭建使用 Git 的环境。您可以选择 Windows(GUI)、Mac(GUI)、或命令行(主控台)作为安装 Git 的环境。
 
@@ -193,12 +209,14 @@ Git 在执行提交的时候，不是直接将工作树的状态保存到数据�
 请注意: 显示的文字会因所安装的系统或版本的不同而有所差异。
 
 ```
-$ git --version
+      $ git --version
 git version 1.7.7.5 (Apple Git-26)
 
 ```
 
 ![讲解在下一页](img/git-guidecnimgpostintrocapture_intro2_1_1_cui.png)
+
+# 初期设定
 
 安装 Git 之后，请输入您的用户名和电子邮件地址。该设置操作在安装 Git 后进行一次就够了。这些信息将作为提交者信息显示在更新历史中。
 
@@ -231,7 +249,7 @@ git version 1.7.7.5 (Apple Git-26)
 Git 的设定被存放在用户本地目录的.gitconfig 档案里。虽然可以直接编辑配置文件，但在这个教程里我们使用 config 命令。
 
 ```
-$ git config --global user.name "<用户名>"
+      $ git config --global user.name "<用户名>"
 $ git config --global user.email "<电子邮件>"
 
 ```
@@ -239,14 +257,14 @@ $ git config --global user.email "<电子邮件>"
 以下命令能让 Git 以彩色显示。
 
 ```
-$ git config --global color.ui auto
+      $ git config --global color.ui auto
 
 ```
 
 您可以为 Git 命令设定别名。例如：把「checkout」缩略为「co」，然后就使用「co」来执行命令。
 
 ```
-$ git config --global alias.co checkout
+      $ git config --global alias.co checkout
 
 ```
 
@@ -255,7 +273,7 @@ $ git config --global alias.co checkout
 > 如果在 Windows 使用命令行 (Git Bash), 含非 ASCII 字符的文件名会显示为 "\346\226\260\350\246..."。若设定如下，就可以让含非 ASCII 字符的文件名正确显示了。
 
 ```
-$ git config --global core.quotepath off
+      $ git config --global core.quotepath off
 
 ```
 
@@ -264,11 +282,13 @@ $ git config --global core.quotepath off
 外部编辑器必须能与字符编码 UTF-8 和换行码 LF 兼容。
 
 ```
-git config --global core.editor "\"[使用编辑区的路径]\""
+      git config --global core.editor "\"[使用编辑区的路径]\""
 
 ```
 
 设置完成喽！在下一页创建数据库吧！
+
+# 新建数据库
 
 接下来要在本地新建数据库，创建一个名称为「tutorial」的空目录，并把它放在 Git 管理之下。
 
@@ -315,14 +335,14 @@ tutorial 目录的图示显示如下。如果图示没有变化，请从右击�
 首先在任意一个地方创建 tutorial 目录。然后使用 init 命令把该 tutorial 目录移动到本地 Git 数据库。
 
 ```
-$ git init
+      $ git init
 
 ```
 
 按照以下步骤把新创建的 tutorial 目录设置到 Git 数据库。
 
 ```
-$ mkdir tutorial
+      $ mkdir tutorial
 $ cd tutorial
 $ git init
 Initialized empty Git repository in /Users/yourname/Desktop/tutorial/.git/
@@ -331,12 +351,14 @@ Initialized empty Git repository in /Users/yourname/Desktop/tutorial/.git/
 
 接下来，把文件提交到这个数据库里吧！
 
+# 提交文件
+
 在 tutorial 目录新建一个文件，然后将文件添加到数据库。
 
 首先在 tutorial 目录里新建一个名为「sample.txt」的文本文件，请在文件中输入以下的内容：
 
 ```
-连猴子都懂的 Git 命令
+      连猴子都懂的 Git 命令
 
 ```
 
@@ -379,14 +401,14 @@ Initialized empty Git repository in /Users/yourname/Desktop/tutorial/.git/
 请使用 status 命令确认工作树和索引的状态。
 
 ```
-$ git status
+      $ git status
 
 ```
 
 执行 status 命令以确认 tutorial 目录的状态。
 
 ```
-$ git status
+      $ git status
 # On branch master
 #
 # Initial commit
@@ -404,7 +426,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 将文件加入到索引，要使用 add 命令。在指定加入索引的文件。用空格分割可以指定多个文件。
 
 ```
-$ git add ..
+      $ git add ..
 
 ```
 
@@ -420,7 +442,7 @@ $ git add ..
 现在，我们把 sample.txt 加入到索引然后确认一下。
 
 ```
-$ git add sample.txt
+      $ git add sample.txt
 $ git status
 # On branch master
 #
@@ -437,14 +459,14 @@ $ git status
 既然 sample.txt 已加入到索引，我们就可以提交文件了。请执行如下显示的 commit 命令。
 
 ```
-$ git commit -m ""
+      $ git commit -m ""
 
 ```
 
 执行 commit 命令之后确认状态。
 
 ```
-$ git commit -m "first commit"
+      $ git commit -m "first commit"
 [master (root-commit) 116a286] first commit
  0 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 sample.txt
@@ -460,7 +482,7 @@ nothing to commit (working directory clean)
 使用 log 命令，我们可以在数据库的提交记录看到新的提交。
 
 ```
-$ git log
+      $ git log
 commit ac56e474afbbe1eab9ebce5b3ab48ac4c73ad60e
 Author: eguchi 
 Date:   Thu Jul 12 18:00:21 2012 +0900
@@ -482,6 +504,10 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 
 接下来，为大家讲解共享数据库的方法。
 
+# 共享数据库
+
+# push 到远程数据库
+
 前面我们为大家介绍了本地数据库的基本使用方法。下面，我们接着为大家讲解如何在远程数据库上共享本地数据库的修改记录。
 
 ## 推送
@@ -492,6 +518,8 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 
 ![2015-07-04/55978a2692e6d](img/2015-07-04_55978a2692e6d.png)
 
+# 克隆远程数据库
+
 ## 克隆
 
 进行克隆（Clone）操作就可以复制远程数据库。
@@ -501,6 +529,8 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 > Note
 > 
 > 克隆后的本地数据库的变更履历也会被复制，所以可以像原始的数据库一样进行查看记录或其他操作。
+
+# 从远程数据库 pull
 
 若是共享的远程数据库由多人同时作业，那么作业完毕后所有人都要把修改推送到远程数据库。然后，自己的本地数据库也需要更新其他人推送的变更内容。
 
@@ -513,6 +543,10 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 ![2015-07-04/55978a96b05d9](img/2015-07-04_55978a96b05d9.png)
 
 接下来就是新手教程哦！学习一下怎样使用贝格乐远程数据库来共享数据库吧！
+
+# 教程 2 共享数据库
+
+# 在贝格乐建立远程数据库
 
 首先在贝格乐创建远程数据库。
 
@@ -543,6 +577,8 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 ![新数据库添加成功](img/2015-07-04_55978b2c1e2fe.png)
 
 接下来就把修改推送到这个远程数据库吧！
+
+# push 到远程数据库
 
 ## Windows
 
@@ -643,14 +679,14 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 请使用 remote 指令添加远程数据库。在处输入远程数据库名称，在处指定远程数据库的 URL。
 
 ```
-$ git remote add 
+      $ git remote add 
 
 ```
 
 通过运行以下指令，将创建于上一个页面的远程数据库的 URL 命名为“origin”。
 
 ```
-$ git remote add origin _https://[your_space_id].backlogtool.com/git/[your_project_key]/tutorial.git_
+      $ git remote add origin _https://[your_space_id].backlogtool.com/git/[your_project_key]/tutorial.git_
 
 ```
 
@@ -661,7 +697,7 @@ $ git remote add origin _https://[your_space_id].backlogtool.com/git/[your_proje
 使用 push 命令向数据库推送更改内容。处输入目标地址，处指定推送的分支。我们将在高级篇详细地对分支进行说明。
 
 ```
-$ git push  ...
+      $ git push  ...
 
 ```
 
@@ -670,7 +706,7 @@ $ git push  ...
 当被要求输入用户名和密码，请使用您的贝格乐用户名和密码。
 
 ```
-$ git push -u origin master
+      $ git push -u origin master
 Username: <用户名>
 Password: <密码>
 Counting objects: 3, done.
@@ -690,6 +726,8 @@ To https://nulab.backlog.jp/git/BLG/tutorial.git
 ![添加推送数据库的文件](img/git-guidecnimgpostintrocapture_intro4_2_10.png)
 
 下次把这个远端仓库复制到本地吧！
+
+# 克隆远程数据库
 
 假设您是其中一位团队成员，把现有的远程数据库克隆到另一个目录( tutorial2 )。
 
@@ -721,14 +759,14 @@ To https://nulab.backlog.jp/git/BLG/tutorial.git
 在`<directory>`指定新目录的名称。
 
 ```
-$ git clone <repository> <directory>
+      $ git clone <repository> <directory>
 
 ```
 
 执行以下指令后，会在目录(tutorial2) 复制远程数据库。
 
 ```
-$ git clone https://nulab.backlog.jp/git/BLG/tutorial.git tutorial2
+      $ git clone https://nulab.backlog.jp/git/BLG/tutorial.git tutorial2
 Cloning into 'tutorial2'...
 Username: <用户名>
 Password: <密码>
@@ -741,9 +779,11 @@ Unpacking objects: 100% (3/3), done.
 若要验证克隆是否成功，请看在复制的目录“tutorial2”中的 sample.txt 是否含有以下文字。
 
 ```
-连猴子都懂的 Git 命令
+      连猴子都懂的 Git 命令
 
 ```
+
+# 从克隆的数据库进行 push
 
 ## Windows
 
@@ -809,7 +849,7 @@ Unpacking objects: 100% (3/3), done.
 连猴子都懂的 Git 命令
 
 ```
-add 把变更录入到索引中
+      add 把变更录入到索引中
 
 $ git add sample.txt
 $ git commit -m "添加 add 的说明"
@@ -824,7 +864,7 @@ $ git commit -m "添加 add 的说明"
 当在克隆的数据库目录执行推送时，您可以省略数据库和分支名称。
 
 ```
-$ git push
+      $ git push
 Username: <用户名>
 Password: <密码>
 Counting objects: 5, done.
@@ -840,6 +880,8 @@ To https://nulab.backlog.jp/git/BLG/tutorial.git
 请打开贝格乐的 Git 页面。在‘最近更新’处您会看到刚刚推送的提交。
 
 ![在最近的更新中添加了当前推送的许诺](img/git-guidecnimgpostintrocapture_intro4_4_6.png)
+
+# 从远程数据库 pull
 
 ## Windows
 
@@ -877,7 +919,7 @@ pull 操作将在以下画面开始进行。完成 pull 后请点击“关闭”
 使用 pull 指令进行拉取操作。省略数据库名称的话，会在名为 origin 的数据库进行 pull。
 
 ```
-$ git pull <repository> <refspec>...
+      $ git pull <repository> <refspec>...
 
 ```
 
@@ -885,7 +927,7 @@ $ git pull <repository> <refspec>...
 请执行以下指令。
 
 ```
-$ git pull origin master
+      $ git pull origin master
 Username: <用户名>
 Password: <密码>
 From https://nulab.backlog.jp/git/BLG/tutorial
@@ -903,7 +945,7 @@ sample.txt 文档的内容已更新。
 我们使用 log 指令来确认历史记录是否已更新。
 
 ```
-$ git log
+      $ git log
 commit 3da09c1134a41f2bee854a413916e4ebcae7318d
 Author: eguchi <eguchi@nulab.co.jp>
 Date:   Thu Jul 12 18:02:45 2012 +0900
@@ -924,9 +966,21 @@ Date:   Thu Jul 12 18:00:21 2012 +0900
 打开 sample.txt 文件来确认一下内容吧。
 
 ```
-连猴子都懂的 Git 命令
+      连猴子都懂的 Git 命令
 add 把变更录入到索引中
 
 ```
 
 我们可以看到新增内容“add 把变更录入到索引中”。
+
+# 整合修改记录
+
+# 合并修改记录
+
+# 解决冲突
+
+# 教程 3 整合修改记录
+
+# push 冲突的状态
+
+# 解决冲突
