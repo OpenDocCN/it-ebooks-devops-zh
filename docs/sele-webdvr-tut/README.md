@@ -1,5 +1,3 @@
-# 介绍
-
 # Selenium Webdriver 简易教程
 
 作者：[飞龙](https://github.com/wizardforcel)
