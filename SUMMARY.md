@@ -4,6 +4,7 @@
 +   [GitHub 秘籍](docs/gh-cb/README.md)
 +   [Github 漫游指南](docs/gh-manyou/README.md)
 +   [Git 社区之书](docs/git-comm-bk/README.md)
++   [GitHub 权威指南（Got Github）](docs/got-gh/README.md)
 +   [Git 权威指南（Got Git）](docs/got-git/README.md)
 +   [猴子都能懂的 Git 入门](docs/houzi-git-intro/README.md)
 +   [Git 版本控制学习手册](docs/lrn-ver-ctrl-git/README.md)
