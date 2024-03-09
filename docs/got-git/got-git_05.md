@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 5\. 搭建 Git 服务器
 
 团队协作就涉及到搭建 Git 服务器。
@@ -132,14 +125,6 @@
 | [[9]](#id9) | [`gitorious.org`](https://gitorious.org) |
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
 
 # 5.1\. 使用 HTTP 协议
 
@@ -516,14 +501,6 @@ $ sudo aptitude install gitweb
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
-
 # 5.2\. 使用 Git 协议
 
 Git 协议是提供 Git 版本库只读服务的最为常用的协议，也是非常易用和易于配置的协议。该协议的缺点就是不能提供身份认证，而且一般也不提供写入服务。
@@ -608,14 +585,6 @@ runit 是类似于 sysvinit 的服务管理进程，但是更简单。在 Debian
 *   只能提供匿名的版本库读取服务。因为写操作没有授权控制，因此一般不用来提供写操作。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
 
 # 5.3\. 使用 SSH 协议
 
@@ -809,14 +778,6 @@ $ git clone bj:path/to/repos/myrepo.git
 *   认证时使用的公钥文件为`~/.ssh/jiangxin.pub`。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
 
 # 5.4\. Gitolite 服务架设
 
@@ -2142,14 +2103,6 @@ Gitolite 源码的`doc`目录包含用 markdown 标记语言编写的手册，�
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
-
 # 5.5\. Gitosis 服务架设
 
 Gitosis 是 Gitolite 的鼻祖，同样也是一款基于 SSH 公钥认证的 Git 服务管理工具，但是功能要比之前介绍的 Gitolite 要弱的多。Gitosis 由 Python 语言开发，对于偏爱 Python 不喜欢 Perl 的开发者（我就是其中之一），可以对 Gitosis 加以关注。
@@ -2700,14 +2653,6 @@ map readonly * = (.*):\1/repo
 *   版本库的名称要经过变换，例如`system`库会变换为实际路径`/etc/gistore/tasks/system/repo.git`。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
 
 # 5.6\. Gerrit 代码审核服务器
 
@@ -3918,14 +3863,6 @@ Gerrit 涉及到的内容非常庞杂，还有诸如和 Gitweb、git-daemon 整�
 参见：[`gerrit.googlecode.com/svn/documentation/`](http://gerrit.googlecode.com/svn/documentation/)。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   5\. 搭建 Git 服务器 »
 
 # 5.7\. Git 版本库托管
 

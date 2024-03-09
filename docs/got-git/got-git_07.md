@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 7\. Git 的其它应用
 
 Git 的伟大之处，还在于它不仅仅是作为版本库控制系统。Linus Torvalds 对自己最初设计的 Git 原型是这么评价的：Git 是一系列的底层工具用于内容的追踪，基于 Git 可以实现一个版本控制系统。现在 Git 已经是一个最成功的版本控制系统了，而基于 Git 的其他应用才刚刚开始。
@@ -45,14 +38,6 @@ SpaghettiFS 项目尝试用 Git 作为数据存储后端提供了一个用户空
     *   7.4.2\. Git 式云存储畅想
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   7\. Git 的其它应用 »
 
 # 7.1\. etckeeper
 
@@ -129,14 +114,6 @@ Depends: git-core (>= 1:1.5.4) | git (>= 1:1.7) | mercurial | bzr (>= 1.4~) | da
 剩下的工作就交给 Git 了。可以在`/etc`目录执行**git log**、**git show**等操作。但要注意以 root 用户身份运行，因为`/etc/.git`目录的权限不允许普通用户操作。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   7\. Git 的其它应用 »
 
 # 7.2\. Gistore
 
@@ -654,14 +631,6 @@ Gistore 备份库的主体就是`repo.git`，即一个 Git 库。可以通过架
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   7\. Git 的其它应用 »
-
 # 7.3\. 补丁中的二进制文件
 
 有的时候，需要将对代码的改动以补丁文件的方式进行传递，最终合并入版本库。例如直接在软件部署目录内进行改动，再将改动传送到开发平台。或者是因为在某个开源软件的官方版本库中没有提交权限，需要将自己的改动以补丁文件的方式提供给官方。
@@ -993,14 +962,6 @@ bc$}+u^>JfjWMqH=CI&kO5HCR00n7&gGBE;C
 ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   7\. Git 的其它应用 »
 
 # 7.4\. 云存储
 

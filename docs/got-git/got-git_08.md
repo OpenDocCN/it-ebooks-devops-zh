@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 8\. Git 杂谈
 
 Git 有着非常庞杂的命令集和功能，到目前为止尚有一些命令及要点还没有介绍。在构思本书的过程中，我尝试用 FreeMind 软件将准备讲述的 Git 的各个命令和要点在各个章节之间拖动，以期在内容上更加充实，组织上更加合理，讲述上更加方便，但最终还是剩下了一些 Git 命令和要点没有被安排在前面的章节中。于是在本书的最后，对这些不常用的 Git 命令和要点（缺乏他们会对于一本被冠以“权威指南”的书的完备性有影响），放在称为“Git 杂谈”的一遍予以讲述。
@@ -38,14 +31,6 @@ Git 有着非常庞杂的命令集和功能，到目前为止尚有一些命令�
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-
 # 8.1\. 跨平台操作 Git
 
 读者是在什么平台（操作系统）中使用 Git 呢？图 40-1 是网上一个 Git 调查结果的截图，从中可以看出排在前三位的是：Linux、Mac OS X 和 Windows。而 Windows 用户中又以使用 msysGit 的用户居多。
@@ -63,15 +48,6 @@ Git 有着非常庞杂的命令集和功能，到目前为止尚有一些命令�
 *   8.1.3\. 换行符问题
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.1\. 跨平台操作 Git »
 
 # 8.1.1\. 字符集问题
 
@@ -119,15 +95,6 @@ $ git cat-file -p HEAD^{tree} | iconv -f gbk -t utf-8
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.1\. 跨平台操作 Git »
-
 # 8.1.2\. 文件名大小写问题
 
 Linux、Solaris、BSD 及其他类 Unix 操作系统使用的是大小写敏感的文件系统，而 Windows 和 Mac OS X（默认安装）的文件系统则是大小写不敏感的文件系统。即用文件名`README`、`readme`以及`Readme`（混合大小写）进行访问，在 Linux 等操作系统上访问的是不同的文件，而在 Windows 和 Mac OS X 上则指向同一个文件。换句话说，两个不同文件`README`和`readme`在 Linux 等操作系统上可以共存，而在 Windows 和 Mac OS X 上，这两个文件只能同时存在一个，另一个会被覆盖，因为在大小写不敏感的操作系统看来，这两个文件是同一个文件。
@@ -169,15 +136,6 @@ $ git commit
 ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.1\. 跨平台操作 Git »
 
 # 8.1.3\. 换行符问题
 
@@ -271,14 +229,6 @@ Git 提供了名为`core.safecrlf`的配置变量，可以用于捕捉这种不�
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-
 # 8.2\. Git 的其他特性
 
 *   8.2.1\. 属性
@@ -300,15 +250,6 @@ Git 提供了名为`core.safecrlf`的配置变量，可以用于捕捉这种不�
     *   8.2.5.3\. 评注相关配置
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.2\. Git 的其他特性 »
 
 # 8.2.1\. 属性
 
@@ -688,15 +629,6 @@ Git 还支持对更多空白字符的误用做出检测，包括：
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.2\. Git 的其他特性 »
-
 # 8.2.2\. 钩子和模板
 
 ## 8.2.2.1\. Git 钩子
@@ -918,15 +850,6 @@ HEAD     config   objects/ refs/
 可以看到不使用模板目录创建的版本库下面的文件少的可怜。而通过对模板目录下的文件的定制，可以实现在建立的版本库中包含预先设置好的钩子脚本、忽略文件、属性文件等。这对于服务器或者对版本库操作有特殊要求的项目带来方便。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.2\. Git 的其他特性 »
 
 # 8.2.3\. 稀疏检出和浅克隆
 
@@ -1180,15 +1103,6 @@ e64f3a216d346669b85807ffcfb23a21f9c5c187
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.2\. Git 的其他特性 »
-
 # 8.2.4\. 嫁接和替换
 
 ## 8.2.4.1\. 提交嫁接
@@ -1275,15 +1189,6 @@ $ git replace <BRANCH_A_ROOT> <BRANCH_A_NEW_ROOT>
 ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   8\. Git 杂谈 »
-*   8.2\. Git 的其他特性 »
 
 # 8.2.5\. Git 评注
 

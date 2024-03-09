@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 3\. Git 和声
 
 上一篇的各个章节是从个人的视角研究和使用 Git，通过连续的实践不但学习了 Git 的基本用法，还深入地了解了 Git 的奥秘，这些都将成为学习本篇内容的基础。从本章开始，不再是一个人的独奏，而是多人的和声，我们将从团队的视角对 Git 进行研究，要知道 Git 作为版本控制系统，其主要工作就是团队协作。
@@ -92,14 +85,6 @@
         *   3.6.3.2\. Quilt
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   3\. Git 和声 »
 
 # 3.1\. Git 协议与工作协同
 
@@ -553,14 +538,6 @@ Git 提供了至少两种方式对非快进式推送进行限制。一个是通�
 另外一个方法是通过钩子脚本进行设置，可以仅对某些情况下的非快进式推送进行限制，而不是不分青红皁白地一概拒绝。例如：只对部分用户进行限制，而允许特定用户执行非快进式推送，或者允许某些分支可以进行强制提交而其他分支不可以。第 5 篇第三十章会介绍 Gitolite 服务架设，通过授权文件（实际上通过版本库的`update`钩子脚本实现）对版本库非快进式推送做出更为精细的授权控制。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   3\. Git 和声 »
 
 # 3.2\. 冲突解决
 
@@ -1715,14 +1692,6 @@ git merge [-s <strategy>] [-X <strategy-option>] <commit>...
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   3\. Git 和声 »
-
 # 3.3\. Git 里程碑
 
 里程碑即 Tag，是人为对提交进行的命名。这和 Git 的提交 ID 是否太长无关，使用任何数字版本号无论长短，都没有使用一个直观的表意的字符串来得方便。例如：用里程碑名称“v2.1”对应于软件的 2.1 发布版本就比使用提交 ID 要直观得多。
@@ -2806,14 +2775,6 @@ Android 项目是一个非常有特色的使用 Git 版本库的项目，在后�
     ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   3\. Git 和声 »
 
 # 3.4\. Git 分支
 
@@ -4456,14 +4417,6 @@ To file:///path/to/repos/hello-world.git
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   3\. Git 和声 »
-
 # 3.5\. 远程版本库
 
 Git 作为分布式版本库控制系统，每个人都是本地版本库的主人，可以在本地的版本库中随心所欲地创建分支和里程碑。当需要多人协作时，问题就出现了：
@@ -5022,14 +4975,6 @@ $ git remote add --no-tags hell-world \
     如果将配置`receive.denyDeletes`设置为`true`，则禁止删除分支。同样更好的方法是通过架设基于 SSH 协议的 Git 服务器，配置分支删除的用户权限。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   3\. Git 和声 »
 
 # 3.6\. 补丁文件交互
 

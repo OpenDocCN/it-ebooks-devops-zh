@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 1\. 初识 Git
 
 Git 是一款分布式版本控制系统，有别于 CVS 和 SVN 等集中式版本控制系统，Git 可以让研发团队更加高效地协同工作、提高生产率。使用 Git，开发人员的工作不会因为频繁地遭遇提交冲突而中断，管理人员也无须为数据的备份而担心。经过 Linux 这样庞大的项目的考验之后，Git 被证明可以胜任任何规模的团队，即便这个团队的成员分布于世界各地。
@@ -68,14 +61,6 @@ Git 是开源社区奉献给每一个人的宝贝，用好它可以实现个人�
         *   1.3.4.7\. TortoiseGit 的中文支持
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
 
 # 1.1\. 版本控制的前世和今生
 
@@ -357,14 +342,6 @@ Linus 以一个文件系统专家和内核设计者的视角对 Git 进行了设
 | [[14]](#id16) | [`marc.info/?l=git&m=112243466603239`](http://marc.info/?l=git&m=112243466603239) |
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
 
 # 1.2\. 爱上 Git 的理由
 
@@ -829,14 +806,6 @@ Git 命令的分页器支持带颜色的字符输出，对于太长的行则采�
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
-
 # 1.3\. 安装 Git
 
 Git 源自 Linux，现在已经可以部署在所有的主流平台之上，包括 Linux、Mac OS X 和 Windows 等。在开始我们 Git 之旅之前，首先要做的就是安装 Git。
@@ -871,15 +840,6 @@ Git 源自 Linux，现在已经可以部署在所有的主流平台之上，包�
     *   1.3.4.7\. TortoiseGit 的中文支持
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
-*   1.3\. 安装 Git »
 
 # 1.3.1\. Linux 下安装和使用 Git
 
@@ -1115,15 +1075,6 @@ $ git status -s
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
-*   1.3\. 安装 Git »
-
 # 1.3.2\. Mac OS X 下安装和使用 Git
 
 Mac OS X 被称为最人性化的操作系统，工作在 Mac 上是件非常惬意的事情，工作中怎能没有 Git？
@@ -1316,15 +1267,6 @@ Git 的图形工具一般需要在本地克隆版本库的工作区中执行，�
 由于 Mac OS X 采用 Unix 内核，在中文支持上和 Linux 相近，请参照前面介绍 Git 在 Linux 下安装中 3.1.5 节相关内容。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
-*   1.3\. 安装 Git »
 
 # 1.3.3\. Windows 下安装和使用 Git（Cygwin 篇）
 
@@ -1686,15 +1628,6 @@ $ export GIT_SSH=~/bin/ssh-jiangxin
 ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   1\. 初识 Git »
-*   1.3\. 安装 Git »
 
 # 1.3.4\. Windows 下安装和使用 Git（msysGit 篇）
 

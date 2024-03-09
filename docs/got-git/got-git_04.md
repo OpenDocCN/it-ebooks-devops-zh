@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 4\. Git 协同模型
 
 分布式的版本控制会不会造成开发中的无序，导致版本管理的崩溃？对于习惯了如 Subversion 这类的集中式版本控制系统的用户，脑子里一定会有这个疑问。
@@ -105,14 +98,6 @@
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
-
 # 4.1\. 经典 Git 协同模型
 
 ## 4.1.1\. 集中式协同模型
@@ -187,14 +172,6 @@ Gerrit 服务器通过 SSH 协议管理 Git 版本库，并实现了一个 Web �
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
-
 # 4.2\. 金字塔式协同模型
 
 自从分布式版本库控制系统（Mercurial/Hg、Bazaar、Git 等）诞生之后，有越来越多的开源项目迁移了版本控制系统，例如从 Subversion 或 CVS 迁移到分布式版本控制系统。因为众多的开源项目逐渐认识到，集中式的版本控制管理方式阻止了更多的人参与项目的开发，对项目的发展不利。
@@ -255,14 +232,6 @@ Linux 社区就是典型的金字塔结构。Linus Torvalds 的版本库被公�
 在第 3 篇第二十章“补丁文件交互”已经详细介绍了该模式的工作流程，请参考相关章节。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
 
 # 4.3\. Topgit 协同模型
 
@@ -1265,14 +1234,6 @@ Topgit 本身就是对特性分支进行管理的软件。Topgit 的某个时刻
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
-
 # 4.4\. 子模组协同模型
 
 项目的版本库某些情况下需要引用其他版本库中的文件，例如公司积累了一套常用的函数库，被多个项目调用，显然这个函数库的代码不能直接放到某个项目的代码中，而是要独立为一个代码库，那么其他项目要调用公共的函数库，该如何处理呢？分别把公共函数库的文件拷贝到各自的项目中，会造成冗余，丢弃了公共函数库的维护历史，显然不是好的方法。本节要讨论的子模组协同模型，就是解决这个问题的一个方案。
@@ -1847,14 +1808,6 @@ $ git submodule status
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
-
 # 4.5\. 子树合并
 
 使用子树合并，同样可以实现在一个项目中引用其他项目的数据。但是和子模组方式不同的是，使用子树合并模式，外部的版本库整个复制到本版本库中并建立跟踪关联。使用子树合并模型，使得对源自外部版本库的数据的访问和本版本库数据的访问没有区别，也可以对其进行本地修改，并且能够以子树合并的方式将源自外部版本库的改动和本地的修改相合并。
@@ -2308,14 +2261,6 @@ git subtree push -P <prefix> <repository> <refspec...>
 该命令的用法和**git subtree split**类似，不再赘述。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
 
 # 4.6\. Android 式多版本库协同
 
@@ -3374,14 +3319,6 @@ Version of manifest: v0.1.2
 ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   4\. Git 协同模型 »
 
 # 4.7\. Git 和 SVN 协同模型
 

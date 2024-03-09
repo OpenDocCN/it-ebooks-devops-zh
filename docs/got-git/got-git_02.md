@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 2\. Git 独奏
 
 通过前面的章节，我们了解了版本控制系统的历史，也学习了如何安装 Git。从这一章开始，我们就真正地进入到 Git 的学习中。Git 有着陡峭的学习曲线，即使是有着其他版本控制工具经验的老手也不例外。因为有经验的老手会按照在其他版本控制系统中遗留的习惯去想当然地操作 Git，努力地在 Git 中寻找对应物，最终会因为 Git 的“别扭”而放弃使用。这也是作者的亲身经历。
@@ -94,14 +87,6 @@ Git 是开源社区送给每一个人的宝贝，用好它可以实现个人的�
     *   2.11.5\. Git 管家的自动执行
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.1\. Git 初始化
 
@@ -604,14 +589,6 @@ done.
 | [[4]](#id6) | 示例中使用了 Linux 下的**strace**命令跟踪系统调用，在 Mac OS X 下则可使用**sudo dtruss git status**命令跟踪相关 Git 操作的系统调用。 |
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.2\. Git 暂存区
 
@@ -1246,14 +1223,6 @@ nothing to commit (working directory clean)
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
-
 # 2.3\. Git 对象
 
 在上一章学习了 Git 的一个最重要的概念：暂存区（stage，亦称 index）。暂存区是一个介于工作区和版本库的中间状态，当执行提交时实际上是将暂存区的内容提交到版本库中，而且 Git 很多命令都会涉及到暂存区的概念，例如：**git diff**命令。
@@ -1747,14 +1716,6 @@ $ git rev-parse e695^^{tree}
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
-
 # 2.4\. Git 重置
 
 在上一章了解了版本库中对象的存储方式以及分支 master 的实现。即 master 分支在版本库的引用目录（.git/refs）中体现为一个引用文件`.git/refs/heads/master`，其内容就是分支中最新提交的提交 ID。
@@ -2043,14 +2004,6 @@ e695606 master@{4}: commit: which version checked in?
     彻底撤销最近的提交。引用回退到前一次，而且工作区和暂存区都会回退到上一次提交的状态。自上一次以来的提交全部丢失。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.5\. Git 检出
 
@@ -2367,14 +2320,6 @@ index 0000000..e69de29
     注意：**git checkout**命令后的参数为一个点（“.”）。这条命令最危险！会取消所有本地的修改（相对于暂存区）。相当于将暂存区的所有文件直接覆盖本地文件，不给用户任何确认的机会！
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.6\. 恢复进度
 
@@ -2922,14 +2867,6 @@ ls: cannot access .git/logs/refs/stash: No such file or directory
 通过上面的这些分析，有一定 Shell 编程基础的读者就可以尝试研究`git-stash`的代码了，可能会有新的发现。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.7\. Git 基本操作
 
@@ -3865,14 +3802,6 @@ doc/*.txt # 忽略文件如 doc/notes.txt，但是文件如 doc/server/arch.txt 
 如果希望在建立归档时忽略某些文件或目录，可以通过为相应文件或目录建立`export-ignore`属性加以实现。具体参见本书第 8 篇第四十一章“41.1 属性”一节。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.8\. 历史穿梭
 
@@ -5078,14 +5007,6 @@ Git 的二分查找命令支持`run`子命令，可以运行一个自动化测�
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
-
 # 2.9\. 改变历史
 
 我是《回到未来》的粉丝，偶尔会做梦，梦见穿梭到未来拿回一本 2000-2050 体育年鉴。操作 Git 可以体验到穿梭时空的感觉，因为 Git 像极了一个时光机器，不但允许你在历史中穿梭，而且能够改变历史。
@@ -6245,14 +6166,6 @@ Date:   Sun Dec 12 12:11:00 2010 +0800
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
-
 # 2.10\. Git 克隆
 
 到现在为止，读者已经零略到 Git 的灵活性以及健壮性。Git 可以通过重置随意撤销提交，可以通过变基操作更改历史，可以随意重组提交，还可以通过 reflog 的记录纠正错误的操作。但是再健壮的版本库设计，也抵挡不了存储介质的崩溃。还有一点就是不要忘了 Git 版本库是躲在工作区根目录下的`.git`目录中，如果忘了这一点直接删除工作区，就会把版本库也同时删掉，悲剧就此发生。
@@ -6643,14 +6556,6 @@ $ git ls-remote /path/to/repos/demo-init.git
 至此相信读者已经能够把鸡蛋放在不同的篮子中了，也对 Git 更加的喜爱了吧。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   2\. Git 独奏 »
 
 # 2.11\. Git 库管理
 

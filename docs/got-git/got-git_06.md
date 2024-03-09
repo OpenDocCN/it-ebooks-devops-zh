@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 6\. 迁移到 Git
 
 随着 Git 版本控制系统的成熟，越来越多的项目把版本控制系统迁移到了 Git 上。迁移大多是无损的，即迁移到 Git 后忠实的保留之前的变更历史、分支和里程碑。如果正打算迁移版本控制系统，本篇介绍的版本库迁移方法和注意事项将会为你提供帮助。
@@ -37,14 +30,6 @@
         *   6.2.4.8\. 子目录过滤器
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   6\. 迁移到 Git »
 
 # 6.1\. CVS 版本库到 Git 的迁移
 
@@ -520,14 +505,6 @@ CVS 版本库中可能存在`.cvsignore`文件用于设置文件忽略，相当�
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   6\. 迁移到 Git »
-
 # 6.2\. 更多版本控制系统的迁移
 
 *   6.2.1\. SVN 版本库到 Git 的迁移
@@ -544,15 +521,6 @@ CVS 版本库中可能存在`.cvsignore`文件用于设置文件忽略，相当�
     *   6.2.4.8\. 子目录过滤器
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   6\. 迁移到 Git »
-*   6.2\. 更多版本控制系统的迁移 »
 
 # 6.2.1\. SVN 版本库到 Git 的迁移
 
@@ -624,15 +592,6 @@ $ git config svn.authorsfile /path/to/authersfile
 git-svn 的中间文件位于目录`.git/svn`下，删除此目录完成对 git-svn 转换数据库文件的清理。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   6\. 迁移到 Git »
-*   6.2\. 更多版本控制系统的迁移 »
 
 # 6.2.2\. Hg 版本库到 Git 的迁移
 
@@ -727,15 +686,6 @@ $ git checkout -b <branch2> origin/<name2>/master
 ```
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   6\. 迁移到 Git »
-*   6.2\. 更多版本控制系统的迁移 »
 
 # 6.2.3\. 通用版本库迁移
 
@@ -1008,15 +958,6 @@ fast-import: dumping crash report to .git/fast_import_crash_21772
 理解了`git fast-import`的导入文件格式，针对特定的版本控制系统开发一个新的迁移工具不是难事。Hg 的迁移工具**fast-export**是一个很好的参照。
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   6\. 迁移到 Git »
-*   6.2\. 更多版本控制系统的迁移 »
 
 # 6.2.4\. Git 版本库整理
 

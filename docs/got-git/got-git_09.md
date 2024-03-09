@@ -1,10 +1,3 @@
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-
 # 9\. 附录
 
 目录:
@@ -31,14 +24,6 @@
     *   9.4.2\. Hg 和 Git 命令对照
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   9\. 附录 »
 
 # 9.1\. A. Git 命令索引
 
@@ -257,14 +242,6 @@ $ git --exec-path
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
 
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   9\. 附录 »
-
 # 9.2\. Git 与 CVS 面对面
 
 ## 9.2.1\. 面对面访谈录
@@ -368,14 +345,6 @@ CVS：我能添加空目录，你好像不能吧！
 | 参数 -kv 开启关键字扩展 | export-subst 属性 |
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   next |
-*   previous |
-*   GotGit »
-*   9\. 附录 »
 
 # 9.3\. Git 和 SVN 面对面
 
@@ -502,13 +471,6 @@ SVN：我能添加空目录，你好像不能吧！
 | svn:keywords | export-subst 属性 |
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   previous |
-*   GotGit »
-*   9\. 附录 »
 
 # 9.4\. Git 和 Hg 面对面
 
@@ -647,11 +609,6 @@ username = Firstname Lastname <mail@addr>
 | hgk 扩展 | gitk |
 
 © Copyright 2011, 蒋鑫. Created using [Sphinx](http://sphinx-doc.org/) 1.3.4.
-
-### Navigation
-
-*   index
-*   GotGit »
 
 # Index
 
