@@ -1,10 +1,20 @@
+# 6\. Git 生态体系
+
+# Git 与之 Windows
+
 (mSysGit)[[`code.google.com/p/msysgit/`](http://code.google.com/p/msysgit/)]
+
+# 使用 Git 进行系统部署
 
 ### Capistrano 与 Git
 
 [GitHub Guide on Deploying with Cap](http://github.com/guides/deploying-with-capistrano)
 
 [Git and Capistrano Screencast](http://www.vimeo.com/369095)
+
+# 与 Subversion 集成
+
+# 从其他代码管理工具迁移到 Git
 
 你决定要把你的整个项目从原来的代码管理工具迁移到 Git, 要怎么做才比较简单呢?
 
@@ -13,7 +23,7 @@
 Git 包含了一个名为 git-svn 的脚本, 它有一个克隆(clone)命令, 可以把一个 Subversion 仓库导入到一个新的 Git 仓库. GitHub 上也有完成同样工作的免费工具.
 
 ```
-      $ git-svn clone http://my-project.googlecode.com/svn/trunk new-project
+$ git-svn clone http://my-project.googlecode.com/svn/trunk new-project
 
 ```
 
@@ -24,7 +34,7 @@ Git 包含了一个名为 git-svn 的脚本, 它有一个克隆(clone)命令, �
 在 contrib/fast-import 目录下, 你会找到 git-p4 脚本, 它会帮你导入 Perforce 仓库.
 
 ```
-      $ ~/git.git/contrib/fast-import/git-p4 clone //depot/project/main@all myproject
+$ ~/git.git/contrib/fast-import/git-p4 clone //depot/project/main@all myproject
 
 ```
 
@@ -39,6 +49,8 @@ These are other SCMs that listed high on the Git Survey, should find import docs
 
 *   Darcs
 *   ClearCase
+
+# 图形化的 Git
 
 Git 有不少图形化界面工具用于读取和维护仓库.
 
@@ -58,13 +70,19 @@ Mac 用户可以参考 [GitX](http://gitx.frim.nl/) and [GitNub](http://githu
 
 Linux 和其他一些 Qt 用户可以参考 [QGit](http://digilander.libero.it/mcostalba/)
 
+# Git 仓库托管
+
 [github](http://wwww.github.com/)
 
 [repo.or.cz](http://repo.or.cz/)
 
+# Git 的其它用法
+
 ContentDistribution
 
 [TicGit](http://github.com/schacon/ticgit)
+
+# Git 的脚本支持
 
 ## Ruby 与 Git
 
@@ -83,6 +101,8 @@ pygit
 perlgit
 
 > 译者注:　此章的英文版原文也只是列出了大纲, 因此中文版看出起就很单薄, 以后我们尽量完善:)
+
+# Git 与编辑器
 
 textmate
 

@@ -542,7 +542,7 @@ tftp 刷固件的方式，不管原来的固件是什么格式，都可以刷 fa
     *   运行命令：
 
         ```
-         cd C:\
+   cd C:\
           tftp -i 192.168.1.1 put openwrt-ar71xx-nand-wndr3700v4-ubi-factory.img 
         ```
 

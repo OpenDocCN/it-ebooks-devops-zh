@@ -121,7 +121,7 @@ Git 是一个活跃的项目，仍在不断的进化之中，不同 Git 版本�
     *   如果拥有系统管理员权限（可以执行**sudo**命令），希望注册的命令别名能够被所有用户使用，可以执行如下命令：
 
         ```
-        $ sudo git config --system alias.br branch
+  $ sudo git config --system alias.br branch
         $ sudo git config --system alias.ci "commit -s"
         $ sudo git config --system alias.co checkout
         $ sudo git config --system alias.st "-p status"
@@ -131,7 +131,7 @@ Git 是一个活跃的项目，仍在不断的进化之中，不同 Git 版本�
     *   也可以运行下面的命令，只在本用户的全局配置中添加 Git 命令别名：
 
         ```
-        $ git config --global alias.st status
+  $ git config --global alias.st status
         $ git config --global alias.ci "commit -s"
         $ git config --global alias.co checkout
         $ git config --global alias.br branch
@@ -2409,7 +2409,7 @@ $ git status
     *   执行提交：
 
         ```
-        $ git commit -m "add new file: a/b/c/hello.txt, but leave welcome.txt alone."
+  $ git commit -m "add new file: a/b/c/hello.txt, but leave welcome.txt alone."
         [master 6610d05] add new file: a/b/c/hello.txt, but leave welcome.txt alone.
          1 files changed, 2 insertions(+), 0 deletions(-)
          create mode 100644 a/b/c/hello.txt
@@ -2419,7 +2419,7 @@ $ git status
     *   查看提交后的状态：
 
         ```
-        $ git status -s
+  $ git status -s
          M welcome.txt
 
         ```
@@ -2429,14 +2429,14 @@ $ git status
     *   用重置命令放弃最新的提交：
 
         ```
-        $ git reset --soft HEAD^
+  $ git reset --soft HEAD^
 
         ```
 
     *   查看最新的提交日志，可以看到前面的提交被抛弃了。
 
         ```
-        $ git log -1 --pretty=oneline
+  $ git log -1 --pretty=oneline
         2b31c199d5b81099d2ecd91619027ab63e8974ef Merge commit 'acc2f69'
 
         ```
@@ -2444,7 +2444,7 @@ $ git status
     *   工作区和暂存区的状态也都维持原来的状态。
 
         ```
-        $ git status -s
+  $ git status -s
         A  a/b/c/hello.txt
          M welcome.txt
 
@@ -2492,14 +2492,14 @@ $ git status
         实际对于此例执行**git checkout .**也可以。
 
         ```
-        $ git checkout -- welcome.txt
+  $ git checkout -- welcome.txt
 
         ```
 
     *   工作区显示还有一个多余的目录`a`。
 
         ```
-        $ git status
+  $ git status
         # On branch master
         # Untracked files:
         #   (use "git add <file>..." to include in what will be committed)
@@ -2511,7 +2511,7 @@ $ git status
     *   删除本地多余的目录和文件，可以使用**git clean**命令。先来测试运行以便看看哪些文件和目录会被删除，以免造成误删。
 
         ```
-        $ git clean -nd
+  $ git clean -nd
         Would remove a/
 
         ```
@@ -2519,7 +2519,7 @@ $ git status
     *   真正开始强制删除多余的目录和文件。
 
         ```
-        $ git clean -fd
+  $ git clean -fd
         Removing a/
 
         ```
@@ -2527,7 +2527,7 @@ $ git status
     *   整个世界清净了。
 
         ```
-        $ git status -s
+  $ git status -s
 
         ```
 
@@ -2558,7 +2558,7 @@ $ git status
     *   这条命令实际上是第一条**git stash**命令的完整版。即如果需要在保存工作进度的时候使用指定的说明，必须使用如下格式：
 
         ```
-        git stash save "message..."
+  git stash save "message..."
 
         ```
 
@@ -4331,7 +4331,7 @@ Git 的大部分命令可以使用提交版本作为参数（如：**git diff <c
     *   语法：`^B C`
 
         ```
-        $ git rev-list --oneline  ^B C
+  $ git rev-list --oneline  ^B C
         0cd7f2e commit C.
 
         ```
@@ -4339,7 +4339,7 @@ Git 的大部分命令可以使用提交版本作为参数（如：**git diff <c
     *   语法：`C ^B`
 
         ```
-        $ git rev-list --oneline  C ^B
+  $ git rev-list --oneline  C ^B
         0cd7f2e commit C.
 
         ```
@@ -4347,7 +4347,7 @@ Git 的大部分命令可以使用提交版本作为参数（如：**git diff <c
     *   语法：`B..C`相当于`^B C`
 
         ```
-        $ git rev-list --oneline  B..C
+  $ git rev-list --oneline  B..C
         0cd7f2e commit C.
 
         ```
@@ -4355,7 +4355,7 @@ Git 的大部分命令可以使用提交版本作为参数（如：**git diff <c
     *   语法：`C..B`相当于`^C B`
 
         ```
-        $ git rev-list --oneline  C..B
+  $ git rev-list --oneline  C..B
         776c5c9 Commit B: merge D with E and F
         212efce Commit D: merge G with H
         83be369 commit E.

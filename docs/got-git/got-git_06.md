@@ -246,7 +246,7 @@ cvs2svn 软件包提供了一个 cvs2git 的配置示例文件，见源码中的
         缺省使用**cvs**命令做导出，最稳定。
 
         ```
-        ctx.revision_collector = GitRevisionCollector(
+  ctx.revision_collector = GitRevisionCollector(
             'cvs2svn-tmp/git-blob.dat',
 
             #RCSRevisionReader(co_executable=r'co'),
@@ -258,7 +258,7 @@ cvs2svn 软件包提供了一个 cvs2git 的配置示例文件，见源码中的
     *   另外一个导出文件的缺省位置：`cvs2svn-tmp/git-dump.dat`。
 
         ```
-        ctx.output_option = GitOutputOption(
+  ctx.output_option = GitOutputOption(
             os.path.join(ctx.tmpdir, 'git-dump.dat'),
 
             # The blobs will be written via the revision recorder, so in

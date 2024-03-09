@@ -1,9 +1,13 @@
+# 4\. 中级技能
+
+# 忽略某些文件
+
 项目中经常会生成一些 Git 系统不需要追踪(track)的文件。典型的是在编译生成过程中 产生的文件或是编程器生成的临时备份文件。当然，你不追踪(track)这些文件，可以 平时不用"git add"去把它们加到索引中。 但是这样会很快变成一件烦人的事，你发现 项目中到处有未追踪(untracked)的文件; 这样也使"`git add .`" 和"`git commit -a`" 变得实际上没有用处，同时"`git status`"命令的输出也会有它们。
 
 你可以在你的顶层工作目录中添加一个叫".gitignore"的文件，来告诉 Git 系统要忽略 掉哪些文件，下面是文件内容的示例:
 
 ```
-      # 以'#' 开始的行，被视为注释.
+# 以'#' 开始的行，被视为注释.
 # 忽略掉所有文件名是 foo.txt 的文件.
 foo.txt
 # 忽略所有生成的 html 文件,
@@ -19,10 +23,12 @@ foo.txt
 
 如果你想忽略规则只对特定的仓库起作用,你可以把这些忽略规则写到你的仓库下 `.git/info/exclude`文件中，或是写在 Git 配置变量`core.excludesfile`中指定的 文件里。有些 Git 命令也可在命令行参数中指定忽略规则，你可以在这里:[gitignore](http://www.kernel.org/pub/software/scm/git/docs/gitignore.html) 查看详细的用法。
 
+# rebase
+
 假设你现在基于远程分支"origin"，创建一个叫"mywork"的分支。
 
 ```
-      $ git checkout -b mywork origin
+$ git checkout -b mywork origin
 
 ```
 
@@ -31,7 +37,7 @@ foo.txt
 现在我们在这个分支做一些修改，然后生成两个提交(commit).
 
 ```
-      $ vi file.txt
+$ vi file.txt
 $ git commit
 $ vi otherfile.txt
 $ git commit
@@ -50,7 +56,7 @@ $ git commit
 但是，如果你想让"mywork"分支历史看起来像没有经过任何合并一样，你也许可以用 [git rebase](http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html):
 
 ```
-      $ git checkout mywork
+$ git checkout mywork
 $ git rebase origin
 
 ```
@@ -70,7 +76,7 @@ $ git rebase origin
 在 rebase 的过程中，也许会出现冲突(conflict). 在这种情况，Git 会停止 rebase 并会让你去解决 冲突；在解决完冲突后，用"git-add"命令去更新这些内容的索引(index), 然后，你无需执行 git-commit,只要执行:
 
 ```
-      $ git rebase --continue
+$ git rebase --continue
 
 ```
 
@@ -79,16 +85,18 @@ $ git rebase origin
 在任何时候，你可以用`--abort`参数来终止 rebase 的行动，并且"mywork" 分支会回到 rebase 开始前的状态。
 
 ```
-      $ git rebase --abort
+$ git rebase --abort
 
 ```
+
+# 交互式 rebase
 
 你亦可以选择进行交互式的 rebase。这种方法通常用于在向别处推送提交之前对它们进行重写。交互式 rebase 提供了一个简单易用的途径让你在和别人分享提交之前对你的提交进行分割、合并或者重排序。在把从其他开发者处拉取的提交应用到本地时，你也可以使用交互式 rebase 对它们进行清理。
 
 如果你想在 rebase 的过程中对一部分提交进行修改，你可以在'git rebase'命令中加入'-i'或'--interactive'参数去调用交互模式。
 
 ```
-      $ git rebase -i origin/master
+$ git rebase -i origin/master
 
 ```
 
@@ -97,14 +105,14 @@ $ git rebase origin
 若想查看一下将被 rebase 的提交，可以用如下的 log 命令：
 
 ```
-      $ git log github/master..
+$ git log github/master..
 
 ```
 
 一旦运行了'rebase -i'命令，你所预设的编辑器会被调用，其中含有如下的内容：
 
 ```
-      pick fc62e55 added file_size
+pick fc62e55 added file_size
 pick 9824bf4 fixed little thing
 pick 21d80a5 added number to log
 pick 76b9da6 added the apply command
@@ -126,7 +134,7 @@ pick c264051 Revert "added file_size" - not implemented correctly
 这些信息表示从你上一次推送操作起有 5 个提交。每个提交都用一行来表示，行格式如下：
 
 ```
-      (action) (partial-sha) (short commit message)
+(action) (partial-sha) (short commit message)
 
 ```
 
@@ -137,7 +145,7 @@ pick c264051 Revert "added file_size" - not implemented correctly
 如果指定进行'squash'操作，git 会把这个提交和前一个提交合并成为一个新的提交。这会再次调用编辑器，你在里面合并这两个提交的提交信息。所以，如果你（在上一步）以如下的内容离开编辑器：
 
 ```
-      pick   fc62e55 added file_size
+pick   fc62e55 added file_size
 squash 9824bf4 fixed little thing
 squash 21d80a5 added number to log
 squash 76b9da6 added the apply command
@@ -148,7 +156,7 @@ squash c264051 Revert "added file_size" - not implemented correctly
 你必须基于以下的提交信息创建一个新的提交信息：
 
 ```
-      # This is a combination of 5 commits.
+# This is a combination of 5 commits.
 # The first commit's message is:
 added file_size
 
@@ -179,7 +187,7 @@ This reverts commit fc62e5543b195f18391886b9f663d5a7eca38e84.
 例如你想要分割一个提交，你需要对那个提交指定'edit'操作：
 
 ```
-      pick   fc62e55 added file_size
+pick   fc62e55 added file_size
 pick   9824bf4 fixed little thing
 edit   21d80a5 added number to log
 pick   76b9da6 added the apply command
@@ -190,7 +198,7 @@ pick   c264051 Revert "added file_size" - not implemented correctly
 你会进入到命令行，撤消（revert）该提交，然后创建两个（或者更多个）新提交。假设提交 21d80a5 修改了两个文件，file1 和 file2，你想把这两个修改放到不同的提交里。你可以在进入命令行之后进行如下的操作：
 
 ```
-      $ git reset HEAD^
+$ git reset HEAD^
 $ git add file1
 $ git commit 'first part of split commit'
 $ git add file2
@@ -203,10 +211,12 @@ $ git rebase --continue
 
 交互式 rebase 的最后一个作用是丢弃提交。如果把一行删除而不是指定'pick'、'squash'和'edit'中的任何一个，git 会从历史中移除该提交。
 
+# 交互式添加
+
 交互式添加提供友好的界面去操作 Git 索引（index），同时亦提供了可视化索引的能力。只需简单键入'git add -i'，即可使用此功能。Git 会列出所有修改过的文件及它们的状态。
 
 ```
-      $>git add -i
+$>git add -i
            staged     unstaged path
   1:    unchanged        +4/-0 assets/stylesheets/style.css
   2:    unchanged      +23/-11 layout/book_index_template.html
@@ -226,7 +236,7 @@ What now>
 如果我们想要暂存（stage）这些文件，我们可以键入'2'或者'u'进入更新（update）模式。然后我们可以通过键入文件的范围（本例中是 1-4）来决定把哪些文件加入到索引之中。
 
 ```
-      What now> 2
+What now> 2
            staged     unstaged path
   1:    unchanged        +4/-0 assets/stylesheets/style.css
   2:    unchanged      +23/-11 layout/book_index_template.html
@@ -247,7 +257,7 @@ Update>>
 如果键入回车，我会回到主菜单中，同时可以看到那些指定文件的状态已经发生了改变：
 
 ```
-      What now> status
+What now> status
            staged     unstaged path
   1:        +4/-0      nothing assets/stylesheets/style.css
   2:      +23/-11      nothing layout/book_index_template.html
@@ -260,7 +270,7 @@ Update>>
 现在我们可以看到前 4 个文件已经被暂存，但是最后一个没有。基本上，这是一个更加紧凑的查看状态的方式，实质上的信息与我们在命令行中运行'git status'是一致的：
 
 ```
-      $ git status
+$ git status
 # On branch master
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
@@ -285,7 +295,7 @@ Update>>
 这里我暂存了 book_index_template.html 的部分修改，而不是全部修改：
 
 ```
-               staged     unstaged path
+         staged     unstaged path
 1:        +4/-0      nothing assets/stylesheets/style.css
 2:       +20/-7        +3/-4 layout/book_index_template.html
 3:        +7/-7      nothing layout/chapter_template.html
@@ -297,10 +307,12 @@ Update>>
 
 当你通过'git add -i'完成对索引的改动后，你只需要退出（7: quit），然后'git commit'去提交暂存的修改。切记**不要**运行'git commit -a'，它会忽视你刚才辛辛苦苦做的修改而把所有东西都提交到仓库中去。
 
+# 储藏
+
 当你正在做一项复杂的工作时, 发现了一个和当前工作不相关但是又很讨厌的 bug. 你这时想先修复 bug 再做手头的工作, 那么就可以用 [git stash](http://www.kernel.org/pub/software/scm/git/docs/git-stash.html) 来保存当前的工作状态, 等你修复完 bug 后,执行'反储藏'(unstash)操作就可以回到之前的工作里.
 
 ```
-      $ git stash "work in progress for foo feature"
+$ git stash "work in progress for foo feature"
 
 ```
 
@@ -309,7 +321,7 @@ Update>>
 好了, 你现在就可以开始你的修复工作了.
 
 ```
-      ... edit and test ...
+... edit and test ...
 $ git commit -a -m "blorpl: typofix"
 
 ```
@@ -317,7 +329,7 @@ $ git commit -a -m "blorpl: typofix"
 当你修复完 bug 后, 你可以用`git stash apply`来回复到以前的工作状态.
 
 ```
-      $ git stash apply
+$ git stash apply
 
 ```
 
@@ -326,13 +338,15 @@ $ git commit -a -m "blorpl: typofix"
 你也可多次使用'git stash'命令,　每执行一次就会把针对当前修改的‘储藏’(stash)添加到储藏队列中. 用'git stash list'命令可以查看你保存的'储藏'(stashes):
 
 ```
-      $>git stash list
+$>git stash list
 stash@{0}: WIP on book: 51bea1d... fixed images
 stash@{1}: WIP on master: 9705ae6... changed the browse code to the official repo
 
 ```
 
 可以用类似'git stash apply stash@{1}'的命令来使用在队列中的任意一个'储藏'(stashes). 'git stash clear‘则是用来清空这个队列。
+
+# Git 树名
 
 不用 40 个字节长的 SHA 串来表示一个提交(commit)或是其它 git 对象, 有很多种名字表示方法.　在 Git 里,这些名字就叫'树名'(treeish).
 
@@ -343,7 +357,7 @@ stash@{1}: WIP on master: 9705ae6... changed the browse code to the official rep
 如果你的一个提交(commit)的 sha 名字是 '`980e3ccdaac54a0d4de358f3fe5d718027d96aae`', git 会把下面的串视为等价的:
 
 ```
-      980e3ccdaac54a0d4de358f3fe5d718027d96aae
+980e3ccdaac54a0d4de358f3fe5d718027d96aae
 980e3ccdaac54a0d4
 980e3cc
 
@@ -356,7 +370,7 @@ stash@{1}: WIP on master: 9705ae6... changed the browse code to the official rep
 你可以使用分支,remote 或标签名来代替 SHA 串名, 它们只是指向某个对象的指针. 假设你的 master 分支目前在提交(commit):'980e3'上, 现在把它推送(push)到 origin 上并把它命名为标签'v1.0', 那么下面的串都会被 git 视为等价的:
 
 ```
-      980e3ccdaac54a0d4de358f3fe5d718027d96aae
+980e3ccdaac54a0d4de358f3fe5d718027d96aae
 origin/master
 refs/remotes/origin/master
 master
@@ -369,7 +383,7 @@ refs/tags/v1.0
 这意味着你执行下面的两条命令会有同样的输出:
 
 ```
-      $ git log master
+$ git log master
 
 $ git log refs/tags/v1.0
 
@@ -382,7 +396,7 @@ The Ref Log that git keeps will allow you to do some relative stuff locally, suc
 Git 的引用日志(Ref Log)可以让你做一些‘相对'查询操作:
 
 ```
-      master@{yesterday}
+master@{yesterday}
 
 master@{1 month ago}
 
@@ -397,7 +411,7 @@ master@{1 month ago}
 这种格式用来表达某点前面的第 N 个提交(ref).
 
 ```
-      master@{5}
+master@{5}
 
 ```
 
@@ -410,7 +424,7 @@ master@{1 month ago}
 译者注:假设 master 是由 a 和 b 两个分支合并的,那么 `master¹` 是指分支 a, `master²` 就是指分支 b.
 
 ```
-      master²
+master²
 
 ```
 
@@ -419,21 +433,21 @@ master@{1 month ago}
 波浪号用来标识一个提交对象(commit object)的第 N 级嫡(祖)父对象(Nth grandparent). 例如:
 
 ```
-      master~2
+master~2
 
 ```
 
 就代表 master 所指向的提交对象的第一个父对象的第一个父对象(译者:你可以理解成是嫡系爷爷:)). 它和下面的这个表达式是等价的:
 
 ```
-      master^^
+master^^
 
 ```
 
 你也可以把这些‘标识符'(spec)叠加起来, 下面这个 3 个表达式都是指向同一个提交(commit):
 
 ```
-      master^^^^^^
+master^^^^^^
 master~3^~2
 master~6
 
@@ -444,7 +458,7 @@ master~6
 如果大家对第一章[Git 对象模型](http://gitbook.liuhui998.com/1_2.html)还有印象的话, 就记得提交对象(commit object)是指向一个树对象(tree object)的. 假如你要得到一个提交对象(commit object)指向的树对象(tree object)的 sha 串名, 你就可以在‘树名'的后面加上'{tree}'来得到它:
 
 ```
-      master^{tree}
+master^{tree}
 
 ```
 
@@ -453,7 +467,7 @@ master~6
 如果你要某个二次制对象(blob)的 sha 串名,你可以在'树名'(treeish)后添加二次制对象(blob)对应的文件路径来得到它.
 
 ```
-      master:/path/to/file
+master:/path/to/file
 
 ```
 
@@ -462,16 +476,18 @@ master~6
 最后, 你可以用".."来指两个提交(commit)之间的区间. 下面的命令会给出你在"7b593b5" 和"51bea1"之间除了"7b593b5 外"的所有提交(commit)(注意:51bea1 是最近的提交).
 
 ```
-      7b593b5..51bea1
+7b593b5..51bea1
 
 ```
 
 这会包括所有 *从* 7b593b 开始的提交(commit). 译者注: 相当于 7b593b..HEAD
 
 ```
-      7b593b.. 
+7b593b.. 
 
 ```
+
+# 追踪分支
 
 在 Git 中‘追踪分支’是用与联系本地分支和远程分支的. 如果你在’追踪分支'(Tracking Branches)上执行推送(push)或拉取(pull)时,　它会自动推送(push)或拉取(pull)到关联的远程分支上.
 
@@ -484,14 +500,14 @@ master~6
 你可以在使用'git branch'命令时加上'--track'参数, 来手动创建一个'追踪分支'.
 
 ```
-      git branch --track experimental origin/experimental
+git branch --track experimental origin/experimental
 
 ```
 
 当你运行下命令时:
 
 ```
-      $ git pull experimental
+$ git pull experimental
 
 ```
 
@@ -499,12 +515,14 @@ master~6
 
 当要把修改推送(push)到 origin 时, 它会将你本地的'experimental'分支中的修改推送到 origin 的‘experimental'分支里,　而无需指定它(origin)。
 
+# 使用 Git Grep 进行搜索
+
 用[git grep](http://www.kernel.org/pub/software/scm/git/docs/git-grep.html) 命令查找 Git 库里面的某段文字是很方便的. 当然, 你也可以用 unix 下的'grep'命令进行搜索, 但是'git grep'命令能让你不用签出(checkout)历史文件, 就能查找它们.
 
 例如, 你要看 git.git　这个仓库里每个使用'xmmap'函数的地方, 你可以运行下面的命令:
 
 ```
-      $ git grep xmmap
+$ git grep xmmap
 config.c:               contents = xmmap(NULL, contents_sz, PROT_READ,
 diff.c:         s->data = xmmap(NULL, s->size, PROT_READ, MAP_PRIVATE, fd, 0);
 git-compat-util.h:extern void *xmmap(void *start, size_t length, int prot, int fla
@@ -522,7 +540,7 @@ wrapper.c:void *xmmap(void *start, size_t length,
 如果你要显示行号, 你可以添加'-n'选项:
 
 ```
-      $>git grep -n xmmap
+$>git grep -n xmmap
 config.c:1016:          contents = xmmap(NULL, contents_sz, PROT_READ,
 diff.c:1833:            s->data = xmmap(NULL, s->size, PROT_READ, MAP_PRIVATE, fd,
 git-compat-util.h:291:extern void *xmmap(void *start, size_t length, int prot, int
@@ -540,7 +558,7 @@ wrapper.c:89:void *xmmap(void *start, size_t length,
 如果我们想只显示文件名, 我们可以使用'--name-onley'选项:
 
 ```
-      $>git grep --name-only xmmap
+$>git grep --name-only xmmap
 config.c
 diff.c
 git-compat-util.h
@@ -554,7 +572,7 @@ wrapper.c
 我们可以用'-c'选项,可以查看每个文件里有多少行匹配内容(line matches):
 
 ```
-      $>git grep -c xmmap
+$>git grep -c xmmap
 config.c:1
 diff.c:1
 git-compat-util.h:1
@@ -568,7 +586,7 @@ wrapper.c:1
 现在, 如果我们要查找 git 仓库里某个特定版本里的内容, 我们可以像下面一样在命令行末尾加上标签名(tag reference):
 
 ```
-      $ git grep xmmap v1.5.0
+$ git grep xmmap v1.5.0
 v1.5.0:config.c:                contents = xmmap(NULL, st.st_size, PROT_READ,
 v1.5.0:diff.c:          s->data = xmmap(NULL, s->size, PROT_READ, MAP_PRIVATE, fd,
 v1.5.0:git-compat-util.h:static inline void *xmmap(void *start, size_t length,
@@ -587,7 +605,7 @@ v1.5.0:sha1_file.c:             buf = xmmap(NULL, size, PROT_READ, MAP_PRIVATE, 
 我们也可以组合一些搜索条件, 下面的命令就是查找我们在仓库的哪个地方定义了'SORT_DIRENT'.
 
 ```
-      $ git grep -e '#define' --and -e SORT_DIRENT
+$ git grep -e '#define' --and -e SORT_DIRENT
 builtin-fsck.c:#define SORT_DIRENT 0
 builtin-fsck.c:#define SORT_DIRENT 1
 
@@ -596,7 +614,7 @@ builtin-fsck.c:#define SORT_DIRENT 1
 我不但可以进行“与"(*both*)条件搜索操作，也可以进行"或"(*either*)条件搜索操作.
 
 ```
-      $ git grep --all-match -e '#define' -e SORT_DIRENT
+$ git grep --all-match -e '#define' -e SORT_DIRENT
 builtin-fsck.c:#define REACHABLE 0x0001
 builtin-fsck.c:#define SEEN      0x0002
 builtin-fsck.c:#define ERROR_OBJECT 01
@@ -613,7 +631,7 @@ builtin-fsck.c: if (SORT_DIRENT)
 我们也可以查找出符合一个条件(term)且符合两个条件(terms)之一的文件行.　例如我们要找出名字中含有‘PATH'或是'MAX'的常量定义:
 
 ```
-      $ git grep -e '#define' --and \( -e PATH -e MAX \) 
+$ git grep -e '#define' --and \( -e PATH -e MAX \) 
 abspath.c:#define MAXDEPTH 5
 builtin-blame.c:#define MORE_THAN_ONE_PATH      (1u<<13)
 builtin-blame.c:#define MAXSG 16
@@ -626,6 +644,8 @@ builtin-fsck.c:#define MAX_SHA1_ENTRIES (1024)
 
 > 译者注:　就是"与"条件搜索和"或"条件搜索可以组合使用。
 
+# Git 的撤消操作 - 重置, 签出 和 撤消
+
 Git 提供了多种修复你开发过程中的错误的方法. 方法的选择取决于你的情况: 包含有错误的文件是否提交了(commited); 如果你把它已经提交了, 那么你是否把有错误的提交已与其它人共享这也很重要。
 
 ## 修复未提交文件中的错误(重置)
@@ -633,7 +653,7 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 如果你现在的工作目录(work tree)里搞的一团乱麻, 但是你现在还没有把它们提交; 你可以通过下面的命令, 让工作目录回到上次提交时的状态(last committed state):
 
 ```
-      $ git reset --hard HEAD
+$ git reset --hard HEAD
 
 ```
 
@@ -642,7 +662,7 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 如果你只是要恢复一个文件,如"hello.rb", 你就要使用 [git checkout](http://www.kernel.org/pub/software/scm/git/docs/git-checkout.html)
 
 ```
-      $ git checkout -- hello.rb
+$ git checkout -- hello.rb
 
 ```
 
@@ -663,7 +683,7 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 创建一个新的，撤消(revert)了前期修改的提交(commit)是很容易的; 只要把出错的提交(commit)的名字(reference)做为参数传给命令: [git revert](http://www.kernel.org/pub/software/scm/git/docs/git-revert.html)就可以了; 下面这条命令就演示了如何撤消最近的一个提交:
 
 ```
-      $ git revert HEAD
+$ git revert HEAD
 
 ```
 
@@ -672,7 +692,7 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 你也可撤消更早期的修改, 下面这条命令就是撤消“上上次”(next-to-last)的提交:
 
 ```
-      $ git revert HEAD^
+$ git revert HEAD^
 
 ```
 
@@ -686,6 +706,8 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 
 如果你在老提交(older commit)里发现一个错误, 但是现在还没有发布到代码服务器上. 你可以使用 [git rebase](http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html)命令的交互模式, "git rebase -i"会提示你在编辑中做相关的修改. 这样其实就是让你在 rebase 的过程来修改提交。
 
+# 维护 Git
+
 ## 保证良好的性能
 
 在大的仓库中, git 靠压缩历史信息来节约磁盘和内存空间。
@@ -693,7 +715,7 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 压缩操作并不是自动进行的, 你需要手动执行 [git gc](http://www.kernel.org/pub/software/scm/git/docs/git-gc.html):
 
 ```
-      $ git gc
+$ git gc
 
 ```
 
@@ -704,7 +726,7 @@ Git 提供了多种修复你开发过程中的错误的方法. 方法的选择�
 [git fsck](http://www.kernel.org/pub/software/scm/git/docs/git-fsck.html) 运行一些仓库的一致性检查, 如果有任何问题就会报告. 这项操作也有点耗时, 通常报的警告就是“悬空对象"(dangling objects)。
 
 ```
-      $ git fsck
+$ git fsck
 dangling commit 7281251ddd2a61e38657c827739c57015671a6b3
 dangling commit 2706a059f258c6b245f298dc4ff2ccd30ec21a63
 dangling commit 13472b7c4b80851a1bc551779171dcb03655e9b5
@@ -719,10 +741,12 @@ dangling tree b24c2473f1fd3d91352a624795be026d64c8841f
 
 “悬空对象"(dangling objects)并不是问题, 最坏的情况只是它们多占了一些磁盘空间. 有时候它们是找回丢失的工作的最后一丝希望。
 
+# 建立一个公共仓库
+
 假设你个人的仓库在目录 ~/proj. 我们先克隆一个新的“裸仓库“,并且创建一个标志文件告诉 git-daemon 这是个公共仓库。
 
 ```
-      $ git clone --bare ~/proj proj.git
+$ git clone --bare ~/proj proj.git
 $ touch proj.git/git-daemon-export-ok
 
 ```
@@ -748,7 +772,7 @@ git 协议有不错的性能和可靠性, 但是如果主机上已经配好了�
 你需要把新建的"裸仓库"放到 Web 服务器的可访问目录里, 同时做一些调整,以便让 web 客户端获得它们所需的额外信息。
 
 ```
-      $ mv proj.git /home/you/public_html/proj.git
+$ mv proj.git /home/you/public_html/proj.git
 $ cd proj.git
 $ git --bare update-server-info
 $ chmod a+x hooks/post-update
@@ -760,9 +784,11 @@ $ chmod a+x hooks/post-update
 拼好了 proj.git 的 web URL, 任何人都可以从这个地址来克隆(clone)或拉取(pull) git 仓库内容. 下面这个命令就是例子:
 
 ```
-      $ git clone http://yourserver.com/~you/proj.git
+$ git clone http://yourserver.com/~you/proj.git
 
 ```
+
+# 建立一个私有仓库
 
 如果不使用第三方的代码托管服务,而是要自己在服务器上建一个网上可访问的私有代码仓库, 你有几种选择:
 
@@ -771,7 +797,7 @@ $ chmod a+x hooks/post-update
 通常最简单的办法是通 ssh 协议访问 Git(Git Over SSH). 如果你在一台机器上有了一个 ssh 帐号, 你只要把“git 祼仓库"放到任何一个可以通过 ssh 访问的目录, 然后可以像 ssh 登录一样简单的使用它. 假设你现在有一个仓库，并且你要把它建成可以在网上可访问的私有仓库. 你可以用下面的命令, 导出一个"祼仓库", 然后用 scp 命令把它们拷到你的服务器上:
 
 ```
-      $ git clone --bare /home/user/myrepo/.git /tmp/myrepo.git
+$ git clone --bare /home/user/myrepo/.git /tmp/myrepo.git
 $ scp -r /tmp/myrepo.git myserver.com:/opt/git/myrepo.git
 
 ```
@@ -779,7 +805,7 @@ $ scp -r /tmp/myrepo.git myserver.com:/opt/git/myrepo.git
 如果其它人也在 myserver.com　这台服务器上有 ssh 帐号，那么 TA 也可以从这台服务器上克隆(clone)代码:
 
 ```
-      $ git clone myserver.com:/opt/git/myrepo.git
+$ git clone myserver.com:/opt/git/myrepo.git
 
 ```
 

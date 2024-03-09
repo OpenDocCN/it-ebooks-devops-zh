@@ -446,7 +446,7 @@ $ sudo aptitude install gitweb
     *   在 tree view 文件的旁边显示追溯（blame）链接。
 
         ```
-        $feature{'blame'}{'default'} = [1];
+  $feature{'blame'}{'default'} = [1];
         $feature{'blame'}{'override'} = 1;
 
         ```
@@ -456,7 +456,7 @@ $ sudo aptitude install gitweb
         下面的设置覆盖 Gitweb 的全局设置，不对该项目显示 blame 菜单。
 
         ```
-        [gitweb]
+  [gitweb]
         blame = 0
 
         ```
@@ -464,7 +464,7 @@ $ sudo aptitude install gitweb
     *   为每个 tree 添加快照（snapshot）下载链接。
 
         ```
-        $feature{'pickaxe'}{'default'} = [1];
+  $feature{'pickaxe'}{'default'} = [1];
         $feature{'pickaxe'}{'override'} = 1;
         $feature{'snapshot'}{'default'} = ['zip', 'tgz'];
         $feature{'snapshot'}{'override'} = 1;
@@ -813,7 +813,7 @@ Gitolite 的实现机制和使用特点概述如下：
     *   新用户的公钥自动追加到服务器端安装帐号主目录下的`.ssh/authorized_keys`文件中，并设置该用户的 shell 为 gitolite 的一条命令**gl-auth-command**。在`.ssh/authorized_keys`文件中增加的内容示例如下： [[2]](#id38)
 
         ```
-        command="/home/git/bin/gl-auth-command jiangxin",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa AAAAB3NzaC1yc2...(公钥内容来自于 jiangxin.pub)...
+  command="/home/git/bin/gl-auth-command jiangxin",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa AAAAB3NzaC1yc2...(公钥内容来自于 jiangxin.pub)...
 
         ```
 
@@ -961,14 +961,14 @@ Debian 等平台会在安装过程中（或运行**sudo dpkg-reconfigure gitolit
     *   克隆官方的 Gitolite 版本库如下：
 
         ```
-        $ git clone git://github.com/sitaramc/gitolite.git
+  $ git clone git://github.com/sitaramc/gitolite.git
 
         ```
 
     *   也可以克隆定制后的 Gitolite 版本库，如我在 GitHub 上基于 Gitolite 官方版本库建立的分支版本：
 
         ```
-        $ git clone git://github.com/ossxp-com/gitolite.git
+  $ git clone git://github.com/ossxp-com/gitolite.git
 
         ```
 
@@ -1146,7 +1146,7 @@ command="/home/git/bin/gl-auth-command jiangxin",no-port-forwarding,no-X11-forwa
         只需要在`conf/gitolite.conf`文件的文件头加入如下指令即可。用户名之间用空格分隔。
 
         ```
-        @team1 = dev1 dev2 jiangxin
+  @team1 = dev1 dev2 jiangxin
 
         ```
 
@@ -1155,7 +1155,7 @@ command="/home/git/bin/gl-auth-command jiangxin",no-port-forwarding,no-X11-forwa
         还修改了版本库`testing`的授权，将`@all`用户组改为新建立的`@team1`用户组。
 
         ```
-        $ git diff
+  $ git diff
         diff --git a/conf/gitolite.conf b/conf/gitolite.conf
         index 6c5fdf8..f983a84 100644
         --- a/conf/gitolite.conf
@@ -2147,7 +2147,7 @@ Gitosis 因为是 Gitolite 的鼻祖，因此下面的 Gitosis 实现机理，�
     *   新用户公钥自动追加到服务器端安装帐号的`.ssh/authorized_keys`中，并设置该用户的 shell 为 gitosis 的一条命令**gitosis-serve**。
 
         ```
-        command="gitosis-serve jiangxin",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa <公钥内容来自于 jiangxin.pub ...>
+  command="gitosis-serve jiangxin",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa <公钥内容来自于 jiangxin.pub ...>
 
         ```
 

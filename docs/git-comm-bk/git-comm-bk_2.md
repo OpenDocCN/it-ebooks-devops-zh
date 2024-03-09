@@ -1,9 +1,13 @@
+# 2\. 第一步
+
+# 安装 Git
+
 ## 从源代码开始安装
 
 如果你在一个其基于 Unix 的系统中，你可以从 Git 的官网上[Git Download Page](http://git-scm.com/download)下载它的源代码,并运行像下面的几行命令,你就可以安装:
 
 ```
-      $ make prefix=/usr all ;# as yourself 
+$ make prefix=/usr all ;# as yourself 
 $ make prefix=/usr install ;# 以 root 权限运行
 
 ```
@@ -15,7 +19,7 @@ $ make prefix=/usr install ;# 以 root 权限运行
 如果你用的是 Linux，你可以用你的本地包管理系统(native package management system)来安装.
 
 ```
-      $ yum install git-core  #译者注，在 redhat 等系统下用 yum
+$ yum install git-core  #译者注，在 redhat 等系统下用 yum
 
 $ apt-get install git-core  #译者注，在 debian, ubuntu 等系统下用 apt-get
 
@@ -36,7 +40,7 @@ $ apt-get install git-core  #译者注，在 debian, ubuntu 等系统下用 apt-
 当你安装好 MacPorts 后，你可通过下面的命令来安装:
 
 ```
-      $ sudo port install git-core
+$ sudo port install git-core
 
 ```
 
@@ -62,12 +66,14 @@ $ apt-get install git-core  #译者注，在 debian, ubuntu 等系统下用 apt-
 
 *Git on Windows* 这一章有一个"screencast"来在演示如何在 windows 下使用 Git。
 
+# 安装与初始化
+
 ## Git 配置
 
 使用 Git 的第一件事就是设置你的名字和 email,这些就是你在提交 commit 时的签名。
 
 ```
-      $ git config --global user.name "Scott Chacon"
+$ git config --global user.name "Scott Chacon"
 $ git config --global user.email "schacon@gmail.com"
 
 ```
@@ -75,7 +81,7 @@ $ git config --global user.email "schacon@gmail.com"
 执行了上面的命令后,会在你的主目录(home directory)建立一个叫 *~/.gitconfig* 的文件. 内容一般像下面这样:
 
 ```
-      [user]
+[user]
         name = Scott Chacon
         email = schacon@gmail.com
 

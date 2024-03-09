@@ -1,7 +1,11 @@
+# 5\. 高级技能
+
+# 创建新的空分支
+
 在偶尔的情况下，你可能会想要保留那些与你的代码没有共同祖先的分支。例如在这些分支上保留生成的文档或者其他一些东西。如果你需要创建一个不使用当前代码库作为父提交的分支，你可以用如下的方法创建一个空分支：
 
 ```
-      git symbolic-ref HEAD refs/heads/newbranch 
+git symbolic-ref HEAD refs/heads/newbranch 
 rm .git/index 
 git clean -fdx 
 <do work> 
@@ -10,16 +14,20 @@ git commit -m 'Initial commit'
 
 ```
 
+# 修改你的历史
+
 交互式洐合是修改单个提交的好方法。
 
 [git filter-branch](http://www.kernel.org/pub/software/scm/git/docs/git-filter-branch.html)是修改大量提交的好方法。
+
+# 高级分支与合并
 
 ## 在合并过程中得到解决冲突的协助
 
 git 会把所有可以自动合并的修改加入到索引中去, 所以[git diff](http://www.kernel.org/pub/software/scm/git/docs/git-diff.html)只会显示有冲突的部分. 它使用了一种不常见的语法:
 
 ```
-      $ git diff
+$ git diff
 diff --cc file.txt
 index 802992c,2b60207..0000000
 --- a/file.txt
@@ -38,7 +46,7 @@ index 802992c,2b60207..0000000
 在合并过程中, 索引中保存着每个文件的三个版本. 三个"文件暂存(file stage)"中的每一个都代表了文件的不同版本:
 
 ```
-      $ git show :1:file.txt  # 两个分支共同祖先中的版本.
+$ git show :1:file.txt  # 两个分支共同祖先中的版本.
 $ git show :2:file.txt  # HEAD 中的版本.
 $ git show :3:file.txt  # MERGE_HEAD 中的版本.
 
@@ -51,7 +59,7 @@ $ git show :3:file.txt  # MERGE_HEAD 中的版本.
 在用直观的方法解决冲突之后(但是在更新索引之前), diff 输出会变成下面的样子:
 
 ```
-      $ git diff
+$ git diff
 diff --cc file.txt
 index 802992c,2b60207..0000000
 --- a/file.txt
@@ -68,7 +76,7 @@ index 802992c,2b60207..0000000
 一些特别 diff 选项允许你对比工作目录和三个暂存中任何一个的差异:
 
 ```
-      $ git diff -1 file.txt      # 与暂存 1 进行比较
+$ git diff -1 file.txt      # 与暂存 1 进行比较
 $ git diff --base file.txt          # 与上相同
 $ git diff -2 file.txt      # 与暂存 2 进行比较
 $ git diff --ours file.txt          # 与上相同
@@ -80,7 +88,7 @@ $ git diff --theirs file.txt    # 与上相同.
 [git log](http://www.kernel.org/pub/software/scm/git/docs/git-log.html)和[gitk](http://www.kernel.org/pub/software/scm/git/docs/gitk.html)命令也为合并操作提供了特别的协助:
 
 ```
-      $ git log --merge
+$ git log --merge
 $ gitk --merge
 
 ```
@@ -92,7 +100,7 @@ $ gitk --merge
 每次你解决冲突之后, 应该更新索引:
 
 ```
-      $ git add file.txt
+$ git add file.txt
 
 ```
 
@@ -103,14 +111,14 @@ $ gitk --merge
 你可以一次合并多个头, 只需简单地把它们作为[git merge](http://www.kernel.org/pub/software/scm/git/docs/git-merge.html)的参数列出. 例如,
 
 ```
-      $ git merge scott/master rick/master tom/master
+$ git merge scott/master rick/master tom/master
 
 ```
 
 相当于:
 
 ```
-      $ git merge scott/master
+$ git merge scott/master
 $ git merge rick/master
 $ git merge tom/master
 
@@ -129,7 +137,7 @@ $ git merge tom/master
 下面就是你所需要的命令序列:
 
 ```
-      $ git remote add -f Bproject /path/to/B (1)
+$ git remote add -f Bproject /path/to/B (1)
 $ git merge -s ours --no-commit Bproject/master (2)
 $ git read-tree --prefix=dir-B/ -u Bproject/master (3)
 $ git commit -m "Merge B project as our subdirectory" (4)
@@ -145,10 +153,12 @@ $ git pull -s subtree Bproject master (5)
 
 另外, 若你需要修改内嵌外部项目的内容, 使用子模块方式可以更容易地提交你的修改.
 
+# 查找问题的利器 - Git Bisect
+
 假设你在项目的'2.6.18'版上面工作, 但是你当前的代码(master)崩溃(crash)了. 有时解决这种问题的最好办法是: 手工逐步恢复(brute-force regression)项目历史,　找出是哪个提交(commit)导致了这个问题. 但是 linkgit:git-bisect[1](http://gitbook.liuhui998.com/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE) 可以更好帮你解决这个问题:
 
 ```
-      $ git bisect start
+$ git bisect start
 $ git bisect good v2.6.18
 $ git bisect bad master
 Bisecting: 3537 revisions left to test after this
@@ -159,7 +169,7 @@ Bisecting: 3537 revisions left to test after this
 如果你现在运行"git branch",　会发现你现在所在的是"no branch"(译者注:这是进行 git bisect 的一种状态). 这时分支指向提交（commit):"69543", 此提交刚好是在"v2.6.18"和“master"中间的位置. 现在在这个分支里,　编译并测试项目代码, 查看它是否崩溃(crash). 假设它这次崩溃了, 那么运行下面的命令:
 
 ```
-      $ git bisect bad
+$ git bisect bad
 Bisecting: 1769 revisions left to test after this
 [7eff82c8b1511017ae605f0c99ac275a7e21b867] i2c-core: Drop useless bitmaskings
 
@@ -170,7 +180,7 @@ Bisecting: 1769 revisions left to test after this
 在这个项目(case)中, 经过 13 次尝试, 找出了导致问题的提交(guilty commit). 你可以用 [git show](http://www.kernel.org/pub/software/scm/git/docs/git-show.html) 命令查看这个提交(commit), 找出是谁做的修改，然后写邮件给 TA. 最后, 运行:
 
 ```
-      $ git bisect reset
+$ git bisect reset
 
 ```
 
@@ -181,14 +191,14 @@ Bisecting: 1769 revisions left to test after this
 运行:
 
 ```
-      $ git bisect visualize
+$ git bisect visualize
 
 ```
 
 这会运行 gitk, 界面上会标识出"git bisect"命令自动选择的提交(commit). 你可以选择一个相邻的提交(commit), 记住它的 SHA 串值, 用下面的命令把它签出来:
 
 ```
-      $ git reset --hard fb47ddb2db...
+$ git reset --hard fb47ddb2db...
 
 ```
 
@@ -196,12 +206,14 @@ Bisecting: 1769 revisions left to test after this
 
 译者注: 关于"git bisect start"后的分支状态, 译文和原文不一致. 原文是说执行"git bisect start"后会创建一个名为"bisect"的分支, 但是实际情况却是处于"no branch"的状态。
 
+# 查找问题的利器 - Git Blame
+
 如果你要查看文件的每个部分是谁修改的, 那么 [git blame](http://www.kernel.org/pub/software/scm/git/docs/git-blame.html) 就是不二选择. 只要运行'git blame [filename]', 你就会得到整个文件的每一行的详细修改信息:包括 SHA 串,日期和作者:
 
 译者注: Git 采用 SHA1 做为 hash 签名算法, 在本书中,作者为了表达方便,常常使用 SHA 来代指 SHA1\. 如果没有特别说明, 本书中的 SHA 就是 SHA1 的代称.
 
 ```
-      $ git blame sha1_file.c
+$ git blame sha1_file.c
 ...
 0fcfd160 (Linus Torvalds  2005-04-18 13:04:43 -0700    8)  */
 0fcfd160 (Linus Torvalds  2005-04-18 13:04:43 -0700    9) #include "cache.h"
@@ -222,7 +234,7 @@ f35a6d3b (Linus Torvalds  2007-04-09 21:20:29 -0700   16) #include "refs.h"
 你也可以用"-L"参数在命令(blame)中指定开始和结束行:
 
 ```
-      $>git blame -L 160,+10 sha1_file.c 
+$>git blame -L 160,+10 sha1_file.c 
 ace1534d (Junio C Hamano 2005-05-07 00:38:04 -0700       160)}
 ace1534d (Junio C Hamano 2005-05-07 00:38:04 -0700       161)
 0fcfd160 (Linus Torvalds 2005-04-18 13:04:43 -0700       162)/*
@@ -236,6 +248,8 @@ d19938ab (Junio C Hamano 2005-05-09 17:57:56 -0700       169) * DB_ENVIRONMENT e
 
 ```
 
+# Git 和 Email
+
 ## 向一个项目提交补丁
 
 如果你只做了少量的改动, 最简单的提交方法就是把它们做成补丁(patch)用邮件发出去:
@@ -243,7 +257,7 @@ d19938ab (Junio C Hamano 2005-05-09 17:57:56 -0700       169) * DB_ENVIRONMENT e
 首先, 使用[git format-patch](http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html); 例如:
 
 ```
-      $ git format-patch origin
+$ git format-patch origin
 
 ```
 
@@ -256,7 +270,7 @@ d19938ab (Junio C Hamano 2005-05-09 17:57:56 -0700       169) * DB_ENVIRONMENT e
 Git 也提供了一个名为[git am](http://www.kernel.org/pub/software/scm/git/docs/git-am.html)的工具(am 是"apply mailbox"的缩写)去应用那些通过 Email 寄来的系列补丁. 你只需要按顺序把所有包含补丁的消息存入单个的 mailbox 文件, 比如说"patches.mbox", 然后运行
 
 ```
-      $ git am -3 patches.mbox
+$ git am -3 patches.mbox
 
 ```
 
@@ -265,7 +279,7 @@ Git 会按照顺序应用每一个补丁; 如果发生了冲突, git 会停下�
 在解决冲突和更新索引之后, 你不需要再创建一个新提交, 只需要运行
 
 ```
-      $ git am --resolved
+$ git am --resolved
 
 ```
 
@@ -273,19 +287,21 @@ Git 会按照顺序应用每一个补丁; 如果发生了冲突, git 会停下�
 
 最后的效果是, git 产生了一系列提交, 每个提交是原来 mailbox 中的一个补丁, 补丁中的作者信息和提交日志也一并被记录下来。
 
+# 定制 Git
+
 [git config](http://www.kernel.org/pub/software/scm/git/docs/git-config.html)
 
 ## 更改你的编辑器
 
 ```
-      $ git config --global core.editor emacs
+$ git config --global core.editor emacs
 
 ```
 
 ## 添加别名
 
 ```
-      $ git config --global alias.last 'cat-file commit HEAD'
+$ git config --global alias.last 'cat-file commit HEAD'
 
 $ git last
 tree c85fbd1996b8e7e5eda1288b56042c0cdb91836b
@@ -310,7 +326,7 @@ fixed a weird formatting problem
 所有的 color.*选项请参见[git config](http://www.kernel.org/pub/software/scm/git/docs/git-config.html)的文档
 
 ```
-      $ git config color.branch auto
+$ git config color.branch auto
 $ git config color.diff auto
 $ git config color.interactive auto
 $ git config color.status auto
@@ -320,21 +336,21 @@ $ git config color.status auto
 或者你可以通过 color.ui 选项把颜色全部打开:
 
 ```
-      $ git config color.ui true
+$ git config color.ui true
 
 ```
 
 ## 提交模板
 
 ```
-      $ git config commit.template '/etc/git-commit-template'
+$ git config commit.template '/etc/git-commit-template'
 
 ```
 
 ## 日志格式
 
 ```
-      $ git config format.pretty oneline
+$ git config format.pretty oneline
 
 ```
 
@@ -342,12 +358,14 @@ $ git config color.status auto
 
 除上面提到的选项外, 还有很多很有趣的选项去配置打包, 垃圾回收, 合并, 分支, http 传输, diff, 分页, 空白字符等等的行为. 如果你需要更加深入地调教 git, 请阅读[git config](http://www.kernel.org/pub/software/scm/git/docs/git-config.html)文档。
 
+# Git Hooks
+
 钩子(hooks)是一些在"$GIT-DIR/hooks"目录的脚本, 在被特定的事件(certain points)触发后被调用。当"git init"命令被调用后, 一些非常有用的示例钩子文件(hooks)被拷到新仓库的 hooks 目录中; 但是在默认情况下这些钩子(hooks)是不生效的。 把这些钩子文件(hooks)的".sample"文件名后缀去掉就可以使它们生效了。
 
 ## applypatch-msg
 
 ```
-      GIT_DIR/hooks/applypatch-msg
+GIT_DIR/hooks/applypatch-msg
 
 ```
 
@@ -362,7 +380,7 @@ The hook is allowed to edit the message file in place, and can be used to normal
 ## pre-applypatch
 
 ```
-      GIT_DIR/hooks/pre-applypatch
+GIT_DIR/hooks/pre-applypatch
 
 ```
 
@@ -375,7 +393,7 @@ It can be used to inspect the current working tree and refuse to make a commit i
 ## post-applypatch
 
 ```
-      GIT_DIR/hooks/post-applypatch
+GIT_DIR/hooks/post-applypatch
 
 ```
 
@@ -390,7 +408,7 @@ This hook is meant primarily for notification, and cannot affect the outcome of 
 ## pre-commit
 
 ```
-      GIT_DIR/hooks/pre-commit
+GIT_DIR/hooks/pre-commit
 
 ```
 
@@ -429,7 +447,7 @@ end
 ## prepare-commit-msg
 
 ```
-      GIT_DIR/hooks/prepare-commit-msg
+GIT_DIR/hooks/prepare-commit-msg
 
 ```
 
@@ -448,7 +466,7 @@ The sample `prepare-commit-msg` hook that comes with git comments out the `Co
 ## commit-msg
 
 ```
-      GIT_DIR/hooks/commit-msg
+GIT_DIR/hooks/commit-msg
 
 ```
 
@@ -465,7 +483,7 @@ The default 'commit-msg' hook, when enabled, detects duplicate "Signed-off-by" l
 ## post-commit
 
 ```
-      GIT_DIR/hooks/post-commit
+GIT_DIR/hooks/post-commit
 
 ```
 
@@ -476,7 +494,7 @@ The default 'commit-msg' hook, when enabled, detects duplicate "Signed-off-by" l
 ## pre-rebase
 
 ```
-      GIT_DIR/hooks/pre-rebase
+GIT_DIR/hooks/pre-rebase
 
 ```
 
@@ -485,7 +503,7 @@ The default 'commit-msg' hook, when enabled, detects duplicate "Signed-off-by" l
 ## post-checkout
 
 ```
-      GIT_DIR/hooks/post-checkout
+GIT_DIR/hooks/post-checkout
 
 ```
 
@@ -496,7 +514,7 @@ The default 'commit-msg' hook, when enabled, detects duplicate "Signed-off-by" l
 ## post-merge
 
 ```
-      GIT_DIR/hooks/post-merge
+GIT_DIR/hooks/post-merge
 
 ```
 
@@ -509,7 +527,7 @@ This hook can be used in conjunction with a corresponding pre-commit hook to sav
 ## pre-receive
 
 ```
-      GIT_DIR/hooks/pre-receive
+GIT_DIR/hooks/pre-receive
 
 ```
 
@@ -522,7 +540,7 @@ This hook executes once for the receive operation. It takes no arguments, but fo
 每执行一个接收(receive)操作都会调用一次这个钩子。它没有命令行参数，但是它会从标准输入(standard input)读取需要更新的 ref，格式如下：
 
 ```
-      SP SP LF
+SP SP LF
 
 ```
 
@@ -551,7 +569,7 @@ Or in a bash script, something like this would work:
 在 bash 脚本中，下面代码也可能得到参数。
 
 ```
-      #!/bin/sh
+#!/bin/sh
 # <oldrev> <newrev> <refname>
 # update a blame tree
 while read oldrev newrev ref
@@ -569,7 +587,7 @@ done
 ## update
 
 ```
-      GIT_DIR/hooks/update
+GIT_DIR/hooks/update
 
 ```
 
@@ -600,7 +618,7 @@ It could also be used to log the old..new status. However, it does not know the 
 ## post-receive
 
 ```
-      GIT_DIR/hooks/post-receive
+GIT_DIR/hooks/post-receive
 
 ```
 
@@ -631,7 +649,7 @@ The default 'post-receive' hook is empty, but there is a sample script `post-re
 ## post-update
 
 ```
-      GIT_DIR/hooks/post-update
+GIT_DIR/hooks/post-update
 
 ```
 
@@ -662,7 +680,7 @@ Both standard output and standard error output are forwarded to 'git-send-pack' 
 ## pre-auto-gc
 
 ```
-      GIT_DIR/hooks/pre-auto-gc
+GIT_DIR/hooks/pre-auto-gc
 
 ```
 
@@ -671,6 +689,8 @@ Both standard output and standard error output are forwarded to 'git-send-pack' 
 ## 参考
 
 [Git Hooks](http://www.kernel.org/pub/software/scm/git/docs/githooks.html) * [`probablycorey.wordpress.com/2008/03/07/git-hooks-make-me-giddy/`](http://probablycorey.wordpress.com/2008/03/07/git-hooks-make-me-giddy/)
+
+# 找回丢失的对象
 
 译者注: 原书这里只有两个链接： [Recovering Lost Commits Blog Post](http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git)，　 [Recovering Corrupted Blobs by Linus](http://www.kernel.org/pub/software/scm/git/docs/howto/recover-corrupted-blob-object.txt)
 
@@ -685,7 +705,7 @@ Let's go!
 我们先创建一个用以实验的仓库，在里面创建了若干个提交和分支。 BTW：你可以直接把下面的命令复制到 shell 里执行。
 
 ```
-      mkdir recovery;cd recovery
+mkdir recovery;cd recovery
 git init
 touch file
 git add file
@@ -708,7 +728,7 @@ echo "What does that mean?" >> file
 现在 repo 里有两个 branch
 
 ```
-      $ git branch
+$ git branch
 cool_branch
 * master
 
@@ -717,7 +737,7 @@ cool_branch
 存储当前仓库未提交的改动
 
 ```
-      $ git stash save "temp save"
+$ git stash save "temp save"
 Saved working directory and index state On master: temp save
 HEAD is now at e3c9b6b Greetings
 
@@ -726,7 +746,7 @@ HEAD is now at e3c9b6b Greetings
 删除一个分支
 
 ```
-      $ git branch -D cool_branch
+$ git branch -D cool_branch
 Deleted branch cool_branch (was 2e43cd5).
 
 $ git branch
@@ -737,7 +757,7 @@ $ git branch
 用`git fsck --lost-found`命令找出刚才删除的分支里面的提交对象。
 
 ```
-      $git fsck --lost-found
+$git fsck --lost-found
   dangling commit 2e43cd56ee4fb08664cd843cd32836b54fbf594a
 
 ```
@@ -745,7 +765,7 @@ $ git branch
 用 git show 命令查看一个找到的对象的内容，看是否为我们所找的。
 
 ```
-      git show 2e43cd56ee4fb08664cd843cd32836b54fbf594a
+git show 2e43cd56ee4fb08664cd843cd32836b54fbf594a
 
   commit 2e43cd56ee4fb08664cd843cd32836b54fbf594a
   Author: liuhui <liuhui998[#]gmail.com>
@@ -768,7 +788,7 @@ $ git branch
 ### 使用 git rebase　进行恢复
 
 ```
-        $git rebase 2e43cd56ee4fb08664cd843cd32836b54fbf594a
+  $git rebase 2e43cd56ee4fb08664cd843cd32836b54fbf594a
   First, rewinding head to replay your work on top of it...
   Fast-forwarded master to 2e43cd56ee4fb08664cd843cd32836b54fbf594a.
 
@@ -777,7 +797,7 @@ $ git branch
 现在我们用 git log 命令看一下，看看它有没有恢复:
 
 ```
-        $ git log
+  $ git log
 
   commit 2e43cd56ee4fb08664cd843cd32836b54fbf594a
   Author: liuhui <liuhui998[#]gmail.com>
@@ -802,7 +822,7 @@ $ git branch
 提交是找回来，但是分支没有办法找回来：
 
 ```
-        liuhui@liuhui:~/work/test/git/recovery$ git branch
+  liuhui@liuhui:~/work/test/git/recovery$ git branch
   * master
 
 ```
@@ -812,7 +832,7 @@ $ git branch
 我们把刚才的恢复的提交删除
 
 ```
-        $ git reset --hard HEAD^
+  $ git reset --hard HEAD^
   HEAD is now at e3c9b6b Greetings
 
 ```
@@ -820,7 +840,7 @@ $ git branch
 再把刚删的提交给找回来：
 
 ```
-        git fsck --lost-found
+  git fsck --lost-found
   dangling commit 2e43cd56ee4fb08664cd843cd32836b54fbf594a
 
 ```
@@ -828,7 +848,7 @@ $ git branch
 不过这回我们用是合并命令进行恢复：
 
 ```
-        $ git merge 2e43cd56ee4fb08664cd843cd32836b54fbf594a
+  $ git merge 2e43cd56ee4fb08664cd843cd32836b54fbf594a
   Updating e3c9b6b..2e43cd5
   Fast-forward
   cool_file |    1 +
@@ -844,7 +864,7 @@ $ git branch
 当前 repo 里有的存储：
 
 ```
-      $ git stash list
+$ git stash list
 stash@{0}: On master: temp save
 
 ```
@@ -852,7 +872,7 @@ stash@{0}: On master: temp save
 把它们清空：
 
 ```
-      $git stash clear
+$git stash clear
 liuhui@liuhui:~/work/test/git/recovery$ git stash list
 
 ```
@@ -860,7 +880,7 @@ liuhui@liuhui:~/work/test/git/recovery$ git stash list
 再用 git fsck --lost-found 找回来：
 
 ```
-      $git fsck --lost-found
+$git fsck --lost-found
 dangling commit 674c0618ca7d0c251902f0953987ff71860cb067
 
 ```
@@ -868,7 +888,7 @@ dangling commit 674c0618ca7d0c251902f0953987ff71860cb067
 用 git show 看一下回来的内容对不对：
 
 ```
-      $git show 674c0618ca7d0c251902f0953987ff71860cb067
+$git show 674c0618ca7d0c251902f0953987ff71860cb067
 
 commit 674c0618ca7d0c251902f0953987ff71860cb067
 Merge: e3c9b6b 2b2b41e
@@ -890,7 +910,7 @@ index 557db03,557db03..f2a8bf3
 看起来没有问题，好的，那么我就把它恢复了吧：
 
 ```
-      $ git merge 674c0618ca7d0c251902f0953987ff71860cb067
+$ git merge 674c0618ca7d0c251902f0953987ff71860cb067
 Merge made by recursive.
  file |    1 +
   1 files changed, 1 insertions(+), 0 deletions(-)
@@ -904,6 +924,8 @@ Merge made by recursive.
 如果对于文中的一些命令不熟，可以参考[Git Community Book 中文版](http://gitbook.liuhui998.com/)
 
 其实这里最重要的一个命令就是：git fsck --lost-found，因为 git 中把 commit 删了后，并不是真正的删除，而是变成了悬空对象（dangling commit）。我们只要把把这悬空对象（dangling commit）找出来，用[git rebase](http://gitbook.liuhui998.com/4_2.html)也好，用[git merge](http://gitbook.liuhui998.com/3_3.html)也行就能把它们给恢复。
+
+# 子模块
 
 一个大项目通常由很多较小的, 自完备的模块组成. 例如, 一个嵌入式 Linux 发行版的代码树会包含每个进行过本地修改的软件的代码; 一个电影播放器可能需要基于一个知名解码库的特定版本完成编译; 数个独立的程序可能会共用同一个创建脚本.
 
@@ -920,7 +942,7 @@ Git 1.5.3 中加入了[git submodule](http://www.kernel.org/pub/software/scm/git
 为说明子模块的使用方法, 创建 4 个用作子模块的示例仓库:
 
 ```
-      $ mkdir ~/git
+$ mkdir ~/git
 $ cd ~/git
 $ for i in a b c d
 do
@@ -938,7 +960,7 @@ done
 现在创建父项目, 加入所有的子模块:
 
 ```
-      $ mkdir super
+$ mkdir super
 $ cd super
 $ git init
 $ for i in a b c d
@@ -953,7 +975,7 @@ done
 列出`git-submodule`创建文件:
 
 ```
-      $ ls -a
+$ ls -a
 .  ..  .git  .gitmodules  a  b  c  d
 
 ```
@@ -967,14 +989,14 @@ done
 提交父项目:
 
 ```
-      $ git commit -m "Add submodules a, b, c and d."
+$ git commit -m "Add submodules a, b, c and d."
 
 ```
 
 现在克隆父项目:
 
 ```
-      $ cd ..
+$ cd ..
 $ git clone super cloned
 $ cd cloned
 
@@ -983,7 +1005,7 @@ $ cd cloned
 子模块的目录创建好了, 但是它们是空的:
 
 ```
-      $ ls -a a
+$ ls -a a
 .  ..
 $ git submodule status
 -d266b9873ad50488163457f025db7cdd9683d88b a
@@ -998,14 +1020,14 @@ $ git submodule status
 拉取子模块需要进行两步操作. 首先运行`git submodule init`, 把子模块的 URL 加入到`.git/config`:
 
 ```
-      $ git submodule init
+$ git submodule init
 
 ```
 
 现在使用`git-submodule update`去克隆子模块的仓库和签出父项目中指定的那个版本:
 
 ```
-      $ git submodule update
+$ git submodule update
 $ cd a
 $ ls -a
 .  ..  .git  a.txt
@@ -1015,7 +1037,7 @@ $ ls -a
 `git-submodule update`和`git-submodule add`的一个主要区别就是`git-submodule update`签出一个指定的提交, 而不是该分支的 tip. 它就像签出一个标签(tag): 头指针脱离, 你不在任何一个分支上工作.
 
 ```
-      $ git branch
+$ git branch
 * (no branch)
 master
 
@@ -1024,21 +1046,21 @@ master
 如何你需要对子模块进行修改, 同时头指针又是脱离的状态, 那么你应该创建或者签出一个分支, 进行修改, 发布子模块的修改, 然后更新父项目让其引用新的提交:
 
 ```
-      $ git checkout master
+$ git checkout master
 
 ```
 
 或者
 
 ```
-      $ git checkout -b fix-up
+$ git checkout -b fix-up
 
 ```
 
 然后
 
 ```
-      $ echo "adding a line again" >> a.txt
+$ echo "adding a line again" >> a.txt
 $ git commit -a -m "Updated the submodule from within the superproject."
 $ git push
 $ cd ..
@@ -1063,7 +1085,7 @@ $ git push
 你应该总是在发布父项目的修改之前发布子模块修改. 如果你忘记发布子模块的修改, 其他人就无法克隆你的仓库了:
 
 ```
-      $ cd ~/git/super/a
+$ cd ~/git/super/a
 $ echo i added another line to this file >> a.txt
 $ git commit -a -m "doing it wrong this time"
 $ cd ..
@@ -1082,7 +1104,7 @@ Unable to checkout '261dfac35cb99d380eb966e102c1197139f7fa24' in submodule path 
 如果你暂存了一个更新过的子模块, 准备进行手工提交, 注意不要在路径后面加上斜杠. 如果加上了斜杠, git 会认为你想要移除那个子模块然后签出那个目录内容到父仓库.
 
 ```
-      $ cd ~/git/super/a
+$ cd ~/git/super/a
 $ echo i added another line to this file >> a.txt
 $ git commit -a -m "doing it wrong this time"
 $ cd ..
@@ -1106,7 +1128,7 @@ $ git status
 为了修正这个错误的操作, 我们应该重置(reset)这个修改, 然后在 add 的时候不要加上末尾斜杠.
 
 ```
-      $ git reset HEAD A
+$ git reset HEAD A
 $ git add a
 $ git status
 # On branch master
@@ -1128,7 +1150,7 @@ $ git status
 如果你在没有签出分支的情况下对子模块进行了修改并且提交, 运行`git submodule update`将会不安全. 你所进行的修改会在无任何提示的情况下被覆盖.
 
 ```
-      $ cat a.txt
+$ cat a.txt
 module a
 $ echo line added from private2 >> a.txt
 $ git commit -a -m "line added inside private2"

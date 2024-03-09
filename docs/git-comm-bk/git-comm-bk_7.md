@@ -1,3 +1,7 @@
+# 7\. 原理解析
+
+# Git 是如何存储对象的
+
 这一章会详细讲解 Git 如何物理存储各对象。
 
 所有的对象都以 SHA 值为索引用 gzip 格式压缩存储, 每个对象都包含了对象类型, 大小和内容.
@@ -11,7 +15,7 @@ Git 中存在两种对象 - 松散对象(loose object)和打包对象(packed obj
 如果你对象的 SHA 值是`ab04d884140f7b0cf8bbf86d6883869f16a46f65`, 那么对应的文件会被存储在:
 
 ```
-      GIT_DIR/objects/ab/04d884140f7b0cf8bbf86d6883869f16a46f65
+GIT_DIR/objects/ab/04d884140f7b0cf8bbf86d6883869f16a46f65
 
 ```
 
@@ -20,7 +24,7 @@ Git 使用 SHA 值的前两个字符作为子目录名字, 所以一个目录中
 可以用下面的 Ruby 代码说明对象数据是如何存储的:
 
 ```
-      def put_raw_object(content, type)
+def put_raw_object(content, type)
   size = content.length.to_s
 
   header = "#{type} #{size}\0" # type(space)size(null byte)
@@ -54,10 +58,12 @@ Git 会为每一个打包文件创建一个较小的索引文件. 索引文件�
 
 打包文件的实现细节会在稍后的"打包文件"(Packfile)一章中讲述。
 
+# 查看 Git 对象
+
 我们可以使用 cat-file 命令去查询特定对象的信息. 注意下面只键入了 SHA 值的一部分, 不必把 40 个字符全部键入:
 
 ```
-      $ git-cat-file -t 54196cc2
+$ git-cat-file -t 54196cc2
 commit
 $ git-cat-file commit 54196cc2
 tree 92b8b694ffb1675e5975148e1121810081dbdffe
@@ -71,7 +77,7 @@ initial commit
 一个树(tree)对象可以引用一个或多个块(blob)对象, 每个块对象都对应一个文件. 更进一步, 树对象亦可以引用其他的树对象, 从而构成一个目录层次结构. 你可以使用 ls-tree 去查看树的内容:
 
 ```
-      $ git ls-tree 92b8b694
+$ git ls-tree 92b8b694
 100644 blob 3b18e512dba79e4c8300dd08aeb37f8e728b8dad    file.txt
 
 ```
@@ -79,7 +85,7 @@ initial commit
 我们可以看到树中包含了一个文件. SHA 值是文件内容的一个引用(译者注: 相当于指针指向对应的块对象).
 
 ```
-      $ git cat-file -t 3b18e512
+$ git cat-file -t 3b18e512
 blob
 
 ```
@@ -87,7 +93,7 @@ blob
 一个"块"(blob)即是文件的数据, 我们可以用 cat-file 查看其内容:
 
 ```
-      $ git cat-file blob 3b18e512
+$ git cat-file blob 3b18e512
 hello world
 
 ```
@@ -97,7 +103,7 @@ hello world
 所有的对象都使用 SHA1 值作为索引存储在 git 目录之下:
 
 ```
-      $ find .git/objects/
+$ find .git/objects/
 .git/objects/
 .git/objects/pack
 .git/objects/info
@@ -121,7 +127,7 @@ hello world
 最容易找到提交是 HEAD 提交, 我们可以在.git/HEAD 中找到:
 
 ```
-      $ cat .git/HEAD
+$ cat .git/HEAD
 ref: refs/heads/master
 
 ```
@@ -129,7 +135,7 @@ ref: refs/heads/master
 如你所见, 上面的输出告诉了我们现在在哪个分支之上工作. Git 通过创建.git 目录下的文件去标识分支(译注: 即 refs/heads 下面的文件, 多个分支会有多个文件). 每个文件中包含了一个提交的 SHA1 值, 我们可以用 cat-file 去查看此提交的内容(译注: 此提交即为该分支的头):
 
 ```
-      $ cat .git/refs/heads/master
+$ cat .git/refs/heads/master
 c4d59f390b9cfd4318117afde11d601c1085f241
 $ git cat-file -t c4d59f39
 commit
@@ -146,7 +152,7 @@ add emphasis
 这里的树对象指向了这棵树的新状态:
 
 ```
-      $ git ls-tree d0492b36
+$ git ls-tree d0492b36
 100644 blob a0423896973644771497bdc03eb99d5281615b51    file.txt
 $ git cat-file blob a0423896
 hello world!
@@ -156,17 +162,19 @@ hello world!
 父对象指向了前一个提交:
 
 ```
-      $ git-cat-file commit 54196cc2
+$ git-cat-file commit 54196cc2
 tree 92b8b694ffb1675e5975148e1121810081dbdffe
 author J. Bruce Fields <bfields@puzzle.fieldses.org> 1143414668 -0500
 committer J. Bruce Fields <bfields@puzzle.fieldses.org> 1143414668 -0500
 
 ```
 
+# Git 引用
+
 分支(branch), 远程跟踪分支(remote-tracking branch)以及标签(tag)都是对提交的引用. 所有的引用是用"refs"开头, 以斜杠分割的路径. 到目前为此, 我们用到的引用名称其实是它们的简写版本:
 
 ```
-      - 分支"test"是"refs/heads/test"的简写.
+- 分支"test"是"refs/heads/test"的简写.
 - 标签"v2.6.18"是"refs/tags/v2.6.18"的简写.
 - "origin/master"是"refs/remotes/origin/master"的简写.
 
@@ -187,7 +195,7 @@ committer J. Bruce Fields <bfields@puzzle.fieldses.org> 1143414668 -0500
 我们可以使用[git show-ref](http://www.kernel.org/pub/software/scm/git/docs/git-show-ref.html)列出仓库中所有的头:
 
 ```
-      $ git show-ref --heads
+$ git show-ref --heads
 bf62196b5e363d73353a9dcf094c59595f3153b7 refs/heads/core-tutorial
 db768d5504c1bb46f63ee9d6e1772bd047e05bf9 refs/heads/maint
 a07157ac624b2524a059a3414e99f6f44bebc1e7 refs/heads/master
@@ -199,7 +207,7 @@ a07157ac624b2524a059a3414e99f6f44bebc1e7 refs/heads/master
 我们可以使用 cut 和 grep 得到"分支-头"(branch-head)部分, 不需要"master":
 
 ```
-      $ git show-ref --heads | cut -d' ' -f2 | grep -v '^refs/heads/master'
+$ git show-ref --heads | cut -d' ' -f2 | grep -v '^refs/heads/master'
 refs/heads/core-tutorial
 refs/heads/maint
 refs/heads/tutorial-2
@@ -210,7 +218,7 @@ refs/heads/tutorial-fixes
 然后我们就可以查看 master 中特有的提交:
 
 ```
-      $ gitk master --not $( git show-ref --heads | cut -d' ' -f2 |
+$ gitk master --not $( git show-ref --heads | cut -d' ' -f2 |
                 grep -v '^refs/heads/master' )
 
 ```
@@ -218,7 +226,7 @@ refs/heads/tutorial-fixes
 很明显上面的命令可以有无数种变种; 例如你想查看仓库中所有的分支可达但标签不可达的提交:
 
 ```
-      $ gitk $( git show-ref --heads ) --not  $( git show-ref --tags )
+$ gitk $( git show-ref --heads ) --not  $( git show-ref --tags )
 
 ```
 
@@ -226,10 +234,12 @@ refs/heads/tutorial-fixes
 
 (!!update-ref!!)
 
+# Git 索引
+
 索引(index)是一个存放了排好序的路径的二进制文件(通常是.git/index), 每一个条目都附带有一个块对象的 SHA1 值以及访问权限;[git ls-files](http://www.kernel.org/pub/software/scm/git/docs/git-ls-files.html)可以显示出索引的内容:
 
 ```
-      $ git ls-files --stage
+$ git ls-files --stage
 100644 63c918c667fa005ff12ad89437f2fdc80926e21c 0   .gitignore
 100644 5529b198e8d14decbe4ad99db3f7fb632de0439d 0   .mailmap
 100644 6ff87c4664981e4397625791c8ea3bbb5f2279a3 0   COPYING
@@ -258,6 +268,8 @@ refs/heads/tutorial-fixes
 
 因此索引实际上是一种暂存区域(temporary staging area), 它装载了你正在使用的树对象。
 
+# 打包文件
+
 这一章将详细描述打包文件(packfile)和打包文件索引(packfile index)的格式。
 
 ## 打包文件索引
@@ -281,7 +293,7 @@ refs/heads/tutorial-fixes
 打包文件格式是很简单的. 它有一个头部(header)和一系列打包过的对象(每个都有自己的 header 和 body), 还有一个校验尾部(trailer). 前 4 个字节是字符串'PACK', 它用于确保你找到了打包文件的起始位置. 紧接着是 4 个字节的打包文件版本号, 之后的 4 个字节指出了此文件中入口(entry)的个数. 你可以用下面 Ruby 程序读出打包文件的头部:
 
 ```
-      def read_pack_header
+def read_pack_header
   sig = @session.recv(4)
   ver = @session.recv(4).unpack("N")[0]
   entries = @session.recv(4).unpack("N")[0]
@@ -310,6 +322,8 @@ end
 
 *   delta 对象和基对象的类型必须一致(即 tree 对 tree, blob 对 blob, 等等).
 
+# 更底层的 Git
+
 这一章我们会学习如何在更低的层次操作 Git, 以防你需要自己写一个新工具去人工生成 blob(块), tree(树)或者 commit(提交)对象. 如果你想使用更加底层的 Git 命令去写脚本, 你会需要用到以下的命令.
 
 ## 创建 blob 对象
@@ -317,7 +331,7 @@ end
 在你的 Git 仓库中创建一个 blob 对象并且得到它的 SHA 值是很容易的, 使用[git hash-object](http://www.kernel.org/pub/software/scm/git/docs/git-hash-object.html)就足够了. 要使用一个现有的文件去创建新 blob, 使用'-w'选项去运行前面提到的命令('-w'选项告诉 Git 要生成 blob, 而不是仅仅计算 SHA 值).
 
 ```
-      $ git hash-object -w myfile.txt
+$ git hash-object -w myfile.txt
 6ff87c4664981e4397625791c8ea3bbb5f2279a3
 
 $ git hash-object -w myfile2.txt
@@ -332,7 +346,7 @@ $ git hash-object -w myfile2.txt
 假设你要使用你创建的一些对象去组建一棵树, 按照[git ls-tree](http://www.kernel.org/pub/software/scm/git/docs/git-ls-tree.html)的格式组织好输入, [git mktree](http://www.kernel.org/pub/software/scm/git/docs/git-mktree.html)就可以为你生成需要的 tree 对象. 例如, 如果你把下面的信息写入到'/tmp/tree.txt'中:
 
 ```
-      100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    file1
+100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    file1
 100644 blob 3bb0e8592a41ae3185ee32266c860714980dbed7    file2
 
 ```
@@ -340,7 +354,7 @@ $ git hash-object -w myfile2.txt
 然后通过管道把这些信息输入到[git mktree](http://www.kernel.org/pub/software/scm/git/docs/git-mktree.html)中, Git 会生成一个新的 tree 对象, 把它写入到对象数据库(object database)中, 然后返回 tree 对象的 SHA 值.
 
 ```
-      $ cat /tmp/tree.txt | git mk-tree
+$ cat /tmp/tree.txt | git mk-tree
 f66a66ab6a7bfe86d52a66516ace212efa00fe1f
 
 ```
@@ -348,7 +362,7 @@ f66a66ab6a7bfe86d52a66516ace212efa00fe1f
 然后, 我们可以把刚才生成的 tree 作为另外一个 tree 的子目录, 等等等等. 如果我们需要创建一个带子树的树对象(这个子树就是前面生成的 tree 对象), 只需创建一个新文件(/tmp/newtree.txt), 把前面的 tree 对象的 SHA 值写入:
 
 ```
-      100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    file1-copy
+100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    file1-copy
 040000 tree f66a66ab6a7bfe86d52a66516ace212efa00fe1f    our_files
 
 ```
@@ -356,7 +370,7 @@ f66a66ab6a7bfe86d52a66516ace212efa00fe1f
 然后再次调用[git mk-tree](http://www.kernel.org/pub/software/scm/git/docs/git-mk-tree.html):
 
 ```
-      $ cat /tmp/newtree.txt | git mk-tree
+$ cat /tmp/newtree.txt | git mk-tree
 5bac6559179bd543a024d6d187692343e2d8ae83
 
 ```
@@ -364,7 +378,7 @@ f66a66ab6a7bfe86d52a66516ace212efa00fe1f
 现在我们有了一个人工创建的目录结构:
 
 ```
-      .
+.
 |-- file1-copy
 `-- our_files
     |-- file1
@@ -383,7 +397,7 @@ f66a66ab6a7bfe86d52a66516ace212efa00fe1f
 首先, 用[git read-tree](http://www.kernel.org/pub/software/scm/git/docs/git-read-tree.html)把树对象读入到临时索引文件中, 并给每个副本一个新的前缀; 然后再用[git write-tree](http://www.kernel.org/pub/software/scm/git/docs/git-write-tree.html)把索引中的内容生成一棵新的树:
 
 ```
-      $ export GIT_INDEX_FILE=/tmp/index
+$ export GIT_INDEX_FILE=/tmp/index
 $ git read-tree --prefix=copy1/  5bac6559
 $ git read-tree --prefix=copy2/  5bac6559
 $ git write-tree 
@@ -402,7 +416,7 @@ $>git ls-tree bb2fa
 现在我们有了一棵树的 SHA 值, 我们可以使用[git commit-tree](http://www.kernel.org/pub/software/scm/git/docs/git-commit-tree.html)命令创建一个指向它的 commit 对象. 大部分 commit 对象的数据都是通过环境变量来设定的, 你需要设置下面的环境变量:
 
 ```
-      GIT_AUTHOR_NAME
+GIT_AUTHOR_NAME
 GIT_AUTHOR_EMAIL
 GIT_AUTHOR_DATE
 GIT_COMMITTER_NAME
@@ -414,7 +428,7 @@ GIT_COMMITTER_DATE
 然后你把你的提交信息写入到一个文件中并且通过管道传送给[git commit-tree](http://www.kernel.org/pub/software/scm/git/docs/git-commit-tree.html), 即可得到一个 commit 对象.
 
 ```
-      $ git commit-tree bb2fa < /tmp/message
+$ git commit-tree bb2fa < /tmp/message
 a5f85ba5875917319471dfd98dfc636c1dc65650
 
 ```
@@ -426,9 +440,11 @@ a5f85ba5875917319471dfd98dfc636c1dc65650
 现在我得拿到了新的 commit 对象的 SHA 值, 如有需要, 我们可以使用一个分支指向它. 比如说我们需要更新'master'分支的引用, 使其指向刚刚创建的新对象, 我们可以使用[git update-ref](http://www.kernel.org/pub/software/scm/git/docs/git-update-ref.html)去完成这个工作:
 
 ```
-      $ git update-ref refs/heads/master a5f85ba5875917319471dfd98dfc636c1dc65650
+$ git update-ref refs/heads/master a5f85ba5875917319471dfd98dfc636c1dc65650
 
 ```
+
+# 传输协议
 
 这里我们要看一下: Git 的客户端和服务器如何交互传输数据.
 
@@ -441,7 +457,7 @@ a5f85ba5875917319471dfd98dfc636c1dc65650
 为了能通过 http 访问, 当你的仓库有任何更新时, 需要运行一个命令: [git update-server-info](http://www.kernel.org/pub/software/scm/git/docs/git-update-server-info.html). 因为 web 服务器一般不允许执行列出目录中文件的操作, 所以[git update-server-info](http://www.kernel.org/pub/software/scm/git/docs/git-update-server-info.html)命令把可用的打包文件(packfile)和引用(refs)列表更新到“objects/info/packs","info/refs"这个两个文件中. 当 [git update-server-info](http://www.kernel.org/pub/software/scm/git/docs/git-update-server-info.html) 执行后,"objects/info/packs"文件看起来就会像下面一样:
 
 ```
-      P pack-ce2bd34abc3d8ebc5922dc81b2e1f30bf17c10cc.pack
+P pack-ce2bd34abc3d8ebc5922dc81b2e1f30bf17c10cc.pack
 P pack-7ad5f5d05f5e20025898c95296fe4b9c861246d8.pack
 
 ```
@@ -449,7 +465,7 @@ P pack-7ad5f5d05f5e20025898c95296fe4b9c861246d8.pack
 如果在通过 http 协议拉取数据的过程中找不到松散文件(loose file), git 就会去尝试查找打包文件(packfiles). "info/refs" 文件的内容看起来就下面这样:
 
 ```
-      184063c9b594f8968d61a686b2f6052779551613    refs/heads/development
+184063c9b594f8968d61a686b2f6052779551613    refs/heads/development
 32aae7aef7a412d62192f710f2130302997ec883    refs/heads/master
 
 ```
@@ -461,7 +477,7 @@ P pack-7ad5f5d05f5e20025898c95296fe4b9c861246d8.pack
 下面就是抓取时的交互过程(http 协议层):
 
 ```
-      CONNECT http://myserver.com
+CONNECT http://myserver.com
 GET /git/myproject.git/objects/32/aae7aef7a412d62192f710f2130302997ec883 - 200
 
 ```
@@ -469,7 +485,7 @@ GET /git/myproject.git/objects/32/aae7aef7a412d62192f710f2130302997ec883 - 200
 然后返回信息看起来就像下面这样:
 
 ```
-      tree aa176fb83a47d00386be237b450fb9dfb5be251a
+tree aa176fb83a47d00386be237b450fb9dfb5be251a
 parent bd71cad2d597d0f1827d4a3f67bb96a646f02889
 author Scott Chacon <schacon@gmail.com> 1220463037 -0700
 committer Scott Chacon <schacon@gmail.com> 1220463037 -0700
@@ -481,14 +497,14 @@ added chapters on private repo setup, scm migration, raw git
 好的那么现在它就是开始抓取树对象(tree) `aa176fb8`: 译者注:`32aae7ae`提交对象(commit object)指向的树对象(tree)是:`aa176fb8`.
 
 ```
-      GET /git/myproject.git/objects/aa/176fb83a47d00386be237b450fb9dfb5be251a - 200
+GET /git/myproject.git/objects/aa/176fb83a47d00386be237b450fb9dfb5be251a - 200
 
 ```
 
 下面这些是返回的树对象(tree)信息:
 
 ```
-      100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    COPYING
+100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    COPYING
 100644 blob 97b51a6d3685b093cfb345c9e79516e5099a13fb    README
 100644 blob 9d1b23b8660817e4a74006f15fae86e2a508c573    Rakefile
 
@@ -497,7 +513,7 @@ added chapters on private repo setup, scm migration, raw git
 很明显, 树对象(tree)里有 3 个文件(blob). 好的, 我们就把它们抓下来吧:
 
 ```
-      GET /git/myproject.git/objects/6f/f87c4664981e4397625791c8ea3bbb5f2279a3 - 200
+GET /git/myproject.git/objects/6f/f87c4664981e4397625791c8ea3bbb5f2279a3 - 200
 GET /git/myproject.git/objects/97/b51a6d3685b093cfb345c9e79516e5099a13fb - 200
 GET /git/myproject.git/objects/9d/1b23b8660817e4a74006f15fae86e2a508c573 - 200
 
@@ -506,14 +522,14 @@ GET /git/myproject.git/objects/9d/1b23b8660817e4a74006f15fae86e2a508c573 - 200
 这些 http 下载操作实际上是由 curl 来完成的, 我们可以开多个并行的线程来加快下载速度. Git 遍历完提交对象(commit)所指向的树对象(tree)后, 就会开始抓取提交对象(commit)的父对象(next parent).
 
 ```
-      GET /git/myproject.git/objects/bd/71cad2d597d0f1827d4a3f67bb96a646f02889 - 200
+GET /git/myproject.git/objects/bd/71cad2d597d0f1827d4a3f67bb96a646f02889 - 200
 
 ```
 
 返回的父对象(parent commit object)信息就如下面所示:
 
 ```
-      tree b4cc00cf8546edd4fcf29defc3aec14de53e6cf8
+tree b4cc00cf8546edd4fcf29defc3aec14de53e6cf8
 parent ab04d884140f7b0cf8bbf86d6883869f16a46f65
 author Scott Chacon <schacon@gmail.com> 1220421161 -0700
 committer Scott Chacon <schacon@gmail.com> 1220421161 -0700
@@ -541,14 +557,14 @@ added chapters on the packfile and how git stores objects
 客户端连接并且发送请求头(request header). 例如，克隆命令:
 
 ```
-      $ git clone git://myserver.com/project.git
+$ git clone git://myserver.com/project.git
 
 ```
 
 上面的命令会产生下面的请求:
 
 ```
-      0032git-upload-pack /project.git\000host=myserver.com\000 
+0032git-upload-pack /project.git\000host=myserver.com\000 
 
 ```
 
@@ -557,14 +573,14 @@ added chapters on the packfile and how git stores objects
 这个请求被服务器接收并且转换成对"git-upload-pack"的命令调用.
 
 ```
-      $ git-upload-pack /path/to/repos/project.git
+$ git-upload-pack /path/to/repos/project.git
 
 ```
 
 这条命令会马上返回仓库的信息:
 
 ```
-      007c74730d410fcb6603ace96f1dc55ea6196122532d HEAD\000multi_ack thin-pack side-band side-band-64k ofs-delta shallow no-progress
+007c74730d410fcb6603ace96f1dc55ea6196122532d HEAD\000multi_ack thin-pack side-band side-band-64k ofs-delta shallow no-progress
 003e7d1665144a3a975c05f1f43902ddaf084e784dbe refs/heads/debug
 003d5a3f6be755bbb7deae50065988cbfa1ffa9ab68a refs/heads/dist
 003e7e47fe2bd8d01d481f44d7af0531bd93d3b21c01 refs/heads/local
@@ -578,14 +594,14 @@ added chapters on the packfile and how git stores objects
 上面这些服务器产生的数据被发送回客户端. 然后客户端用另外一个请求做为响应:
 
 ```
-      0054want 74730d410fcb6603ace96f1dc55ea6196122532d multi_ack side-band-64k ofs-delta
+0054want 74730d410fcb6603ace96f1dc55ea6196122532d multi_ack side-band-64k ofs-delta
 
 ```
 
 p 0032want 7d1665144a3a975c05f1f43902ddaf084e784dbe
 
 ```
-      0032want 5a3f6be755bbb7deae50065988cbfa1ffa9ab68a
+0032want 5a3f6be755bbb7deae50065988cbfa1ffa9ab68a
 0032want 7e47fe2bd8d01d481f44d7af0531bd93d3b21c01
 0032want 74730d410fcb6603ace96f1dc55ea6196122532d
 00000009done
@@ -595,7 +611,7 @@ p 0032want 7d1665144a3a975c05f1f43902ddaf084e784dbe
 上面这些客户端的请求会被发送到的"git-upload-pack"进程, 这个进程会返回(streams out)最终的结果(final response):
 
 ```
-      "0008NAK\n"
+"0008NAK\n"
 "0023\002Counting objects: 2797, done.\n"
 "002b\002Compressing objects:   0% (1/1177)   \r"
 "002c\002Compressing objects:   1% (12/1177)   \r"
@@ -623,6 +639,8 @@ p 0032want 7d1665144a3a975c05f1f43902ddaf084e784dbe
 通过 git 和 ssh 协议推送数据(pushing data)是相似的, 但是更简单. 基本上是, 客户端发出一个"receive-pack"的请求, 如果客户端有访问权限, 那么服务器就返回所有引用"头"的 SHA 串值(all ref head shas). 客户端收到响应后, 计算出服务器需要的所有数据或对象, 再做成一个打包文件(packfile)传送给服务器. 服务器收到后要么就把它们存储到硬盘上再建立索引, 要么只把它解压(如果里面的对象不多的话).
 
 在这整个推送数据的过程中, 客户端通过 [git push](http://www.kernel.org/pub/software/scm/git/docs/git-push.html) 命令调用:[git sendpack](http://www.kernel.org/pub/software/scm/git/docs/git-sendpack.html)命令, 服务器端通过"ssh 连接进程"或是"git 服务器"来调用:linkgit:git-receive-pack 命令来完成整个操作.
+
+# 术语表
 
 我们把在 Git 里常用的一些名词做了解释列在这里。这些名词(terms)全部来自[Git Glossary](http://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)。
 
@@ -875,7 +893,7 @@ p 0032want 7d1665144a3a975c05f1f43902ddaf084e784dbe
 > ```
 
 ```
-      Typically，钩子允许对一个命令做 pre-verified 并且可以中止此命令的运行；同时也可在这个命令执行完后做后继的通知工作。这些钩子脚本放在`$GIT_DIR/hooks/`目录下，你只要把这它们文件名的`.sample`后缀删掉就可以了。不过在 git 的早期版本，你需要为这些钩子脚本加上可执行属性。 
+Typically，钩子允许对一个命令做 pre-verified 并且可以中止此命令的运行；同时也可在这个命令执行完后做后继的通知工作。这些钩子脚本放在`$GIT_DIR/hooks/`目录下，你只要把这它们文件名的`.sample`后缀删掉就可以了。不过在 git 的早期版本，你需要为这些钩子脚本加上可执行属性。 
 
 ```
 
@@ -1167,7 +1185,7 @@ p 0032want 7d1665144a3a975c05f1f43902ddaf084e784dbe
 > ```
 
 ```
-      refspec. 
+refspec. 
 
 ```
 

@@ -204,7 +204,7 @@ Gistore 是用 Python 语言开发，已经在 PYPI 上注册：[`pypi.python.or
     *   备份项在备份库的`.gistore/config`文件中指定，如上述备份项在配置文件中写法为：
 
         ```
-        [store /etc]
+  [store /etc]
         [store /var/log]
         [store /boot/grub/menu.lst]
 

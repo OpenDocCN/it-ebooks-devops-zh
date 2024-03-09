@@ -1,3 +1,7 @@
+# 1\. 介绍
+
+# 欢迎使用 Git
+
 欢迎来使用 Git, 它是一个快速的分布式版本控制系统。
 
 这本书的目的是为那些初学者尽快熟悉 Git，提供了一个良好的起点。
@@ -29,12 +33,14 @@
 *   [The Git Tutorial pt 2](http://www.kernel.org/pub/software/scm/git/docs/gittutorial-2.html)
 *   ["My Git Workflow" blog post](http://osteele.com/archives/2008/05/my-git-workflow)
 
+# GIT 对象模型
+
 ## SHA
 
 所有用来表示项目历史信息的文件,是通过一个 40 个字符的（40-digit）“对象名”来索引的，对象名看起来像这样:
 
 ```
-      6ff87c4664981e4397625791c8ea3bbb5f2279a3
+6ff87c4664981e4397625791c8ea3bbb5f2279a3
 
 ```
 
@@ -70,7 +76,7 @@ Git 与你熟悉的大部分版本控制系统的差别是很大的。也许你�
 你可以使用[git show](http://www.kernel.org/pub/software/scm/git/docs/git-show.html)命令来查看一个 blob 对象里的内容。假设我们现在有一个 Blob 对象的 SHA1 哈希值，我们可以通过下面的的命令来查看内容：
 
 ```
-      $ git show 6ff87c4664
+$ git show 6ff87c4664
 
  Note that the only valid version of the GPL as far as this project
  is concerned is _this_ particular version of the license (ie v2, not
@@ -92,7 +98,7 @@ Git 与你熟悉的大部分版本控制系统的差别是很大的。也许你�
 [git show](http://www.kernel.org/pub/software/scm/git/docs/git-show.html)命令还可以用来查看 tree 对象，但是[git ls-tree](http://www.kernel.org/pub/software/scm/git/docs/git-ls-tree.html)能让你看到更多的细节。如果我们有一个 tree 对象的 SHA1 哈希值，我们可以像下面一样来查看它：
 
 ```
-      $ git ls-tree fb3a8bdd0ce
+$ git ls-tree fb3a8bdd0ce
 100644 blob 63c918c667fa005ff12ad89437f2fdc80926e21c    .gitignore
 100644 blob 5529b198e8d14decbe4ad99db3f7fb632de0439d    .mailmap
 100644 blob 6ff87c4664981e4397625791c8ea3bbb5f2279a3    COPYING
@@ -122,7 +128,7 @@ Git 与你熟悉的大部分版本控制系统的差别是很大的。也许你�
 你可以用 --pretty=raw 参数来配合 [git show](http://www.kernel.org/pub/software/scm/git/docs/git-show.html) 或 [git log](http://www.kernel.org/pub/software/scm/git/docs/git-log.html) 去查看某个提交(commit):
 
 ```
-      $ git show -s --pretty=raw 2be7fcb476
+$ git show -s --pretty=raw 2be7fcb476
 commit 2be7fcb4764f2dbcee52635b91fedb1b3dcf7ab4
 tree fb3a8bdd0ceddd019615af4d57a53f43d8cee2bf
 parent 257a84d9d02e90447b149af58b271c19405edb6a
@@ -158,7 +164,7 @@ committer Junio C Hamano <gitster@pobox.com> 1187591163 -0700
 如果我们一个小项目, 有如下的目录结构:
 
 ```
-      $>tree
+$>tree
 .
 |-- README
 `-- lib
@@ -183,7 +189,7 @@ committer Junio C Hamano <gitster@pobox.com> 1187591163 -0700
 一个标签对象包括一个对象名(译者注:就是 SHA1 签名), 对象类型, 标签名, 标签创建人的名字("tagger"), 还有一条可能包含有签名(signature)的消息. 你可以用 [git cat-file](http://www.kernel.org/pub/software/scm/git/docs/git-cat-file.html) 命令来查看这些信息:
 
 ```
-      $ git cat-file tag v1.5.0
+$ git cat-file tag v1.5.0
 object 437b1b20df4b356c9342dac8d38849f24ef44f27
 type commit
 tag v1.5.0
@@ -202,6 +208,8 @@ nLE/L9aUXdWeTFPron96DLA=
 
 点击 [git tag](http://www.kernel.org/pub/software/scm/git/docs/git-tag.html), 可以了解如何创建和验证标签对象. (注意: [git tag](http://www.kernel.org/pub/software/scm/git/docs/git-tag.html) 同样也可以用来创建 "轻量级的标签"(lightweight tags), 但它们并不是标签对象, 而只一些以 "refs/tags/" 开头的引用罢了)。
 
+# Git 目录 与 工作目录
+
 ## Git 目录
 
 'Git 目录'是为你的项目存储所有历史和元信息的目录 - 包括所有的对象(commits,trees,blobs,tags), 这些对象指向不同的分支。
@@ -209,7 +217,7 @@ nLE/L9aUXdWeTFPron96DLA=
 每一个项目只能有一个'Git 目录'(这和 SVN,CVS 的每个子目录中都有此类目录相反),　这个叫'.git'的目录在你项目的根目录下(这是默认设置,但并不是必须的). 如果你查看这个目录的内容, 你可以看所有的重要文件:
 
 ```
-      $>tree -L 1
+$>tree -L 1
 .
 |-- HEAD         # 这个 git 项目当前处在哪个分支里
 |-- config       # 项目的配置信息，git config 命令会改动它
@@ -230,6 +238,8 @@ Git 的 '工作目录' 存储着你现在签出(checkout)来用来编辑的文�
 
 > 译者注: 'Git 目录' 一般就是指项目根目录下的'.git'目录。
 
+# Git 索引
+
 Git 索引是一个在你的工作目录和项目仓库间的暂存区(staging area). 有了它, 你可以把许多内容的修改一起提交(commit). 如果你创建了一个提交(commit), 那么提交的是当前索引(index)里的内容, 而不是工作目录中的内容。
 
 ## 查看索引
@@ -237,7 +247,7 @@ Git 索引是一个在你的工作目录和项目仓库间的暂存区(staging a
 使用 [git status](http://www.kernel.org/pub/software/scm/git/docs/git-status.html) 命令是查看索引内容的最简单办法。你运行 git status 命令, 就可以看到: 哪些文件被暂存了(就是在你的 Git 索引中), 哪些文件被修改了但是没有暂存, 还有哪些文件没有被跟踪(untracked)。
 
 ```
-      $>git status
+$>git status
 # On branch master
 # Your branch is behind 'origin/master' by 11 commits, and can be fast-forwarded.
 #

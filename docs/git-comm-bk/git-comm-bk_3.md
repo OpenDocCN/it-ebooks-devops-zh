@@ -1,3 +1,7 @@
+# 3\. 基本用法
+
+# 获得一个 Git 仓库
+
 既然我们现在把一切都设置好了，那么我们需要一个 Git 仓库。有两种方法可以得到它：一种是从已有的 Git 仓库中　*clone* (克隆，复制)；还有一种是新建一个仓库，把未进行版本控制的文件进行版本控制。
 
 ## Clone 一个仓库
@@ -5,14 +9,14 @@
 为了得一个项目的拷贝(copy),我们需要知道这个项目仓库的地址(Git URL). Git 能在许多协议下使用，所以 Git URL 可能以 ssh://, http(s)://, git://,或是只是以一个用户名（git 会认为这是一个 ssh 地址）为前辍. 有些仓库可以通过不只一种协议来访问，例如，Git 本身的源代码你既可以用 git:// 协议来访问：
 
 ```
-      git clone git://git.kernel.org/pub/scm/git/git.git
+git clone git://git.kernel.org/pub/scm/git/git.git
 
 ```
 
 也可以通过 http 协议来访问:
 
 ```
-      git clone http://www.kernel.org/pub/scm/git/git.git
+git clone http://www.kernel.org/pub/scm/git/git.git
 
 ```
 
@@ -25,7 +29,7 @@ git://协议较为快速和有效,但是有时必须使用 http 协议,比如你
 现在假设有一个叫”project.tar.gz”的压缩文件里包含了你的一些文件，你可以用下面的命令让它置于 Git 的版本控制管理之下.
 
 ```
-      $ tar xzf project.tar.gz
+$ tar xzf project.tar.gz
 $ cd project
 $ git init
 
@@ -34,30 +38,32 @@ $ git init
 Git 会输出:
 
 ```
-      Initialized empty Git repository in .git/
+Initialized empty Git repository in .git/
 
 ```
 
 如果你仔细观查会发现 project 目录下会有一个名叫”.git” 的目录被创建，这意味着一个仓库被初始化了。
 
+# 正常的工作流程
+
 修改文件，将它们更新的内容添加到索引中。
 
 ```
-      $ git add file1 file2 file3
+$ git add file1 file2 file3
 
 ```
 
 你现在为 commit 做好了准备，你可以使用 [git diff](http://www.kernel.org/pub/software/scm/git/docs/git-diff.html) 命令再加上 --cached 参数 ,看看哪些文件将被提交(commit)。
 
 ```
-      $ git diff --cached
+$ git diff --cached
 
 ```
 
 (如果没有--cached 参数，git diff 会显示当前你所有已做的但没有加入到索引里的修改.) 你也可以用 git status 命令来获得当前项目的一个状况:
 
 ```
-      $ git status
+$ git status
 # On branch master
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
@@ -72,7 +78,7 @@ Git 会输出:
 如果你要做进一步的修改, 那就继续做, 做完后就把新修改的文件加入到索引中. 最后把他们提交：
 
 ```
-      $ git commit
+$ git commit
 
 ```
 
@@ -81,7 +87,7 @@ Git 会输出:
 除了用`git add` 命令，我还可以用
 
 ```
-      $ git commit -a
+$ git commit -a
 
 ```
 
@@ -93,24 +99,26 @@ Git 会输出:
 
 很多版本控制系统都提供了一个 "add" 命令：告诉系统开始去跟踪某一个文件的改动。但是 Git 里的 ”add” 命令从某种程度上讲更为简单和强大. `git add` 不但是用来添加不在版本控制中的新文件，也用于添加已在版本控制中但是刚修改过的文件; 在这两种情况下, Git 都会获得当前文件的快照并且把内容暂存(stage)到索引中，为下一次 commit 做好准备。
 
+# 分支与合并@基础
+
 一个 Git 仓库可以维护很多开发分支。现在我们来创建一个新的叫”experimental”的分支：
 
 ```
-      $ git branch experimental
+$ git branch experimental
 
 ```
 
 如果你运行下面这条命令：
 
 ```
-      $ git branch
+$ git branch
 
 ```
 
 你会得到当前仓库中存在的所有分支列表：
 
 ```
-        experimental
+  experimental
 * master
 
 ```
@@ -118,14 +126,14 @@ Git 会输出:
 “experimental” 分支是你刚才创建的，“master”分支是 Git 系统默认创建的主分支。星号(“*”)标识了你当工作在哪个分支下，输入：
 
 ```
-      $ git checkout experimental
+$ git checkout experimental
 
 ```
 
 切换到”experimental”分支，先编辑里面的一个文件，再提交(commit)改动，最后切换回 “master”分支。
 
 ```
-      (edit file)
+(edit file)
 $ git commit -a
 $ git checkout master
 
@@ -136,7 +144,7 @@ $ git checkout master
 你现在可以在“master”分支下再作一些不同的修改:
 
 ```
-      (edit file)
+(edit file)
 $ git commit -a
 
 ```
@@ -144,28 +152,28 @@ $ git commit -a
 这时，两个分支就有了各自不同的修改(diverged)；我们可以通过下面的命令来合并“experimental”和“master”两个分支:
 
 ```
-      $ git merge experimental
+$ git merge experimental
 
 ```
 
 如果这个两个分支间的修改没有冲突(conflict), 那么合并就完成了。如有有冲突，输入下面的命令就可以查看当前有哪些文件产生了冲突:
 
 ```
-      $ git diff
+$ git diff
 
 ```
 
 当你编辑了有冲突的文件，解决了冲突后就可以提交了：
 
 ```
-      $ git commit -a
+$ git commit -a
 
 ```
 
 提交(commit)了合并的内容后就可查看一下:
 
 ```
-      $ gitk
+$ gitk
 
 ```
 
@@ -174,14 +182,14 @@ $ git commit -a
 这时你就可以删除掉你的 “experimental” 分支了(如果愿意)：
 
 ```
-      $ git branch -d experimental
+$ git branch -d experimental
 
 ```
 
 git branch -d 只能删除那些已经被当前分支的合并的分支. 如果你要强制删除某个分支的话就用 git branch –D；下面假设你要强制删除一个叫”crazy-idea”的分支：
 
 ```
-      $ git branch -D crazy-idea
+$ git branch -D crazy-idea
 
 ```
 
@@ -192,14 +200,14 @@ git branch -d 只能删除那些已经被当前分支的合并的分支. 如果�
 你可以用下面的命令来合并两个分离的分支：[git merge](http://www.kernel.org/pub/software/scm/git/docs/git-merge.html):
 
 ```
-      $ git merge branchname
+$ git merge branchname
 
 ```
 
 这个命令把分支"branchname"合并到了当前分支里面。如有冲突(冲突--同一个文件在远程分支和本地分支里按不同的方式被修改了）；那么命令的执行输出就像下面一样
 
 ```
-      $ git merge next
+$ git merge next
  100% (4/4) done
 Auto-merged file.txt
 CONFLICT (content): Merge conflict in file.txt
@@ -218,7 +226,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 有冲突(conflicts)的文件会保存在索引中，除非你解决了问题了并且更新了索引，否则执行 [git commit](http://www.kernel.org/pub/software/scm/git/docs/git-commit.html)都会失败:
 
 ```
-      $ git commit
+$ git commit
 file.txt: needs merge
 
 ```
@@ -226,7 +234,7 @@ file.txt: needs merge
 如果执行 [git status](http://www.kernel.org/pub/software/scm/git/docs/git-status.html) 会显示这些文件没有合并(unmerged),这些有冲突的文件里面会添加像下面的冲突标识符:
 
 ```
-      <<<<<<< HEAD:file.txt
+<<<<<<< HEAD:file.txt
 Hello world
 =======
 Goodbye
@@ -237,7 +245,7 @@ Goodbye
 你所需要的做是就是编辑解决冲突，（接着把冲突标识符删掉），再执行下面的命令:
 
 ```
-      $ git add file.txt
+$ git add file.txt
 $ git commit
 
 ```
@@ -251,14 +259,14 @@ $ git commit
 如果你觉得你合并后的状态是一团乱麻，想把当前的修改都放弃，你可以用下面的命令回到合并之前的状态：
 
 ```
-      $ git reset --hard HEAD
+$ git reset --hard HEAD
 
 ```
 
 或者你已经把合并后的代码提交，但还是想把它们撒销：
 
 ```
-      $ git reset --hard ORIG_HEAD
+$ git reset --hard ORIG_HEAD
 
 ```
 
@@ -270,10 +278,12 @@ $ git commit
 
 但是，如果当前的分支和另一个分支没有内容上的差异，就是说当前分支的每一个提交(commit)都已经存在另一个分支里了，git 就会执行一个“快速向前"(fast forward)操作；git 不创建任何新的提交(commit),只是将当前分支指向合并进来的分支。
 
+# 查看历史 －Git 日志
+
 [git log](http://www.kernel.org/pub/software/scm/git/docs/git-log.html)命令可以显示所有的提交(commit)。 ......
 
 ```
-      $ git log v2.5..        # commits since (not reachable from) v2.5
+$ git log v2.5..        # commits since (not reachable from) v2.5
 $ git log test..master  # commits reachable from master but not test
 $ git log master..test  # commits reachable from test but not master
 $ git log master...test # commits reachable from either test or
@@ -290,14 +300,14 @@ $ git log --no-merges   # dont show merge commits
 当然你也可以组合上面的命令选项；下面的命令就是找出所有从"v2.5“开 始在 fs 目录下的所有 Makefile 的修改.
 
 ```
-      $ git log v2.5.. Makefile fs/
+$ git log v2.5.. Makefile fs/
 
 ```
 
 Git 会根据 git log 命令的参数，按时间顺序显示相关的提交(commit)。
 
 ```
-      commit f491239170cb1463c7c3cd970862d6de636ba787
+commit f491239170cb1463c7c3cd970862d6de636ba787
 Author: Matt McCutchen <matt@mattmccutchen.net>
 Date:   Thu Aug 14 13:37:41 2008 -0400
 
@@ -315,7 +325,7 @@ Date:   Thu Aug 14 10:12:54 2008 -0700
 你也可以让 git log 显示补丁(patchs):
 
 ```
-      $ git log -p
+$ git log -p
 
 commit da9973c6f9600d90e64aac647f3ed22dfd692f70
 Author: Robert Schiele <rschiele@gmail.com>
@@ -344,7 +354,7 @@ index c2d3c90..785779e 100644
 如果用`--stat`选项使用'git log',它会显示在每个提交(commit)中哪些文件被修改了, 这些文件分别添加或删除了多少行内容.
 
 ```
-      $ git log --stat
+$ git log --stat
 
 commit dba9194a49452b5f093b96872e19c91b50e526aa
 Author: Junio C Hamano <gitster@pobox.com>
@@ -363,7 +373,7 @@ Date:   Sun Aug 17 15:44:11 2008 -0700
 你可以按你的要求来格式化日志输出。‘--pretty'参数可以使用若干表现格式，如‘oneline':
 
 ```
-      $ git log --pretty=oneline
+$ git log --pretty=oneline
 a6b444f570558a5f31ab508dc2a24dc34773825f dammit, this is the second time this has reverted
 49d77f72783e4e9f12d1bbcacc45e7a15c800240 modified index to create refs/heads if it is not 
 9764edd90cf9a423c9698a2f1e814f16f0111238 Add diff-lcs dependency
@@ -376,7 +386,7 @@ f0ce7d5979dfb0f415799d086e14a8d2f9653300 updated the Manifest file
 或者你也可以使用 'short' 格式:
 
 ```
-      $ git log --pretty=short
+$ git log --pretty=short
 commit a6b444f570558a5f31ab508dc2a24dc34773825f
 Author: Scott Chacon <schacon@gmail.com>
 
@@ -397,7 +407,7 @@ Author: Hans Engel <engel@engel.uk.to>
 你也可用‘medium','full','fuller','email' 或‘raw'. 如果这些格式不完全符合你的相求， 你也可以用‘--pretty=format'参数(参见：[git log](http://www.kernel.org/pub/software/scm/git/docs/git-log.html))来创建你自己的"格式“.
 
 ```
-      $ git log --pretty=format:'%h was %an, %ar, message: %s'
+$ git log --pretty=format:'%h was %an, %ar, message: %s'
 a6b444f was Scott Chacon, 5 days ago, message: dammit, this is the second time this has re
 49d77f7 was Scott Chacon, 8 days ago, message: modified index to create refs/heads if it i
 9764edd was Hans Engel, 11 days ago, message: Add diff-lcs dependency
@@ -409,7 +419,7 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 另一个有趣的事是：你可以用'--graph'选项来可视化你的提交图(commit graph),就像下面这样:
 
 ```
-      $ git log --pretty=format:'%h : %s' --graph
+$ git log --pretty=format:'%h : %s' --graph
 * 2d3acf9 : ignore errors from SIGCHLD on trap
 *   5e3ee11 : Merge branch 'master' of git://github.com/dustin/grit
 |\  
@@ -435,7 +445,7 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 但是你也可以指定‘--topo-order'参数，这就会让提交(commits)按拓朴顺序来显示(就是子提交在它们的父提交前显示). 如果你用 git log 命令按拓朴顺序来显示 git 仓库的提交日志，你会看到“开发线"(development lines)都会集合在一起.
 
 ```
-      $ git log --pretty=format:'%h : %s' --topo-order --graph
+$ git log --pretty=format:'%h : %s' --topo-order --graph
 *   4a904d7 : Merge branch 'idx2'
 |\  
 | *   dfeffce : merged in bryces changes and fixed some testing issues
@@ -469,7 +479,7 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 你也可以用'--date-order'参数，这样显示提交日志的顺序主要按提交日期来排序. 这个参数和'--topo-order'有一点像，没有父分支会在它们的子分支前显示，但是其它的东东还是按交时间来排序显示。你会看到"开发线"(development lines)没有集合一起，它们会像并行开发(parallel development)一样跳来跳去的：
 
 ```
-      $ git log --pretty=format:'%h : %s' --date-order --graph
+$ git log --pretty=format:'%h : %s' --date-order --graph
 *   4a904d7 : Merge branch 'idx2'
 |\  
 * | 81a3e0d : updated packfile code to recognize index v2
@@ -502,17 +512,19 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 
 最后，你也可以用 ‘--reverse'参数来逆向显示所有日志。
 
+# 比较提交 - Git Diff
+
 你可以用 [git diff](http://www.kernel.org/pub/software/scm/git/docs/git-diff.html) 来比较项目中任意两个版本的差异。
 
 ```
-      $ git diff master..test
+$ git diff master..test
 
 ```
 
 上面这条命令只显示两个分支间的差异，如果你想找出‘master’,‘test’的共有 父分支和'test'分支之间的差异，你用 3 个‘.'来取代前面的两个'.' 。
 
 ```
-      $ git diff master...test
+$ git diff master...test
 
 ```
 
@@ -523,7 +535,7 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 你通常用[git diff](http://www.kernel.org/pub/software/scm/git/docs/git-diff.html)来找你当前工作目录和上次提交与本地索引间的差异。
 
 ```
-      $ git diff
+$ git diff
 
 ```
 
@@ -532,14 +544,14 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 如果你要看在下次提交时要提交的内容(staged,添加到索引中),你可以运行：
 
 ```
-      $ git diff --cached
+$ git diff --cached
 
 ```
 
 上面的命令会显示你当前的索引和上次提交间的差异；这些内容在不带"-a"参数运行 "git commit"命令时就会被提交。
 
 ```
-      $ git diff HEAD
+$ git diff HEAD
 
 ```
 
@@ -550,14 +562,14 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 如果你要查看当前的工作目录与另外一个分支的差别，你可以用下面的命令执行:
 
 ```
-      $ git diff test
+$ git diff test
 
 ```
 
 这会显示你当前工作目录与另外一个叫'test'分支的差别。你也以加上路径限定符，来只 比较某一个文件或目录。
 
 ```
-      $ git diff HEAD -- ./lib 
+$ git diff HEAD -- ./lib 
 
 ```
 
@@ -566,7 +578,7 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 如果不是查看每个文件的详细差别，而是统计一下有哪些文件被改动，有多少行被改 动，就可以使用‘--stat' 参数。
 
 ```
-      $>git diff --stat
+$>git diff --stat
  layout/book_index_template.html                    |    8 ++-
  text/05_Installing_Git/0_Source.markdown           |   14 ++++++
  text/05_Installing_Git/1_Linux.markdown            |   17 +++++++
@@ -582,12 +594,14 @@ e1ba1e3 was Hans Engel, 11 days ago, message: Add dependency for Open4
 
 有时这样全局性的查看哪些文件被修改，能让你更轻轻一点。
 
+# 分布式的工作流程
+
 假设 Alice 现在开始了一个新项目，在/home/alice/project 建了一个新的 git 仓库(repository)；另一个叫 Bob 的工作目录也在同一台机器，他要提交代码。
 
 Bob 执行了这样的命令:
 
 ```
-      $ git clone /home/alice/project myrepo
+$ git clone /home/alice/project myrepo
 
 ```
 
@@ -596,7 +610,7 @@ Bob 执行了这样的命令:
 Bob 做了一些修改并且提交(commit)它们:
 
 ```
-      (edit files)
+(edit files)
 $ git commit -a
 (repeat as necessary)
 
@@ -605,7 +619,7 @@ $ git commit -a
 当他准备好了，他告诉 Alice 从仓库/home/bob/myrepo 中把他的修改给拉 (pull)下来。她执行了下面几条命令:
 
 ```
-      $ cd /home/alice/project
+$ cd /home/alice/project
 $ git pull /home/bob/myrepo master
 
 ```
@@ -617,21 +631,21 @@ git pull 命令执行两个操作: 它从远程分支(remote branch)抓取修改
 如果你要经常操作远程分支(remote branch),你可以定义它们的缩写:
 
 ```
-      $ git remote add bob /home/bob/myrepo
+$ git remote add bob /home/bob/myrepo
 
 ```
 
 这样，Alic 可以用"git fetch"" 来执行"git pull"前半部分的工作， 但是这条命令并不会把抓下来的修改合并到当前分支里。
 
 ```
-      $ git fetch bob
+$ git fetch bob
 
 ```
 
 我们用`git remote`命令建立了 Bob 的运程仓库的缩写，用这个(缩写) 名字我从 Bob 那得到所有远程分支的历史记录。在这里远程分支的名 字就叫`bob/master`.
 
 ```
-      $ git log -p master..bob/master
+$ git log -p master..bob/master
 
 ```
 
@@ -640,14 +654,14 @@ git pull 命令执行两个操作: 它从远程分支(remote branch)抓取修改
 当检查完修改后,Alice 就可以把修改合并到她的主分支中。
 
 ```
-      $ git merge bob/master
+$ git merge bob/master
 
 ```
 
 这种合并(merge)也可以用 pull 来完成，就像下面的命令一样：
 
 ```
-      $ git pull . remotes/bob/master
+$ git pull . remotes/bob/master
 
 ```
 
@@ -656,14 +670,14 @@ git pull 命令执行两个操作: 它从远程分支(remote branch)抓取修改
 其后，Bob 可以更新它的本地仓库--把 Alice 做的修改拉过来(pull):
 
 ```
-      $ git pull
+$ git pull
 
 ```
 
 如果 Bob 从 Alice 的仓库克隆(clone)，那么他就不需要指定 Alice 仓库的地 址；因为 Git 把 Alice 仓库的地址存储到 Bob 的仓库配库文件，这个地址就是 在 git pull 时使用：
 
 ```
-      $ git config --get remote.origin.url
+$ git config --get remote.origin.url
 /home/alice/project
 
 ```
@@ -673,7 +687,7 @@ git pull 命令执行两个操作: 它从远程分支(remote branch)抓取修改
 Git 同时也保存了一份最初(pristine)的 Alice 主分支(master)，在 "origin/master"下面。
 
 ```
-      $ git branch -r
+$ git branch -r
   origin/master
 
 ```
@@ -681,7 +695,7 @@ Git 同时也保存了一份最初(pristine)的 Alice 主分支(master)，在 "o
 如果 Bob 打算在另外一台主机上工作，他可以通过 ssh 协议来执行"clone" 和"pull"操作：
 
 ```
-      $ git clone alice.org:/home/alice/project myrepo
+$ git clone alice.org:/home/alice/project myrepo
 
 ```
 
@@ -696,7 +710,7 @@ Git 也可以像 CVS 一样来工作：有一个中心仓库，不同的用户�
 如果你和维护者(maintainer)都在同一台机器上有帐号，那么你们可以互相从对 方的仓库目录里直接拉(pull)所作的修改；git 命令里的仓库地址也可以是本地 的某个目录名：
 
 ```
-      $ git clone /path/to/repository
+$ git clone /path/to/repository
 $ git pull /path/to/other/repository
 
 ```
@@ -704,7 +718,7 @@ $ git pull /path/to/other/repository
 也可以是一个 ssh 地址：
 
 ```
-      $ git clone ssh://yourhost/~you/repository
+$ git clone ssh://yourhost/~you/repository
 
 ```
 
@@ -715,7 +729,7 @@ $ git pull /path/to/other/repository
 你还是每天在你的本地私人仓库里工作，但是会定期的把本地的修改推(push) 到你的公开仓库中；其它开发者就可以从这个公开仓库来拉(pull)最新的代码。 如果其它开发者也有他自己的公共仓库，那么他们之间的开发流程就如下图 所示：
 
 ```
-                              you push
+                        you push
   your personal repo ------------------> your public repo
     ^                                     |
     |                                     |
@@ -736,14 +750,14 @@ $ git pull /path/to/other/repository
 最简单的办法就是用 [git push](http://www.kernel.org/pub/software/scm/git/docs/git-push.html)命令 和 ssh 协议; 用你本地的"master" 分支去更新远程的"master"分支，执行下面的命令:
 
 ```
-      $ git push ssh://yourserver.com/~you/proj.git master:master
+$ git push ssh://yourserver.com/~you/proj.git master:master
 
 ```
 
 或是:
 
 ```
-      $ git push ssh://yourserver.com/~you/proj.git master
+$ git push ssh://yourserver.com/~you/proj.git master
 
 ```
 
@@ -756,7 +770,7 @@ $ git pull /path/to/other/repository
 下面这些是例子:
 
 ```
-      $ cat >>.git/config <<EOF
+$ cat >>.git/config <<EOF
 [remote "public-repo"]
     url = ssh://yourserver.com/~you/proj.git
 EOF
@@ -766,7 +780,7 @@ EOF
 你可以用下面的命令来代替前面复杂的命令:
 
 ```
-      $ git push public-repo master
+$ git push public-repo master
 
 ```
 
@@ -777,7 +791,7 @@ EOF
 如果推送(push)结果不是"快速向前"(fast forward),那么它 可能会报像下面一样的错误：
 
 ```
-      error: remote 'refs/heads/master' is not an ancestor of
+error: remote 'refs/heads/master' is not an ancestor of
 local  'refs/heads/master'.
 Maybe you are not up-to-date and need to pull first?
 error: failed to push to 'ssh://yourserver.com/~you/proj.git'
@@ -787,7 +801,7 @@ error: failed to push to 'ssh://yourserver.com/~you/proj.git'
 这种情况通常由以下的原因产生：
 
 ```
-      - 用 `git-reset --hard` 删除了一个已经发布了的一个提交，或是
+- 用 `git-reset --hard` 删除了一个已经发布了的一个提交，或是
 
 - 用 `git-commit --amend` 去替换一个已经发布的提交，或是
 
@@ -798,7 +812,7 @@ error: failed to push to 'ssh://yourserver.com/~you/proj.git'
 你可以强制 git-push 在上传修改时先更新，只要在分支名前面加一个加号。
 
 ```
-      $ git push ssh://yourserver.com/~you/proj.git +master
+$ git push ssh://yourserver.com/~you/proj.git +master
 
 ```
 
@@ -808,12 +822,14 @@ Nevertheless, this is a common practice for people that need a simple way to pub
 
 It's also possible for a push to fail in this way when other people have the right to push to the same repository. In that case, the correct solution is to retry the push after first updating your work: either by a pull, or by a fetch followed by a rebase; see the next section and [gitcvs-migration](http://www.kernel.org/pub/software/scm/git/docs/gitcvs-migration.html) for more.
 
+# Git 标签
+
 ## 轻量级标签
 
 我们可以用 [git tag](http://www.kernel.org/pub/software/scm/git/docs/git-tag.html)不带任何参数创建一个标签(tag)指定某个提交(commit):
 
 ```
-      $ git tag stable-1 1b2e1d63ff
+$ git tag stable-1 1b2e1d63ff
 
 ```
 
@@ -834,7 +850,7 @@ It's also possible for a push to fail in this way when other people have the rig
 下面是一个创建标签对象的例子:
 
 ```
-      $ git tag -a stable-1 1b2e1d63ff
+$ git tag -a stable-1 1b2e1d63ff
 
 ```
 
@@ -847,7 +863,7 @@ It's also possible for a push to fail in this way when other people have the rig
 下面是示例:
 
 ```
-      [user]
+[user]
     signingkey = <gpg-key-id>
 
 ```
@@ -855,20 +871,20 @@ It's also possible for a push to fail in this way when other people have the rig
 你也可以用命令行来配置:
 
 ```
-      $ git config (--global) user.signingkey <gpg-key-id>
+$ git config (--global) user.signingkey <gpg-key-id>
 
 ```
 
 现在你可以直接用"-s" 参数来创“签名的标签”。
 
 ```
-      $ git tag -s stable-1 1b2e1d63ff
+$ git tag -s stable-1 1b2e1d63ff
 
 ```
 
 如果没有在配置文件中配 GPG key,你可以用"-u“ 参数直接指定。
 
 ```
-      $ git tag -u <gpg-key-id> stable-1 1b2e1d63ff
+$ git tag -u <gpg-key-id> stable-1 1b2e1d63ff
 
 ```
